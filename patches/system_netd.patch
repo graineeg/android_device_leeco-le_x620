@@ -1,0 +1,38 @@
+From c106a486fd11ee8a84c53d1239f01ec860d22f5a Mon Sep 17 00:00:00 2001
+From: Dmitry Smirnov <divis1969@gmail.com>
+Date: Sat, 12 Mar 2016 19:42:46 +0300
+Subject: [PATCH] Enable Tethering
+
+Cherry-picked https://github.com/visi0nary/android_device_elephone_p8000/blob/cm-12.1/patches/system_netd/0001-hotpost-fix.patch
+
+Change-Id: I0fda94f5567a220db961526eb7c2ee96ce60d10c
+(cherry picked from commit 5cb001a0122ad5318da21dfcd3ab98624f90efb1)
+---
+ server/SoftapController.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/server/SoftapController.cpp b/server/SoftapController.cpp
+index 27ed684..3699c87 100755
+--- a/server/SoftapController.cpp
++++ b/server/SoftapController.cpp
+@@ -54,7 +54,7 @@ using android::base::WriteStringToFile;
+ #endif
+ 
+ #ifdef LIBWPA_CLIENT_EXISTS
+-static const char HOSTAPD_UNIX_FILE[]    = "/data/misc/wifi/hostapd/wlan0";
++static const char HOSTAPD_UNIX_FILE[]    = "/data/misc/wifi/hostapd/ap0";
+ static const char HOSTAPD_DHCP_DIR[]    = "/data/misc/dhcp";
+ #endif
+ static const char HOSTAPD_CONF_FILE[]    = "/data/misc/wifi/hostapd.conf";
+@@ -282,7 +282,7 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
+             "hw_mode=%c\n"
+             "ignore_broadcast_ssid=%d\n"
+             "wowlan_triggers=any\n",
+-            argv[2], argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
++            /*argv[2]*/"ap0", argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
+ 
+     std::string fbuf;
+     if (argc > 7) {
+-- 
+2.11.0
+
