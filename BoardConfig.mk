@@ -1,7 +1,7 @@
 # mt6797 platform boardconfig
 LOCAL_PATH := device/leeco/le_x620
 
-include device/leeco/le_x6/board.mk
+include device/leeco/le_x620/board.mk
 
 # Platform
 ARCH_ARM_HAVE_TLS_REGISTER := true
