@@ -1,5 +1,5 @@
 # mt6797 platform boardconfig
-LOCAL_PATH := device/xiaomi/nikel
+LOCAL_PATH := device/leeco/le_x620
 
 include device/leeco/le_x6/board.mk
 
@@ -49,7 +49,7 @@ BOARD_MKBOOTIMG_ARGS := \
 	--board 1489686749
 
 # Hack for building without kernel sources
-ifeq ($(TARGET_DEVICE),le_x6)
+ifeq ($(TARGET_DEVICE),le_x620)
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 endif
 
