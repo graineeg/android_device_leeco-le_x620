@@ -1,4 +1,4 @@
-# Device Tree for LeEco Le 2 Pro (Le_X620)
+# Device Tree for LeEco Le 2/Le 2 Pro (Le_X620)
 
 # Spec Sheet
 
@@ -34,6 +34,7 @@
    * Done :)
    
    # Known Issue:-
+   * not builded yet
    
    # Credits:-
    * AdrianoMartins
