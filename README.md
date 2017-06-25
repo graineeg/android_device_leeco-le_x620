@@ -1,4 +1,4 @@
-# Device Tree for LeEco le 2 Pro (Le_X620)
+# Device Tree for LeEco Le 2 Pro (Le_X620)
 
 # Spec Sheet
 
@@ -19,27 +19,25 @@
 
 # Device Picture
 
-![Redmi Note 4](http://cdn2.gsmarena.com/vv/pics/leeco/le-eco-le2.jpg "LeEco Le 2")
+![Le 2 Pro](http://cdn2.gsmarena.com/vv/pics/leeco/le-eco-le2.jpg "LeEco Le 2")
 
    # Build
    * repo init -u git://github.com/LineageOS/android.git -b cm-14.1
    * repo sync
-   * git clone https://github.com/SamarV-121/android_device_xiaomi-nikel-lineage-14.1.git -b master device/xiaomi/nikel
-   * git clone https://github.com/SamarV-121/android_vendor_xiaomi-nikel-lineage-14.1.git -b cm-14.1 vendor/xiaomi/nikel
-   * cd device/xiaomi/nikel/patches
+   * git clone https://github.com/graineeg/android_device_leeco-le_x620-lineage-14.1.git -b master device/leeco/le_x620
+   * git clone https://github.com/graineeg/android_vendor_leeco-le_x620-lineage-14.1.git -b cm-14.1 vendor/leeco/le_x620
+   * cd device/leeco/le_x620/patches
    * . apply.sh
    * source build/envsetup.sh
-   * breakfast nikel
-   * brunch nikel
+   * breakfast le_x620
+   * brunch le_x620
    * Done :)
    
    # Known Issue:-
-   * FP Scanner
-   * Camera
    
    # Credits:-
    * AdrianoMartins
    * divis1969
    * xen0n
-   * & Me :)
+   * SamarV-121
 
