@@ -13,7 +13,7 @@
 | Battery                 | 3000 mAh (non-removable)          |
 | Dimensions              | 151.1 x 74.2 x 7.5 mm             |
 | Display                 | 1920x1080 pixels, 5.5 (~401 PPI)  |
-| Rear Camera             | 21 MP, LED flash                  |
+| Rear Camera             | 16/21 MP, LED flash               |
 | Front Camera            | 8 MP                              |
 | Release Date            | 2016, April                       |
 
