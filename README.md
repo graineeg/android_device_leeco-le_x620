@@ -25,7 +25,7 @@
    * repo init -u git://github.com/LineageOS/android.git -b cm-14.1
    * repo sync
    * git clone https://github.com/graineeg/android_device_leeco-le_x620-lineage-14.1.git -b cm-14.1 device/leeco/le_x620
-   * git clone https://github.com/graineeg/android_vendor_leeco-le_x620-lineage-14.1.git -b master vendor/leeco/le_x620
+   * git clone https://github.com/graineeg/android_vendor_leeco_le_x620-lineage-14.1.git -b master vendor/leeco/le_x620
    * cd device/leeco/le_x620/patches
    * . apply.sh
    * source build/envsetup.sh
