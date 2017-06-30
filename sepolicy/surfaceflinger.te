@@ -1,0 +1,5 @@
+allow surfaceflinger pq_service:service_manager find;
+
+allow surfaceflinger debug_prop:property_service set;
+
+allow surfaceflinger mtk_smi_device:chr_file { read write open ioctl };

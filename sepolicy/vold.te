@@ -1,0 +1,17 @@
+allow vold nvdata_device:blk_file rw_file_perms;
+allow vold cache_block_device:blk_file rw_file_perms;
+allow vold protect1_device:blk_file rw_file_perms;
+allow vold protect2_device:blk_file rw_file_perms;
+
+allow vold nvdata_file:dir create_dir_perms;
+allow vold nvdata_file:file create_file_perms;
+allow vold protect_f_data_file:dir create_dir_perms;
+allow vold protect_f_data_file:file create_file_perms;
+allow vold protect_s_data_file:dir create_dir_perms;
+allow vold protect_s_data_file:file create_file_perms;
+
+allow vold proc_mtkcooler:dir r_dir_perms;
+allow vold proc_mtktz:dir r_dir_perms;
+
+# Allow vold to access fuse for fuse-based fs
+allow vold fuse:chr_file rw_file_perms;

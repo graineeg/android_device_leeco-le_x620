@@ -9,9 +9,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/leeco/le_x620/configs/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
-# Gello
-# PRODUCT_PACKAGES += \
-#     Gello
+# Jelly
+PRODUCT_PACKAGES += \
+     Jelly
 
 # Snap
 PRODUCT_PACKAGES += \

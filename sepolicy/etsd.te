@@ -1,0 +1,19 @@
+type etsd_exec, exec_type, file_type;
+type etsd, domain, domain_deprecated;
+
+init_daemon_domain(etsd)
+binder_use(etsd)
+
+allow etsd etsd_service:service_manager { add find };
+allow etsd fingerprintd:binder { call transfer };
+
+allow etsd esfp0_device:chr_file rw_file_perms;
+
+allow etsd fingerprintd_data_file:file { create_file_perms };
+allow etsd fingerprintd_data_file:file { open read write };
+allow etsd fingerprintd_data_file:dir rw_dir_perms;
+
+use_keystore(etsd)
+allow etsd keystore:keystore_key { add_auth };
+
+allow etsd self:capability { dac_override dac_read_search };

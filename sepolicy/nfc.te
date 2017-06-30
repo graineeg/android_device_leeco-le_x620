@@ -1,0 +1,4 @@
+allow nfc nfc_socket:dir { write remove_name add_name search };
+allow nfc nfc_socket:sock_file { write create setattr unlink };
+
+allow nfc mt6605_device:chr_file { read write getattr open ioctl };

@@ -60,3 +60,7 @@ BOARD_SUPPRESS_EMMC_WIPE := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 endif
+
+#SE Policy
+BOARD_SEPOLICY_DIR :- \
+	device/leeco/le_x620/sepolicy

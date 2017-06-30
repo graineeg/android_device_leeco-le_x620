@@ -1,0 +1,4 @@
+allow platform_app esfp0_device:chr_file rw_file_perms;
+allow platform_app esfp0_device:chr_file rw_file_perms;
+allow platform_app etsd_service:service_manager find;
+allow platform_app etsd:binder { call transfer };
