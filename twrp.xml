@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<project path="bootable/recovery-twrp" name="omnirom/android_bootable_recovery" revision="android-7.1" />
+</manifest>
