@@ -34,9 +34,15 @@
    * Done :)
    
    # Known Issue:-
-   * not builded yet
+   * Camera
+   * Fingerprint scanner
+   * GPS
+   * Torch
+   * Wifi auto-connect
    
    # Credits:-
+   * Verevka
+   * DeckerSU
    * AdrianoMartins
    * divis1969
    * xen0n
