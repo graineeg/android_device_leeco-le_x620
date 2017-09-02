@@ -6,31 +6,29 @@ on post-fs
     chmod 0660 /dev/ttyMT2
     chown system system /dev/ttyMT2
 
-    # Create char device file for WMT, GPS, BT, FM, WIFI
-    mknod /dev/stpwmt c 190 0;
-    mknod /dev/stpgps c 191 0;
-    mknod /dev/stpbt  c 192 0;
-    mknod /dev/fm     c 193 0;
-    chmod 0660 /dev/stpwmt
-    chown system system /dev/stpwmt
-    chmod 0660 /dev/wmtdetect
-    chown system system /dev/wmtdetect
-
-    # FM Radio device, FIXME: this is not a proper way to set permissions
-    chmod 0666 /dev/fm
-
-    mknod /dev/wmtWifi c 153 0
-    chmod 0666 /dev/wmtWifi
-    chmod 0660 /dev/stpgps
-    chmod 0660 /dev/stpbt
-    chown bluetooth radio /dev/stpbt
-
 #
 # Connectivity related modules and character device nodes (Ends)
 #
 
-on boot
+	# disable HPS
+    write /proc/hps/enabled 0
 
+    # disable secondary cpu
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu4/online 0
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu6/online 0
+    write /sys/devices/system/cpu/cpu7/online 0
+    write /sys/devices/system/cpu/cpu8/online 0
+    write /sys/devices/system/cpu/cpu9/online 0
+
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+
+on boot
 
 #
 # Connectivity related services (Begin)
@@ -48,3 +46,8 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
 #
 # Connectivity related services (End)
 #
+
+service spm_script /system/bin/spm_loader
+    user root
+    group root
+    oneshot

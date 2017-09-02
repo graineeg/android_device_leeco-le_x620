@@ -1,3 +1,0 @@
-add_lunch_combo full_le_x620-user
-add_lunch_combo full_le_x620-userdebug
-add_lunch_combo full_le_x620-eng

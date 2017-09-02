@@ -1,0 +1,130 @@
+From be86ed165bef4475dd901ae6f2fa862e10a82a0a Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Mon, 12 Dec 2016 22:25:52 +0200
+Subject: [PATCH] add mising MediaBufferGroup::acquire_buffer symbol
+
+Change-Id: Iacea6bc28c153c1a010f93e575b3b509496e742b
+---
+ media/libstagefright/foundation/MediaBufferGroup.cpp | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/media/libstagefright/foundation/MediaBufferGroup.cpp b/media/libstagefright/foundation/MediaBufferGroup.cpp
+index 54f768a..3dcb237 100644
+--- a/media/libstagefright/foundation/MediaBufferGroup.cpp
++++ b/media/libstagefright/foundation/MediaBufferGroup.cpp
+@@ -107,6 +107,11 @@ void MediaBufferGroup::add_buffer(MediaBuffer *buffer) {
+     // optionally: mGrowthLimit = max(mGrowthLimit, mBuffers.size());
+ }
+
++extern "C" status_t _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferE(
++                    MediaBufferGroup* group, MediaBuffer **out) {
++    return group->acquire_buffer(out, false, 0);
++}
++
+ bool MediaBufferGroup::has_buffers() {
+     if (mBuffers.size() < mGrowthLimit) {
+         return true; // We can add more buffers internally.
+-- 
+2.11.0
+
+From 0da66f4b7e8bb6531257da099fa0c0c4e7e7f601 Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Mon, 12 Dec 2016 23:27:44 +0200
+Subject: [PATCH] add mising MediaBufferGroup::acquire_buffer symbol 2
+
+Change-Id: If0f0b5b3528f828c94966f51b272331d51bd666e
+---
+ media/libstagefright/foundation/MediaBufferGroup.cpp | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/media/libstagefright/foundation/MediaBufferGroup.cpp b/media/libstagefright/foundation/MediaBufferGroup.cpp
+index 3dcb237..c9e95df 100644
+--- a/media/libstagefright/foundation/MediaBufferGroup.cpp
++++ b/media/libstagefright/foundation/MediaBufferGroup.cpp
+@@ -114,6 +114,11 @@ extern "C" status_t _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBu
+     return group->acquire_buffer(out, false, 0);
+ }
+ 
++extern "C" status_t _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb(
++                    MediaBufferGroup* group, MediaBuffer **out, bool nonBlocking) {
++    return group->acquire_buffer(out, nonBlocking, 0);
++}
++
+ bool MediaBufferGroup::has_buffers() {
+     if (mBuffers.size() < mGrowthLimit) {
+         return true; // We can add more buffers internally.
+-- 
+2.11.0
+
+From 979f7fd62ff43c1e3f74629344b67fd8fc37379c Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Tue, 20 Dec 2016 05:38:32 +0200
+Subject: [PATCH] Use hw encoder only for camera [fire855]
+
+Change-Id: I5ec242db9dca36bd530a771321a991dbc5fb5e5b
+---
+ media/libmediaplayerservice/StagefrightRecorder.cpp |  8 ++++++++
+ media/libstagefright/MediaCodecList.cpp             | 11 +++++++++++
+ media/libstagefright/MediaCodecSource.cpp           |  6 ++++++
+ 3 files changed, 25 insertions(+)
+
+diff --git a/media/libmediaplayerservice/StagefrightRecorder.cpp b/media/libmediaplayerservice/StagefrightRecorder.cpp
+index d7bb876..d0fb562 100644
+--- a/media/libmediaplayerservice/StagefrightRecorder.cpp
++++ b/media/libmediaplayerservice/StagefrightRecorder.cpp
+@@ -1562,6 +1562,14 @@ status_t StagefrightRecorder::setupVideoEncoder(
+             break;
+     }
+ 
++    // force hw video encoder for camera
++    if (mVideoSource == VIDEO_SOURCE_CAMERA) {
++        AString mime;
++        CHECK(format->findString("mime", &mime));
++        mime.append("_cam");
++        format->setString("mime", mime);
++    }
++
+     if (cameraSource != NULL) {
+         sp<MetaData> meta = cameraSource->getFormat();
+ 
+diff --git a/media/libstagefright/MediaCodecList.cpp b/media/libstagefright/MediaCodecList.cpp
+index 64c6253..4764810 100644
+--- a/media/libstagefright/MediaCodecList.cpp
++++ b/media/libstagefright/MediaCodecList.cpp
+@@ -1158,6 +1158,17 @@ void MediaCodecList::findMatchingCodecs(
+         return;
+     }
+ 
++    AString *tempMime = new AString(mime);
++    if (tempMime->endsWith("_cam")) {
++        // remove camera tag from mime
++        tempMime->erase(tempMime->size() - 4, 4);
++        mime = tempMime->c_str();
++    }
++    else {
++        // no camera recording, prefer software codecs
++        flags |= kPreferSoftwareCodecs;
++    }
++
+     size_t index = 0;
+     for (;;) {
+         ssize_t matchIndex =
+diff --git a/media/libstagefright/MediaCodecSource.cpp b/media/libstagefright/MediaCodecSource.cpp
+index f66215f..9f2ade6 100755
+--- a/media/libstagefright/MediaCodecSource.cpp
++++ b/media/libstagefright/MediaCodecSource.cpp
+@@ -483,6 +483,12 @@ status_t MediaCodecSource::initEncoder() {
+                 &matchingCodecs);
+     }
+ 
++    // remove camera tag from mime
++    if (outputMIME.endsWith("_cam")) {
++        outputMIME.erase(outputMIME.size() - 4, 4);
++        mOutputFormat->setString("mime", outputMIME);
++    }
++
+     status_t err = NO_INIT;
+     for (size_t ix = 0; ix < matchingCodecs.size(); ++ix) {
+         mEncoder = MediaCodec::CreateByComponentName(
+-- 
+2.11.0

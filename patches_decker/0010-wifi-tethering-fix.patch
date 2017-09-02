@@ -1,0 +1,56 @@
+From 7426ca178ff8f0fef503e354643a88b929f0b0f6 Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Mon, 20 Feb 2017 03:59:41 +0300
+Subject: [PATCH] wifi tethering fix
+
+- standart wlan0 -> ap0 change
+- Revert "Don't start tethering if IPv6 RPF is not supported." patch (thx to olegsvs)
+
+Change-Id: I3fb6a1db4c0ff6c3ecae95ec5c11ca485a465934
+---
+ server/NatController.cpp    | 4 +++-
+ server/SoftapController.cpp | 6 ++++--
+ 2 files changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/server/NatController.cpp b/server/NatController.cpp
+index cda8f5f..c966a11 100644
+--- a/server/NatController.cpp
++++ b/server/NatController.cpp
+@@ -376,7 +376,9 @@ int NatController::setForwardRules(bool add, const char *intIface, const char *e
+         goto err_return;
+     }
+ 
+-    if (runCmd(ARRAY_SIZE(cmd4), cmd4) && add) {
++    // Revert "Don't start tethering if IPv6 RPF is not supported."
++    // STOPSHIP: Make this an error.
++    if (runCmd(ARRAY_SIZE(cmd4), cmd4) && add && false /* STOPSHIP */) {
+         rc = -1;
+         goto err_rpfilter;
+     }
+diff --git a/server/SoftapController.cpp b/server/SoftapController.cpp
+index 1c59ec3..2e6d05c 100755
+--- a/server/SoftapController.cpp
++++ b/server/SoftapController.cpp
+@@ -54,7 +54,8 @@ using android::base::WriteStringToFile;
+ #endif
+ 
+ #ifdef LIBWPA_CLIENT_EXISTS
+-std:: string hostapd_unix_file(StringPrintf("/data/misc/wifi/hostapd/wlan0"));
++//std:: string hostapd_unix_file(StringPrintf("/data/misc/wifi/hostapd/wlan0"));
++  std:: string hostapd_unix_file(StringPrintf("/data/misc/wifi/hostapd/ap0"));
+ static const char HOSTAPD_DHCP_DIR[]    = "/data/misc/dhcp";
+ #endif
+ static const char HOSTAPD_CONF_FILE[]    = "/data/misc/wifi/hostapd.conf";
+@@ -289,7 +290,8 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
+             "hw_mode=%c\n"
+             "ignore_broadcast_ssid=%d\n"
+             "wowlan_triggers=any\n",
+-            argv[2], argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
++        //  argv[2], argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
++            "ap0", argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
+ 
+     std::string fbuf;
+     if (argc > 7) {
+-- 
+2.7.4
+

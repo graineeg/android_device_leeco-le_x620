@@ -1,7 +1,16 @@
-type memsicd3416x_exec, exec_type, file_type;
-type memsicd3416x, domain, domain_deprecated;
+# ==============================================
+# Policy File of /system/binmemsicd3416x Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type memsicd3416x_exec , exec_type, file_type;
+type memsicd3416x ,domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
 
 init_daemon_domain(memsicd3416x)
-
-allow memsicd3416x msensor_device:chr_file rw_file_perms;
-allow memsicd3416x gsensor_device:chr_file rw_file_perms;

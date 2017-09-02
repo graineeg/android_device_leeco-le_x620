@@ -1,14 +1,11 @@
-# nvram
-allow audioserver nvdata_file:dir rw_dir_perms;
-allow audioserver nvdata_file:file create_file_perms;
-allow audioserver ccci_device:chr_file rw_file_perms;
+# audioserver - audio services
+allow audioserver audiohal_prop:file r_file_perms;
+allow audioserver DW9763AF_device:chr_file { read write open ioctl };
+allow audioserver nvram_data_file:file { read write open getattr setattr create };
+allow audioserver nvram_data_file:dir { write add_name };
+allow audioserver ccci_device:chr_file { read write open ioctl };
+allow audioserver sysfs:file { read open };
+allow audioserver rootfs:lnk_file { getattr };
+allow audioserver property_socket:sock_file { write };
+allow audioserver init:unix_stream_socket { connectto };
 
-# fm radio
-allow audioserver fm_device:chr_file rw_file_perms;
-
-# Audio
-allow audioserver sysfs:file { open read write };
-allow audioserver sysfs_devinfo:file { open read write };
-allow audioserver sysfs_ccci:file r_file_perms;
-allow audioserver sysfs_ccci:dir search;
-allow audioserver audiohal_prop:property_service set;

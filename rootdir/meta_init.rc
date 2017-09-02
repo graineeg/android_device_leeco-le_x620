@@ -4,12 +4,10 @@
 # This is a common source of Android security bugs.
 #
 import /init.environ.rc
-import init.ssd.rc
-import init.no_ssd.rc
-import init.ssd_nomuser.rc
-import init.fon.rc
 import init.aee.rc
 import init.trustonic.rc
+import meta_init.project.rc
+import meta_init.modem.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -26,9 +24,9 @@ on early-init
     restorecon /adb_keys
 
     start ueventd
-
-# create mountpoints
-    mkdir /mnt 0775 root system
+	
+	mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
 
 on init
     sysclktz 0
@@ -64,22 +62,13 @@ loglevel 5
     mkdir /data 0771 system system
     mkdir /cache 0770 system cache
     mkdir /config 0500 root root
-    mkdir /protect_f 0771 system system
-    mkdir /protect_s 0771 system system
-    #create mountpoint for persist partition
-    mkdir /persist 0771 system system
-    #Create nvdata mount point
-    mkdir /nvdata 0771 system system
-
-    #Create CIP mount point
-    mkdir /custom
 
     # See storage config details at http://source.android.com/tech/storage/
-    mkdir /mnt/shell 0700 shell shell
+    mkdir /mnt 0755 root system
+	mkdir /mnt/shell 0700 shell shell
     mkdir /mnt/media_rw 0700 media_rw media_rw
     mkdir /storage 0751 root sdcard_r
-
-    mkdir /mnt/cd-rom 0000 system system
+	restorecon_recursive /mnt
 
     # Directory for putting things only root should see.
     mkdir /mnt/secure 0700 root root
@@ -106,12 +95,22 @@ loglevel 5
     write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
     write /proc/sys/kernel/sched_compat_yield 1
 	
-	
+	mkdir /protect_f 0771 system system
+    mkdir /protect_s 0771 system system
+    #create mountpoint for persist partition
+    mkdir /persist 0771 system system
+    symlink /sdcard /mnt/sdcard
+    #Create nvdata mount point
+    mkdir /nvdata 0771 system system
+    mkdir /nvcfg 0771 system system
+
 	#create mountpoint for letvfingerprint partition
     mkdir /letvfingerprint 0771 system system
     #Trustonic
     symlink  /letvfingerprint/0000000.authtokcont  /data/app/mcRegistry/0000000.authtokcont
 
+	#Create CIP mount point
+    mkdir /custom
 
 # Healthd can trigger a full boot from charger mode by signaling this
 # property when the power button is held.
@@ -141,26 +140,6 @@ on late-init
 on fs
     write /proc/bootprof "INIT:Mount_START"
     mount_all /fstab.mt6797
-
-    #change partition permissions
-    exec /system/bin/chmod 0640 /dev/block/platform/mtk-msdc.0/by-name/boot
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/boot
-    exec /system/bin/chmod 0640 /dev/block/platform/mtk-msdc.0/by-name/recovery
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/recovery
-    exec /system/bin/chmod 0640 /dev/block/platform/mtk-msdc.0/by-name/secro
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/secro
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/seccfg
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/seccfg
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/proinfo
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/proinfo
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/otp
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/otp
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/nvram
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/nvram
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/para
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/para
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/logo
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/logo
     write /proc/bootprof "INIT:Mount_END"
 
 on post-fs
@@ -173,21 +152,29 @@ on post-fs
     # We restorecon /cache in case the cache partition has been reset.
     restorecon_recursive /cache
 
+    # make the selinux kernel policy world-readable
+    chmod 0444 /sys/fs/selinux/policy
+
+    # create the lost+found directories, so as to enforce our permissions
+    mkdir /cache/lost+found 0770 root root
+	
+#INTERNAL_START
     chown system system /protect_f
     chmod 0770 /protect_f
 
     chown system system /protect_s
     chmod 0770 /protect_s
 
-    #change permissions on kmsg & sysrq-trigger so bugreports can grab kthread stacks
-    chown root system /proc/kmsg
-    chmod 0440 /proc/kmsg
+    chown system system /persist
+    chmod 0770 /persist
 
-    # make the selinux kernel policy world-readable
-    chmod 0444 /sys/fs/selinux/policy
+    chown system system /letvfingerprint
+    chmod 0770 /letvfingerprint
 
-    # create the lost+found directories, so as to enforce our permissions
-    mkdir /cache/lost+found 0770 root root
+    chown system system /nvcfg
+    chmod 0771 /nvcfg
+    restorecon_recursive /nvcfg
+#INTERNAL_END
 
 on post-fs-data
     # We chown/chmod /data again so because mount is run as root + defaults
@@ -197,9 +184,6 @@ on post-fs-data
     restorecon /data
     chown system system /persist
     chmod 0771 /persist
-	
-	chown system system /letvfingerprint
-    chmod 0770 /letvfingerprint
 
 
     # create basic filesystem structure
@@ -208,6 +192,11 @@ on post-fs-data
     chown root system /nvdata
     chmod 2770 /nvdata
     symlink /nvdata /data/nvram
+	
+	#Create cct mount point
+    mkdir /data/cct
+    chown root system /data/cct
+    chmod 0771 /data/cct
 
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /nvdata
@@ -241,6 +230,15 @@ on post-fs-data
     # double check the perms, in case lost+found already exists, and set owner
     chown root root /data/lost+found
     chmod 0770 /data/lost+found
+	
+	# Separate location for storing security policy files on data
+    mkdir /data/security 0711 system system
+
+    # Reload policy from /data/security if present.
+    setprop selinux.reload_policy 1
+
+    # Set SELinux security contexts on upgrade or policy update.
+    restorecon_recursive /data
 
     # H264 Decoder
     chmod 777 /dev/MT6516_H264_DEC
@@ -273,68 +271,17 @@ on post-fs-data
     # Turn off wifi by default
     write /sys/class/rfkill/rfkill1/state 0
 
-
-
-    #otp
-    chmod 0660 /dev/otp
-    chown root system /dev/otp
-
-    # Touch Panel
-    chown system system /sys/touchpanel/calibration
-    chmod 0660 /sys/touchpanel/calibration
-
-    chmod 0777 /dev/pmem_multimedia
-    chmod 0777 /dev/mt6516-isp
-    chmod 0777 /dev/mt6516-IDP
-    chmod 0777 /dev/mt9p012
-    chmod 0777 /dev/mt6516_jpeg
-    chmod 0777 /dev/FM50AF
-
-
-
     # RTC
     mkdir /data/misc/rtc 0770 system system
-
-
-    # M4U
-    #insmod /system/lib/modules/m4u.ko
-    #mknod /dev/M4U_device c 188 0
-    chmod 0444 /dev/M4U_device
-
-    # Sensor
-    chmod 0666 /dev/sensor
-
-    # GPIO
-    chmod 0666 /dev/mtgpio
-
-    # Android SEC related device nodes
+	
+	# Android SEC related device nodes
     chmod 0660 /dev/sec
     chown root system /dev/sec
-
-    # device info interface
-    chmod 0440 /dev/devmap
-    chown root system /dev/devmap
-
 
     #change partition permission
     exec /system/etc/partition_permission.sh
 
     chmod 0666 /dev/exm0
-
-    # Separate location for storing security policy files on data
-    mkdir /data/security 0711 system system
-
-    # Reload policy from /data/security if present.
-    setprop selinux.reload_policy 1
-
-    # Set SELinux security contexts on upgrade or policy update.
-    restorecon_recursive /data
-
-    # If there is no fs-post-data action in the init.<device>.rc file, you
-    # must uncomment this line, otherwise encrypted filesystems
-    # won't work.
-    # Set indication (checked by vold) that we have finished this action
-    setprop vold.post_fs_data_done 1
 
 on boot
 
@@ -357,6 +304,9 @@ on property:vold.decrypt=trigger_default_encryption
 on property:vold.decrypt=trigger_encryption
     start surfaceflinger
     start encrypt
+	
+on property:sys.init_log_level=*
+    loglevel ${sys.init_log_level}
 
 on property:vold.decrypt=trigger_reset_main
     class_reset main
@@ -379,6 +329,12 @@ on property:vold.decrypt=trigger_restart_framework
 on property:vold.decrypt=trigger_shutdown_framework
     class_reset late_start
     class_reset main
+	
+on property:sys.powerctl=*
+    powerctl ${sys.powerctl}
+	
+## Daemon processes to be run by init.
+##
 
 service ueventd /sbin/ueventd
     class core
@@ -399,10 +355,7 @@ service console /system/bin/sh
     user shell
     group shell log
     seclabel u:r:shell:s0
-
-on property:sys.powerctl=*
-    powerctl ${sys.powerctl}
-
+	
 on property:ro.debuggable=1
     start console
 
@@ -440,20 +393,8 @@ service nvram_daemon /system/bin/nvram_daemon
     group system
     oneshot
 
-service debuggerd /system/bin/debuggerd
-    class main
-
-service debuggerd64 /system/bin/debuggerd64
-    class main
-
 service mobile_log_d /system/bin/mobile_log_d
     class main
-
-on property:ro.boot.mblogenable=0    
-    stop mobile_log_d    
-
-on property:ro.boot.mblogenable=1
-    start mobile_log_d
 
 #mass_storage,adb,acm
 on property:ro.boot.usbconfig=0

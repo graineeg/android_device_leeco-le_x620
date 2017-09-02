@@ -1,0 +1,32 @@
+From 18ba582dd55ef6c3bb025db9cc3533431a021bfb Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Wed, 8 Mar 2017 23:30:50 +0300
+Subject: [PATCH] PackageManager don't delete /data/app/mcRegistry folder
+
+Change-Id: I07cb856a8f692f6671a548499b5a03a338fef7c3
+---
+ services/core/java/com/android/server/pm/PackageManagerService.java | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/services/core/java/com/android/server/pm/PackageManagerService.java b/services/core/java/com/android/server/pm/PackageManagerService.java
+index 5a06bb3..26efcd7 100644
+--- a/services/core/java/com/android/server/pm/PackageManagerService.java
++++ b/services/core/java/com/android/server/pm/PackageManagerService.java
+@@ -20008,10 +20008,13 @@ Slog.v(TAG, ":: stepped forward, applying functor at tag " + parser.getName());
+                 assertPackageKnown(volumeUuid, pkg.packageName);
+ 
+             } catch (PackageParserException | PackageManagerException e) {
++		if (file.getAbsolutePath().equals("/data/app/mcRegistry")) {
++		logCriticalInfo(Log.WARN, "[Decker] We keep " + file.getAbsolutePath() + " due to store fingerprints.");
++		} else {
+                 logCriticalInfo(Log.WARN, "Destroying " + file + " due to: " + e);
+                 synchronized (mInstallLock) {
+                     removeCodePathLI(file);
+-                }
++                }}
+             }
+         }
+     }
+-- 
+2.7.4
+
