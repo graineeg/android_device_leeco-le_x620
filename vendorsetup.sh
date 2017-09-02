@@ -1,4 +1,5 @@
-# Copyright (C) 2010 The Android Open Source Project
+#
+# Copyright 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,15 +12,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-#
-# Generic key layout file for full alphabetic US English PC style external keyboards.
-#
-# This file is intentionally very generic and is intended to support a broad rang of keyboards.
-# Do not edit the generic key layout to support a specific keyboard; instead, create
-# a new key layout file with the required keyboard configuration.
 #
 
-key 158   BACK              VIRTUAL
-key 172   HOME		    VIRTUAL
-key 580   MENU	            VIRTUAL
+# This file is executed by build/envsetup.sh, and can use anything
+# defined in envsetup.sh.
+#
+# In particular, you can add lunch options with the add_lunch_combo
+# function: add_lunch_combo generic-eng
+
+for var in eng user userdebug; do
+  add_lunch_combo lineage_le_x620-$var
+done
