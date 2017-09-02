@@ -44,8 +44,6 @@ allow mtkmal ctl_volte_imcb_prop:property_service set;
 allow mtkmal ctl_volte_ua_prop:property_service set;
 allow mtkmal ctl_volte_stack_prop:property_service set;
 allow mtkmal volte_prop:property_service set;
-allow mtkmal ril_mux_report_case_prop:property_service set;
-allow mtkmal radio_prop:property_service set;
 
 allow mtkmal self:capability { setuid setgid };
 
@@ -74,6 +72,3 @@ allow mtkmal wpa:unix_dgram_socket sendto;
 allow wpa mtkmal:unix_stream_socket connectto;
 allow wpa mtkmal:unix_dgram_socket sendto;
 allow wpa init:unix_dgram_socket sendto;
-
-#for timer
-allow mtkmal self:capability2 wake_alarm;

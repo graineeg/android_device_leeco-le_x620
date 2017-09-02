@@ -26,10 +26,4 @@ allow mtk_6620_launcher init:unix_stream_socket connectto;
 allow mtk_6620_launcher property_socket:sock_file write;
 allow mtk_6620_launcher stpwmt_device:chr_file { read write ioctl open };
 allow mtk_6620_launcher devpts:chr_file { read write };
-
-# for Nougat
-allow mtk_6620_launcher wmt_prop:file r_file_perms;
-allow mtk_6620_launcher system_file:dir { read open };
-allow mtk_6620_launcher rootfs:lnk_file { getattr };
-
 init_daemon_domain(mtk_6620_launcher)

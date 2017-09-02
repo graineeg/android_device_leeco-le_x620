@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The CyanogenMod Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+	<!-- What can the LEDs on this device do? If defined, this overrides all of the
+         older settings:
+
+         com.android.internal.R.bool.config_multiColorNotificationLed
+         com.android.internal.R.bool.config_multiColorBatteryLed
+         org.cyanogenmod.platform.internal.R.bool.config_multipleNotificationLeds
+         com.android.internal.R.bool.config_ledCanPulse
+         org.cyanogenmod.platform.internal.R.bool.config_useSegmentedBatteryLed
+         org.cyanogenmod.platform.internal.R.bool.config_adjustableNotificationLedBrightness
+
+         Use the following values from NotificationManager:
+         LIGHTS_RGB_NOTIFICATION = 0
+         LIGHTS_RGB_BATTERY = 1
+         LIGHTS_MULTIPLE_LED = 2
+         LIGHTS_LED_PULSE = 3
+         LIGHTS_SEGMENTED_BATTERY_LIGHTS = 4
+         LIGHTS_ADJUSTABLE_NOTIFICATION_BRIGHTNESS = 5
+    -->
+	<integer-array translatable="false" name="config_deviceLightCapabilities">3</integer-array>
+	
+	<!-- Default values for LiveDisplay -->
+    <integer name="config_defaultLiveDisplayMode">0</integer>
+</resources>

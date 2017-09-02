@@ -21,7 +21,6 @@ type sf_rtt_file, file_type, data_file_type;
 type volte_stack_socket, file_type;
 type volte_imcb_socket, file_type;
 type volte_ua_socket, file_type;
-type volte_vt_socket, file_type;
 type dfo_socket, file_type;
 type rild2_socket, file_type;
 type rild3_socket, file_type;
@@ -67,7 +66,6 @@ type proc_mtktz, fs_type;
 type proc_slogger, fs_type;
 type proc_lk_env, fs_type;
 type sysfs_vcorefs_pwrctrl, fs_type, sysfs_type;
-type sysfs_md32, fs_type, sysfs_type;
 type sysfs_scp, fs_type, sysfs_type;
 
 type agpsd_socket, file_type;
@@ -195,33 +193,22 @@ type factory_data_file, file_type, data_file_type;
 # adbd config file
 type adbd_data_file, file_type, data_file_type;
 
-#autokd data file
+# autokd data file
 type autokd_data_file, file_type, data_file_type;
 
-#fuse
-typealias fuse alias sdcard_internal;
-typealias vfat alias sdcard_external;
+# fuse
+type fuseblk,sdcard_type,fs_type,mlstrustedobject;
 
 # debuggerd mrdump allocfile
 #type debuggerd_data_file, file_type, data_file_type;
 
-# TEEI data file
-type teei_data_file, file_type, data_file_type;
-
-#ipoh data file
+# ipoh data file
 type ipoh_data_file, file_type, data_file_type;
 
-# Operation : Migration
-# Purpose : md_monitor data file
-type md_monitor_data_file, file_type, data_file_type;
-
-#subtitle framework notify pixel data to Gallery apk  via /mnt/subt/xx.tmp file
-type subtitle_data_file, file_type,data_file_type;
-
-# sysfs directory file
+# Fingerprint: sysfs directory file
 type sysfs_fingerprintd, fs_type, sysfs_type;
 
-# ET310
+# Fingerprint: ET320
 type sysfs_etsd, fs_type, sysfs_type;
 
 type etsd_data_file, file_type, data_file_type;

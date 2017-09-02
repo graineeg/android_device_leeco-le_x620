@@ -94,8 +94,3 @@ allow netdiag self:udp_socket connect;
 allow netdiag system_server:binder call;
 allow system_server netdiag:fd use;
 binder_use(netdiag)
-
-# Nougat
-allow netdiag proc_net:file r_file_perms;
-allow netdiag rootfs:lnk_file { getattr };
-

@@ -22,4 +22,3 @@ allow usbdongled system_file:file x_file_perms;
 allow usbdongled shell_exec:file rx_file_perms;
 
 unix_socket_connect(usbdongled, property, init)
-#set_prop(usbdongled, init)

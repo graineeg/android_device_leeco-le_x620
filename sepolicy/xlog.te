@@ -30,4 +30,3 @@ allow xlog property_socket:sock_file write;
 allow xlog system_data_file:dir { relabelfrom create_dir_perms  };
 allow xlog xlog_data_file:dir { relabelto create_dir_perms   };
 allow xlog xlog_data_file:file { write create read open setattr };;
-allow xlog init:unix_stream_socket connectto;

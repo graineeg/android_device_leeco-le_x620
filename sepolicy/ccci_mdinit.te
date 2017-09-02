@@ -33,7 +33,6 @@ allow ccci_mdinit ctl_mdlogger_prop:property_service set;
 allow ccci_mdinit ctl_viarild_prop:property_service set;
 
 unix_socket_connect(ccci_mdinit, property, init)
-#set_prop(ccci_mdinit, init)
 #allow ccci_mdinit ctl_mdlogger_prop:property_service set;
 allow ccci_mdinit { ctl_mdlogger_prop ctl_emdlogger1_prop ctl_emdlogger2_prop ctl_emdlogger3_prop ctl_dualmdlogger_prop }:property_service set;
 
@@ -55,7 +54,7 @@ allow ccci_mdinit ccci_device:chr_file rw_file_perms;
 allow ccci_mdinit ccci_monitor_device:chr_file rw_file_perms;
 
 # TODO: Do not allow write access to all of /sys
-#allow ccci_mdinit sysfs:file write;
+allow ccci_mdinit sysfs:file write;
 
 allow ccci_mdinit nvram_data_file:dir rw_dir_perms;
 allow ccci_mdinit nvram_data_file:file create_file_perms;
@@ -102,11 +101,3 @@ allow ccci_mdinit mtd_device:chr_file { read write open };
 # Operation : Migration
 # Purpose : for device bring up, not to block early migration/sanity
 allow ccci_mdinit proc_lk_env:file rw_file_perms;
-
-# Nougat
-allow ccci_mdinit sysfs:file { write read open };
-allow ccci_mdinit proc:file { read open ioctl };
-allow ccci_mdinit persist_ril_prop:file { read open getattr };
-allow ccci_mdinit mediatek_prop:file { read open getattr ioctl };
-allow ccci_mdinit mtk_md_prop:file { read open getattr ioctl };
-allow ccci_mdinit rootfs:lnk_file { getattr };

@@ -1,5 +1,5 @@
 #FINGERPRINT
-#ET310 etsd policy
+#ET320 etsd policy
 #added by xiehaifei 160122
 
 type etsd, domain;

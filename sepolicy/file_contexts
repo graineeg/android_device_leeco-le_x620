@@ -50,15 +50,14 @@
 /data/md3(/.*)? u:object_r:c2k_file:s0
 /nvdata(/.*)? u:object_r:nvdata_file:s0
 /data/SF_dump(./*)? u:object_r:sf_bqdump_data_file:s0
-/data/ipsec(/.*)? u:object_r:wod_ipsec_conf_file:s0
-/data/ipsec/wo(/.*)? u:object_r:wod_apn_conf_file:s0
+/data/ipsec(./*)? u:object_r:wod_ipsec_conf_file:s0
+/data/ipsec/wo(./*)? u:object_r:wod_apn_conf_file:s0
 /data/data_tmpfs_log(/.*)? u:object_r:data_tmpfs_log_file:s0
 /data/tmp_mnt/data_tmpfs_log(/.*)? u:object_r:data_tmpfs_log_file:s0
 /data/setkey.conf        u:object_r:ims_ipsec_data_file:s0
 /data/setkey_bak.conf    u:object_r:ims_ipsec_data_file:s0
 /data/setkey_latest.conf u:object_r:ims_ipsec_data_file:s0
 /data/key_provisioning(/.*)?         u:object_r:key_install_data_file:s0
-/data/thh(/.*)? u:object_r:teei_data_file:s0
 
 ##########################
 # Devices
@@ -78,6 +77,10 @@
 /dev/BOOT(/.*)? u:object_r:BOOT_device:s0
 /dev/btif(/.*)? u:object_r:btif_device:s0
 /dev/btn(/.*)? u:object_r:btn_device:s0
+# Vanzo:yinjun on: Mon, 13 Apr 2015 16:39:08 +0800
+# add remoteir
+/dev/remote_ctrl_dev u:object_r:remote_ctrl_dev_device:s0
+# End of Vanzo: yinjun
 /dev/BU6429AF(/.*)? u:object_r:BU6429AF_device:s0
 /dev/BU64745GWZAF(/.*)? u:object_r:BU64745GWZAF_device:s0
 /dev/MAINAF(/.*)? u:object_r:MAINAF_device:s0
@@ -94,7 +97,6 @@
 /dev/cpu_dma_latency(/.*)? u:object_r:cpu_dma_latency_device:s0
 /dev/devmap(/.*)? u:object_r:devmap_device:s0
 /dev/dummy_cam_cal(/.*)? u:object_r:dummy_cam_cal_device:s0
-/dev/DW9763AF(/.*)? u:object_r:DW9763AF_device:s0
 /dev/DW9714AF(/.*)? u:object_r:DW9714AF_device:s0
 /dev/DW9814AF(/.*)? u:object_r:DW9814AF_device:s0
 /dev/AK7345AF(/.*)? u:object_r:AK7345AF_device:s0
@@ -181,6 +183,7 @@
 /dev/pro_info(/.*)? u:object_r:pro_info_device:s0
 /dev/protect_f(/.*)? u:object_r:protect_f_device:s0
 /dev/protect_s(/.*)? u:object_r:protect_s_device:s0
+/protect_s/properties(/.*)? u:object_r:persist_property_file:s0
 /dev/psaux(/.*)? u:object_r:psaux_device:s0
 /dev/ptmx(/.*)? u:object_r:ptmx_device:s0
 /dev/ptyp.* u:object_r:ptyp_device:s0
@@ -261,7 +264,6 @@
 /dev/socket/volte_ua(/.*)? u:object_r:volte_ua_socket:s0
 /dev/socket/volte_imsa1(/.*)? u:object_r:volte_imsa1_socket:s0
 /dev/socket/volte_imsvt1(/.*)? u:object_r:volte_imsvt1_socket:s0
-/dev/socket/volte_vt(/.*)? u:object_r:volte_vt_socket:s0
 /dev/socket/wpa_wlan0(/.*)? u:object_r:wpa_wlan0_socket:s0
 /dev/socket/zygote(/.*)? u:object_r:zygote_socket:s0
 /dev/socket/wod_action(/.*)? u:object_r:wod_action_socket:s0
@@ -306,27 +308,25 @@
 /dev/xlog u:object_r:xlog_device:s0
 /dev/offloadservice(/.*)? u:object_r:offloadservice_device:s0
 /dev/irtx u:object_r:irtx_device:s0
-/dev/ir-learning u:object_r:irrx_device:s0
 /dev/spm(/.*)? u:object_r:spm_device:s0
 
 /dev/xt_qtaguid(/.*)? u:object_r:xt_qtaguid_device:s0
 /dev/pmic_ftm(/.*)? u:object_r:pmic_ftm_device:s0
 /dev/shf  u:object_r:shf_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/proinfo  u:object_r:nvram_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/nvram  u:object_r:nvram_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/nvdata u:object_r:nvdata_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/frp  u:object_r:frp_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/expdb u:object_r:expdb_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/misc2 u:object_r:misc2_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/logo u:object_r:logo_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/para u:object_r:para_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/tee1 u:object_r:tee_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/tee2 u:object_r:tee_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/seccfg u:object_r:seccfg_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/secro u:object_r:secro_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/userdata u:object_r:userdata_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/cache u:object_r:cache_block_device:s0
-/dev/block/platform/mtk-msdc\.0/by-name/recovery u:object_r:recovery_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/recovery u:object_r:recovery_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/userdata u:object_r:userdata_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/cache u:object_r:cache_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvdata u:object_r:nvdata_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/frp  u:object_r:frp_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvram  u:object_r:nvram_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/proinfo  u:object_r:nvram_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/para u:object_r:para_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/logo u:object_r:logo_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/expdb u:object_r:expdb_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/secro u:object_r:secro_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/seccfg u:object_r:seccfg_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/tee1 u:object_r:tee_block_device:s0
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/tee2 u:object_r:tee_block_device:s0
 /dev/block/mmcblk0boot0 u:object_r:preloader_block_device:s0
 /dev/block/mmcblk0boot1 u:object_r:preloader_block_device:s0
 /dev/block/mmcblk0 u:object_r:mmcblk0_block_device:s0
@@ -339,12 +339,6 @@
 /dev/ttyACM0        u:object_r:ttyACM_device:s0
 /dev/hrm       u:object_r:hrm_device:s0
 /dev/trusty-ipc-dev0 u:object_r:tee_device:s0
-/dev/teei_config u:object_r:teei_config_device:s0
-/dev/teei_client u:object_r:teei_client_device:s0
-/dev/tz_vfs u:object_r:teei_vfs_device:s0
-/dev/emmcrpmb0 u:object_r:teei_rpmb_device:s0
-/dev/teei_fp u:object_r:teei_fp_device:s0
-/dev/i2c_smartpa u:object_r:tfa9890_device:s0
 
 #############################
 # sysfs files
@@ -359,8 +353,8 @@
 /sys/devices/platform/msensor/driver(/.*)?	u:object_r:sysfs_msensor_file:s0
 /sys/bus/platform/drivers/mtk-kpd(/.*)?	u:object_r:sysfs_keypad_file:s0
 /sys/power/vcorefs/pwr_ctrl -- u:object_r:sysfs_vcorefs_pwrctrl:s0
-/sys/devices/virtual/misc/md32(/.*)?  u:object_r:sysfs_md32:s0
 /sys/devices/virtual/misc/scp(/.*)?  u:object_r:sysfs_scp:s0
+/sys/devices/platform/mtk_disp_mgr.0/rgb       u:object_r:livedisplay_sysfs:s0
 
 
 #############################
@@ -372,9 +366,7 @@
 /system/bin/aal u:object_r:aal_exec:s0
 /system/bin/aee_core_forwarder u:object_r:aee_core_forwarder_exec:s0
 /system/bin/akmd09911 u:object_r:akmd09911_exec:s0
-#ly_zhangtao add for mag sensor start
-/system/bin/mxg2320d u:object_r:mxg2320d_exec:s0
-#ly_zhangtao add for mag sensor end
+/system/bin/qmc6983d u:object_r:qmc6983d_exec:s0
 /system/bin/akmd09912 u:object_r:akmd09912_exec:s0
 /system/bin/akmd8963 u:object_r:akmd8963_exec:s0
 /system/bin/akmd8975 u:object_r:akmd8975_exec:s0
@@ -437,6 +429,10 @@
 /system/bin/muxreport u:object_r:muxreport_exec:s0
 /system/bin/netdiag u:object_r:netdiag_exec:s0
 /system/bin/nvram_agent_binder u:object_r:nvram_agent_binder_exec:s0
+# Vanzo:yucheng on: Tue, 27 Jan 2015 20:54:48 +0800
+# added for nvram backup
+/system/bin/nvram_backup_binder u:object_r:nvram_backup_binder_exec:s0
+# End of Vanzo: yucheng
 /system/bin/nvram_daemon u:object_r:nvram_daemon_exec:s0
 /system/bin/orientationd u:object_r:orientationd_exec:s0
 /system/bin/permission_check u:object_r:permission_check_exec:s0
@@ -488,23 +484,14 @@
 /system/bin/spm_loader u:object_r:spm_loader_exec:s0
 /system/bin/vtservice u:object_r:vtservice_exec:s0
 /system/bin/hotknot_native_service u:object_r:hotknot_native_exec:s0
-/system/bin/teei_daemon u:object_r:teei_daemon_exec:s0
-/system/bin/init_thh u:object_r:init_thh_service_exec:s0
-/system/bin/md_monitor u:object_r:md_monitor_exec:s0
 
 # Wallpaper file for smartbook
 /data/system/users/[0-9]+/smartbook_wallpaper	u:object_r:wallpaper_file:s0
 
-#lockscreen wallpaper add by Tauren
-/data/system/users/[0-9]+/lockscreen   u:object_r:wallpaper_file:s0
-
 #fat on nand image
 /fat(/.*)?  u:object_r:fon_image_data_file:s0
 
-#smart audio pa 
-/system/bin/smart_audio.sh  u:object_r:smart_audio_exec:s0
-
 # Fingerprint device
 /dev/esfp0(/.*)? u:object_r:esfp0_device:s0
-# ET310 etsd
+# Fingerprint: ET320 etsd
 /system/bin/etsd u:object_r:etsd_exec:s0

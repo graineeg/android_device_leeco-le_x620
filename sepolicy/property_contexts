@@ -137,9 +137,7 @@ ctl.s62xd     u:object_r:ctl_s62xd_prop:s0
 ctl.bmm056d     u:object_r:ctl_bmm056d_prop:s0
 ctl.akmd8963     u:object_r:ctl_akmd8963_prop:s0
 ctl.akmd09911     u:object_r:ctl_akmd09911_prop:s0
-#ly_zhangtao add for mag sensor start
-ctl.mxg2320d      u:object_r:ctl_mxg2320d_prop:s0
-#ly_zhangtao add for mag sensor end
+ctl.qmc6983d     u:object_r:ctl_qmc6983d_prop:s0
 ctl.akmd09912     u:object_r:ctl_akmd09912_prop:s0
 ctl.geomagneticd     u:object_r:ctl_geomagneticd_prop:s0
 ctl.orientationd     u:object_r:ctl_orientationd_prop:s0
@@ -180,13 +178,7 @@ dolby.                  u:object_r:system_prop:s0
 debug.program_binary.    u:object_r:program_binary_prop:s0
 
 #=============allow radio to set mtk_volte_enable property  ==============
-persist.mtk.volte.enable u:object_r:mtk_volte_prop:s0
-
-#=============allow radio to set mtk_wfc_enable property  ==============
-persist.mtk.wfc.enable u:object_r:mtk_wfc_prop:s0
-
-#=============allow radio to set mtk_vt_enable property  ==============
-persist.mtk.ims.video.enable u:object_r:mtk_vt_prop:s0
+mtk.volte.enable u:object_r:mtk_volte_prop:s0
 
 #=============allow volte deamon  ==============
 ctl.volte_imcb          u:object_r:ctl_volte_imcb_prop:s0
@@ -196,12 +188,3 @@ ril.volte.              u:object_r:volte_prop:s0
 
 #=============allow hotknot deamon  ==============
 hotknot.    u:object_r:hotknot_prop:s0
-
-#=============allow teei daemon and init_thh daemon to set property  ==============
-soter.teei.   u:object_r:soter_teei_prop:s0
-
-#=============allow em set protocol================
-persist.auto_answer   u:object_r:mtk_em_auto_answer_prop:s0
-
-#=============allow smart audio pa  deamon  ==============
-smart_audio.        u:object_r:smart_audio_prop:s0

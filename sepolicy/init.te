@@ -80,28 +80,3 @@ allow init socket_device:sock_file { create unlink setattr };
 # Operation : Migration
 # Purpose : enable mtd device for ubi ioctl
 allow init mtd_device:chr_file { ioctl getattr };
-
-# Date : W15.49
-# Operation : Migration
-# Purpose : enable rawfs file getattr
-allow init rawfs:file getattr;
-
-# for nvram_proximity
-allow init als_ps_device:chr_file ioctl;
-allow init nvram_device:blk_file write;
-#allow init system_file:file execute_no_trans;
-
-# FM Radio
-allow init device:chr_file create;
-allow init debugfs:dir mounton;
-allow init property_socket:sock_file write;
-
-# Nougat
-allow init loop_device:blk_file { write };
-allow init block_device:lnk_file setattr;
-allow init debugfs:file { write };
-
-# LD_SHIM_LIBS
-allow init surfaceflinger:process { noatsecure };
-allow init mtk_agpsd:process { noatsecure };
-allow init mediaserver:process { noatsecure };

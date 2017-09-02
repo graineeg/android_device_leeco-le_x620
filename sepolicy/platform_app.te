@@ -24,7 +24,7 @@ allow platform_app fm_device:chr_file rw_file_perms;
 # Package: com.android.gallery3d
 #allow platform_app init:binder transfer;
 # add debugfs policy for MMProfile
-#allow platform_app debugfs:file { read ioctl };
+allow platform_app debugfs:file { read ioctl };
 
 # Date: 2014/09/05
 # Operation: FullUT
@@ -61,7 +61,6 @@ allow platform_app mdlogger:unix_stream_socket connectto;
 # Purpose : MTKLogger need setup local socket with emdlogger 
 # Package: com.mediatek.mtklogger
 allow platform_app emdlogger:unix_stream_socket connectto;
-
 
 # Date : 2014/09/23
 # Operation : Migration
@@ -191,12 +190,6 @@ allow platform_app system_app_data_file:dir search;
 # Package : com.mediatek.hotknot.service
 allow platform_app mtk_hotknot_service:service_manager find;
 
-# Date : W1602
-# Operation: IR-Learning feature check-in
-# Purpose : Allow all platform apps to find ConsumerIrExtraService
-# Package: com.mediatek.hardware.consumerir
-allow platform_app mtk_consumerir_service:service_manager find;
-
 # Date : WK15.29
 # Operation : Migration
 # Purpose : for device bring up, not to block early migration
@@ -217,7 +210,7 @@ allow platform_app system_app_service:service_manager find;
 # Operation: Migration
 # Purpose: enable accessing cache dir and executing renderscript lib for gallery3d
 # Package: com.android.gallery3d
-#allow platform_app app_data_file:file execute;
+allow platform_app app_data_file:file execute;
 
 # Date : 2015/08/17
 # Operation : Migration
@@ -265,25 +258,16 @@ allow platform_app debugfs:file getattr;
 # Purpose :[ALPS02350168]allow Settings get file of ntfs device
 # Package: com.android.settings
 allow platform_app fuseblk:file { read open write create getattr unlink};
+
 # Date : 2015/10/27
 # Operation : Feature Developing
 # Purpose : allow platform_app to find mw_blacklist
 # Package: com.mediatek.multiwindow.service
 allow platform_app mtk_mwblacklist_service:service_manager find;
 
-# Date : 2015/10/13
-# Operation : md_monitor IT
-# Purpose : Allow platform app connects to md_monitor's local socket
-# Package: com.mediatek.mdmlsample
-allow platform_app md_monitor:unix_stream_socket connectto;
-
-# Purpose : subtitle feature need to w/r /mnt/subt/.
-allow platform_app subtitle_data_file:dir { open read write search create add_name};
-allow platform_app subtitle_data_file:file { open read write create};
-
 # Date : 2015/12/9
 # Operation : Migration
-# Purpose : Added by xiehaifei for Fingerprint ET310 esfp0  device 
+# Purpose : Added by xiehaifei for Fingerprint ET320 esfp0  device 
 # Package: com.android.systemui
 allow platform_app esfp0_device:chr_file rw_file_perms;;
 #allow platform_app self:netlink_kobject_uevent_socket {create_socket_perms };

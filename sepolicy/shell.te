@@ -89,8 +89,8 @@ allow shell spm_loader_exec:file rx_file_perms;
 # Purpose : for accessing /storage/emulated/legacy
 #           It's mounted as tmpfs file.
 #           CTS: testSyncFiles_extStorageVariable & testSyncFiles_normal
-allow shell tmpfs:lnk_file read;
-allow shell tmpfs:lnk_file getattr;
+#allow shell tmpfs:lnk_file read;
+#allow shell tmpfs:lnk_file getattr;
 allow shell block_device:dir search;
 
 # Date : WK14.47
@@ -112,10 +112,3 @@ allow shell aee_exp_data_file:file r_file_perms;
 # Operation : Migration
 # Purpose: Allow shell to read binder from surfaceflinger
 allow shell surfaceflinger:fifo_file {read write};
-
-#allow shell to run init_thh
-userdebug_or_eng(`
-  allow shell init_thh_service_exec:file r_file_perms;
-  allow shell init_thh_service_exec:dir r_dir_perms;
-  allow shell init_thh_service_exec:file {execute execute_no_trans};
-')

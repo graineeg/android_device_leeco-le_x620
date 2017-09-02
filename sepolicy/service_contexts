@@ -7,7 +7,7 @@ search_engine       u:object_r:search_service:s0
 audioprofile        u:object_r:audio_service:s0
 mobile              u:object_r:mtk_mobile_service:s0
 mtk-perfservice     u:object_r:mtk_perf_service:s0
-#recovery            u:object_r:mtk_recovery_service:s0
+recovery            u:object_r:mtk_recovery_service:s0
 mtkhdmi             u:object_r:mtk_hdmi_service:s0
 msgmonitorservice   u:object_r:mtk_msg_monitor_service:s0
 anrmanager          u:object_r:mtk_anrmanager_service:s0
@@ -18,6 +18,14 @@ rns                 u:object_r:mtk_rns_service:s0
 
 # Other Services
 NvRAMAgent          u:object_r:nvram_agent_service:s0
+# Vanzo:yucheng on: Tue, 27 Jan 2015 23:16:59 +0800
+# added for nvram backup
+NvRAMBackup          u:object_r:nvram_backup_service:s0
+# End of Vanzo: yucheng
+# Vanzo:yinjun on: Mon, 13 Apr 2015 16:30:31 +0800
+# add remoteir
+#remoteir            u:object_r:system_server_service:s0
+# End of Vanzo: yinjun
 phoneEx             u:object_r:radio_service:s0
 DmAgent             u:object_r:dm_agent_binder_service:s0
 hotknot_service 	u:object_r:mtk_hotknot_service:s0
@@ -37,15 +45,13 @@ GuiExtService       u:object_r:guiext-server_service:s0
 mtk.codecservice	u:object_r:mtk_codec_service_service:s0
 PPLAgent                   u:object_r:ppl_agent_service:s0
 media.mmsdk         u:object_r:mediaserver_service:s0
-consumer_ir_extra 	u:object_r:mtk_consumerir_service:s0
 program_binary      u:object_r:program_binary_service:s0
 media.VTS           u:object_r:vtservice_service:s0
 GpuAppSpectatorService  u:object_r:gas_srv_service:s0
 hotknotnativeservice    u:object_r:hotknot_native_service:s0
 wfo                 u:object_r:radio_service:s0
-data_shaping        u:object_r:mtk_data_shaping_service:s0
 multiwindow     u:object_r:mtk_multiwindow_service:s0
 mw_blacklist   u:object_r:mtk_mwblacklist_service:s0
 
-# Fingerprint device
+# Fingerprint
 egistec.ets.service.daemon u:object_r:etsd_service:s0

@@ -1,0 +1,2 @@
+# Charger
+BOARD_CHARGER_SHOW_PERCENTAGE := true

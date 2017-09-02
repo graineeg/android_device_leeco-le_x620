@@ -1,50 +1,69 @@
-# Device Tree for LeEco Le 2/Le 2 Pro (Le_X620)
+Iman Victor - CyanogenMod 13.0/AOSP
+==============
 
-# Spec Sheet
+This branch is device for building of the CyanogenMod 13.0 and Android Marshmallow 6.0 AOSP ROMs. For more information about building the ROM, read our [build manual](manual).
 
-| Feature                 | Specification                     |
-| :---------------------- | :-------------------------------- |
-| CPU                     | Deca-core 2.1 GHz                 |
-| Chipset                 | Mediatek MT6797 Helio X20         |
-| GPU                     | Mali-T880 MP4                     |
-| Memory                  | 3/4 GB                            |
-| Shipped Android Version | 6.0                               |
-| Storage                 | 32 GB                             |
-| Battery                 | 3000 mAh (non-removable)          |
-| Dimensions              | 151.1 x 74.2 x 7.5 mm             |
-| Display                 | 1920x1080 pixels, 5.5 (~401 PPI)  |
-| Rear Camera             | 16/21 MP, LED flash               |
-| Front Camera            | 8 MP                              |
-| Release Date            | 2016, April                       |
+---
 
-# Device Picture
+### Specifications
 
-![Le 2 Pro](http://cdn2.gsmarena.com/vv/pics/leeco/le-eco-le2.jpg "LeEco Le 2")
+Component Type | Details
+-------:|:-------------------------
+CPU     | 2.0GHz Octa-Core MT6755 (Helio P10)
+GPU     | Mali-T860
+Memory  | 3GB RAM
+Shipped Android Version | 6.0
+Storage | 32GB
+Battery | 4500 mAh
+Display | 5" 1920 x 1080 px DPI 480
+Rear Camera | 13MP
+Front Camera | 8MP (OV)
 
-   # Build
-   * repo init -u git://github.com/LineageOS/android.git -b cm-14.1
-   * repo sync
-   * git clone https://github.com/graineeg/android_device_leeco-le_x620-lineage-14.1.git -b cm-14.1 device/leeco/le_x620
-   * git clone https://github.com/graineeg/android_vendor_leeco-le_x620-lineage-14.1.git -b master vendor/leeco/le_x620
-   * cd device/leeco/le_x620/patches
-   * . apply.sh
-   * source build/envsetup.sh
-   * breakfast le_x620
-   * brunch le_x620
-   * Done :)
-   
-   # Known Issue:-
-   * Camera
-   * Fingerprint scanner
-   * GPS
-   * Torch
-   * Wifi auto-connect
-   
-   # Credits:-
-   * Verevka
-   * DeckerSU
-   * AdrianoMartins
-   * divis1969
-   * xen0n
-   * SamarV-121
+---
+
+# Build Information
+
+### Working:
+ * All sensors
+ * Audio
+ * Auto brightness
+ * Bluetooth
+ * Camera rear/front (video and photo)
+ * Doze 
+ * Enforcing SELinux
+ * Fingerprint scanner
+ * Flashlight (statusbar and camera)
+ * GPS
+ * Hardware acceleration
+ * HOME Button like in stock
+ * Lazer autofocus
+ * Micro SD support
+ * MTP and Mass Storage modes
+ * NFC (payments, pairing .etc)
+ * Offline charging
+ * RAM and ROM
+ * RIL
+ * Rotation
+ * Special button new functional
+ * Vibration 
+ * Wi-Fi 
+ * Wi-Fi tethering
+
+### In progress:
+ * Audio over Bluetooth (music, calls .etc)
+ * Force close camera with HDR on
+ * PE and PE+ (fast charging)
+
+### Thanks to:
+ * CyanogenMod team
+ * Deepflex
+ * Wuxianlin
+ * Ferhung
+ * SHVED
+ * Xen0n
+ * JonnyXDA
+ * olegsvs
+ * Visi0nary
+ * andyrichardson
+ * Team M.A.D
 

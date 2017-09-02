@@ -22,7 +22,7 @@ allow init self:tcp_socket create;
 # Date : WK14.43
 # Operation : Migration 
 # Purpose : Interact with kernel to perform autok
-#allow autokd debugfs:file read;
+allow autokd debugfs:file read;
 allow autokd init:unix_stream_socket connectto;
 allow autokd property_socket:sock_file write;
 allow autokd self:netlink_kobject_uevent_socket { read bind create setopt };
@@ -33,7 +33,7 @@ allow autokd shell_exec:file { read execute open execute_no_trans };
 # Operation : Migration 
 # Purpose : Read/Write autok result in data paritition
 # To do: Consider to move files into a sub-directory in /data, said, /data/autokd
-#allow autokd sysfs:file write;
+allow autokd sysfs:file write;
 allow autokd system_data_file:dir { read write open add_name remove_name };
 allow autokd autokd_data_file:file { write create open append };
 allow autokd system_file:file execute_no_trans;
@@ -48,8 +48,4 @@ allow autokd nvdata_device:blk_file { open read write };
 allow autokd userdata_block_device:blk_file { open read write };
 allow autokd nvdata_file:dir {search read write getattr add_name remove_name };
 allow autokd nvdata_file:file { read write getattr create open setattr };
-
-# for Nougat
-allow autokd sysfs:file { write read open };
-allow autokd rootfs:lnk_file { getattr };
 

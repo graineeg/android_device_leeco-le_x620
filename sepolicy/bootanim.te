@@ -18,7 +18,7 @@ allow bootanim mediaserver:binder transfer;
 # Date : WK14.36
 # Operation : Migration 
 # Purpose : for ui
-#allow bootanim guiext-server:binder call;
+allow bootanim guiext-server:binder call;
 allow bootanim guiext-server:binder transfer;
 
 # Date : WK14.37
@@ -48,4 +48,3 @@ allow bootanim qemu_pipe_device:chr_file rw_file_perms;
 allow bootanim mediaserver_service:service_manager find;
 
 allow bootanim terservice_service:service_manager find;
-allow bootanim rootfs:lnk_file { getattr };

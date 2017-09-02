@@ -14,5 +14,5 @@ allow domain log_device:dir search;
 allow domain log_device:chr_file {open write};
 allow domain storage_file:dir search;
 
-# Fingerprint device
+# Fingerprint
 allow domain esfp0_device:chr_file rw_file_perms;

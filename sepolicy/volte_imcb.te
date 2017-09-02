@@ -35,8 +35,3 @@ allow volte_imcb self:tcp_socket write;
 unix_socket_connect(volte_imcb, volte_ua, volte_ua)
 
 allow volte_imcb volte_imcb_socket:sock_file write;
-# Dtae : WK15.42
-# Operation : ViLTE Migration
-# Purpose : For open socket device to vtservice connect
-allow ccci_mdinit volte_prop:property_service set;
-

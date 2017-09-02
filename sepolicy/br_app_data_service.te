@@ -23,11 +23,6 @@ allow br_app_data_service system_data_file:dir write;
 allow br_app_data_service app_data_file:lnk_file unlink;
 allow br_app_data_service system_data_file:dir remove_name;
 typeattribute br_app_data_service mlstrustedsubject;
-allow br_app_data_service radio_data_file:dir { read getattr search open };
-allow br_app_data_service radio_data_file:dir create_dir_perms;
-allow br_app_data_service radio_data_file:file create_file_perms;
-allow br_app_data_service radio_data_file:lnk_file { getattr unlink };
-
 #================================================
 #add for chmod
 allow br_app_data_service self:capability fowner;

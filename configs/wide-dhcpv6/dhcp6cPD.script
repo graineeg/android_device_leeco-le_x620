@@ -1,0 +1,20 @@
+#!/system/bin/sh
+
+# For debugging:
+setprop dhcp.pd.${interface}.reason "${REASON}"
+
+case "${REASON}" in
+	REQUEST|CONFIRM|INFOREQ)		
+		setprop dhcp.pd.${interface}.result "ok"
+		;;
+	RENEW|REBIND)
+		set_dns_props
+		setprop dhcp.pd.${interface}.renewresult "ok"
+		;;
+	RELEASE)				
+		setprop dhcp.pd.${interface}.result "released"
+		;;
+	*)	
+		setprop dhcp.pd.${interface}.result "failed"
+		;;
+esac

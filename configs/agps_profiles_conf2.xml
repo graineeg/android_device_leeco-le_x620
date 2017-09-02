@@ -60,8 +60,8 @@
         "IPv4address:port"
   -->
 
-  <cur_supl_profile name="NOKIA"
-      addr="supl.nokia.com"
+  <cur_supl_profile name="GOOGLE"
+      addr="supl.google.com"
       port="7275"
       tls="true"
   />

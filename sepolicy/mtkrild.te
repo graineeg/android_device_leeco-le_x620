@@ -19,7 +19,6 @@ net_domain(mtkrild)
 allow mtkrild self:netlink_route_socket nlmsg_write;
 allow mtkrild kernel:system module_request;
 unix_socket_connect(mtkrild, property, init)
-#set_prop(mtkrild, init)
 allow mtkrild self:capability { setuid net_admin net_raw };
 allow mtkrild alarm_device:chr_file rw_file_perms;
 allow mtkrild cgroup:dir create_dir_perms;
@@ -37,7 +36,7 @@ allow mtkrild sdcard_type:dir r_dir_perms;
 allow mtkrild system_data_file:dir r_dir_perms;
 allow mtkrild system_data_file:file r_file_perms;
 allow mtkrild system_file:file x_file_perms;
-#allow mtkrild proc:file write;
+allow mtkrild proc:file write;
 allow mtkrild proc_net:file write;
 allow mtkrild eemcs_device:chr_file { read write };
 allow mtkrild eemcs_device:chr_file open;
@@ -96,12 +95,4 @@ allow mtkrild socket_device:sock_file write;
 allow mtkrild mtkmal:unix_stream_socket connectto;
 allow mtkrild mal_mfi_socket:sock_file write;
 
-# Nougat
-allow mtkrild gsm0710muxd_prop:file { read open getattr };
-allow mtkrild persist_ril_prop:file { read open getattr };
-allow mtkrild proc:file { open read write };
-allow mtkrild ril_mux_report_case_prop:file { read open getattr };
-allow mtkrild sysfs:file { read open };
-allow mtkrild rootfs:lnk_file { getattr };
-allow mtkrild volte_prop:file { read open getattr };
 

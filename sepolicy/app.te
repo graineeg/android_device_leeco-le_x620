@@ -11,8 +11,3 @@
 allow appdomain custom_file:dir { search getattr open read };
 allow appdomain custom_file:file { read open getattr};
 
-# Date : 2015/06/12
-# Operation: TEEI integration
-# Purpose: access for fp device and client device of TEEI
-allow appdomain teei_fp_device:chr_file rw_file_perms;
-allow appdomain teei_client_device:chr_file rw_file_perms;

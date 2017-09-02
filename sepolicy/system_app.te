@@ -11,6 +11,10 @@ typeattribute system_app mlstrustedsubject;
 # Purpose :[CdsInfo][CdsInfo uses net shell commands to get network information and write WI-FI MAC address by NVRAM]
 # Package Name: com.mediatek.connectivity
 allow system_app nvram_agent_binder:binder call;
+# Vanzo:yucheng on: Tue, 27 Jan 2015 20:49:40 +0800
+# added for nvram backup
+allow system_app nvram_backup_binder:binder call;
+# End of Vanzo: yucheng
 
 # Date: 2014/08/01
 # Operation: BaseUT
@@ -78,24 +82,6 @@ allow system_app devmap_device:chr_file { read ioctl open };
 allow system_app graphics_device:chr_file { read write ioctl open };
 allow system_app graphics_device:dir search;
 
-# Date: W1602
-# Operation: IR-Learning Feature
-# Purpose: [IR-Learning][ConsumerIrHostService will use irtx_device device node]
-# Package: com.mediatek.hardware.consumerir
-allow system_app irtx_device:chr_file { read write ioctl open };
-
-# Date: W1602
-# Operation: IR-Learning Feature
-# Purpose: [IR-Learning][ConsumerIrHostService will use irrx_device device node]
-# Package: com.mediatek.hardware.consumerir
-allow system_app irrx_device:chr_file { read write ioctl open };
-
-# Date: W1602
-# Operation: IR-Learning Feature
-# Purpose: [IR-Learning][ConsumerIrHostService will need to add service]
-# Package: com.mediatek.hardware.consumerir
-allow system_app mtk_consumerir_service:service_manager add;
-
 # Data : 2014/09/09
 # Operation : Migration
 # Purpose : [Privacy protection lock][com.mediatek.ppl need to bind ppl_agent service to read/write nvram file]
@@ -132,13 +118,13 @@ allow system_app qemu_pipe_device:chr_file rw_file_perms;
 # Operation : Migration
 # Package: org.simalliance.openmobileapi.service
 # Purpose : ALPS01820916, for SmartcardService
-#allow system_app system_app_data_file:file execute;
+allow system_app system_app_data_file:file execute;
 
 # Date : 2014/11/17
 # Operation: SQC
 # Purpose : [Settings][Battery module will call batterystats API, and it will read /sys/kernel/debug/wakeup_sources]
 # Package: com.android.settings
-#allow system_app debugfs:file r_file_perms;
+allow system_app debugfs:file r_file_perms;
 
 # Date : 2014/11/18
 # Operation : SQC
@@ -175,6 +161,11 @@ dontaudit system_app isolated_app_tmpfs:file write;
 # Package: android.ui
 dontaudit system_app untrusted_app_tmpfs:file write;
 
+# Vanzo:songlixin on: Mon, 02 Feb 2015 16:04:07 +0800
+# for Settings to write:  /sys/devices/platform/mt-i2c.0/i2c-0/0-005d/gesture
+#allow system_app sysfs:file write;
+# End of Vanzo:songlixin
+
 # Date : 2015/01/27
 # Operation: SQC
 # Purpose: It's not normal behavior, that system_app want to access radio_file_data
@@ -207,18 +198,11 @@ allow system_app hotknot_prop:property_service set;
 allow system_app mtk_mwblacklist_service:service_manager add;
 allow system_app mtk_mwblacklist_service:service_manager find;
 
-# Date : 2015/06/12
-# Operation: TEEI integration
-# Purpose: access for fp device and client device of TEEI
-# Package: teei
-allow system_app teei_fp_device:chr_file rw_file_perms;
-allow system_app teei_client_device:chr_file r_file_perms;
-
 # Date : 2015/12/9
 # Operation: Xiehaifei
-# Purpose: for et310 kernel uevent
+# Purpose: for et320 kernel uevent
 # Package: android.ui
 allow system_app self:netlink_kobject_uevent_socket { create ioctl read getattr setattr bind connect getopt setopt shutdown };
 
-# FM Radio
+# Fix Radio
 allow system_app fm_device:chr_file rw_file_perms;

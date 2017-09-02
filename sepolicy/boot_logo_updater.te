@@ -30,11 +30,6 @@ init_daemon_domain(boot_logo_updater)
 allow boot_logo_updater logo_block_device:blk_file { read open };
 allow boot_logo_updater mmcblk0_block_device:blk_file { open read };
 
-#add by kevin for mul_power_anim 20160520 start
-allow boot_logo_updater nvram_device:chr_file { read write open ioctl };
-allow boot_logo_updater nvram_device:blk_file { read write open };
-#add by kevin for mul_power_anim 20160520 end
-
 
 # Date : WK14.32
 # Operation : Migration

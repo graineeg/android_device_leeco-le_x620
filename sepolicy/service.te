@@ -13,7 +13,6 @@ type ppl_agent_service,      		service_manager_type;
 type vtservice_service,             service_manager_type;
 type mtk_hotknot_service,           service_manager_type;
 type hotknot_native_service,        service_manager_type;
-type mtk_consumerir_service,        service_manager_type;
 type mtk_mwblacklist_service, service_manager_type;
 
 # mtk service manager type
@@ -26,5 +25,8 @@ type mtk_anrmanager_service, app_api_service, system_server_service, service_man
 type mtk_epgd_service, app_api_service, system_server_service, service_manager_type;
 type mtk_rns_service, app_api_service, system_server_service, service_manager_type;
 type gas_srv_service, service_manager_type;
-type mtk_data_shaping_service, app_api_service, system_server_service, service_manager_type;
 type mtk_multiwindow_service, app_api_service, system_server_service, service_manager_type;
+# Vanzo:yucheng on: Tue, 27 Jan 2015 23:31:00 +0800
+# added for nvram backup
+type nvram_backup_service,     service_manager_type;
+# End of Vanzo: yucheng

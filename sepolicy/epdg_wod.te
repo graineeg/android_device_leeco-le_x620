@@ -31,7 +31,7 @@ allow epdg_wod self:capability { net_admin dac_override kill };
 allow epdg_wod ipsec_exec:file { read getattr open execute execute_no_trans };
 
 # Purpose : send signal to process (ipsec/charon)
-allow epdg_wod ipsec:process { signal sigkill signull };
+allow epdg_wod ipsec:process signal;
 
 # Purpose :  set property for debug messages
 allow epdg_wod init:unix_stream_socket connectto;
@@ -68,3 +68,4 @@ allow epdg_wod device:lnk_file create;
 # Purpose: Kill Process
 allow epdg_wod system_server:process { signal signull };
 allow epdg_wod kernel:process signal;
+

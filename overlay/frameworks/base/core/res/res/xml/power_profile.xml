@@ -1,177 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-**
-** Copyright 2009, The Android Open Source Project
-**
-** Licensed under the Apache License, Version 2.0 (the "License")
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
-*/
--->
-
 <device name="Android">
-  <!-- Most values are the incremental current used by a feature,
-       in mA (measured at nominal voltage).
-       The default values are deliberately incorrect dummy values.
-       OEM's must measure and provide actual values before
-       shipping a device.
-       Example real-world values are given in comments, but they
-       are totally dependent on the platform and can vary
-       significantly, so should be measured on the shipping platform
-       with a power meter. -->
-  <item name="none">0</item>
-    <item name="screen.on">94</item>
-    <item name="screen.full">260</item>
-    <item name="bluetooth.active">34</item>
-    <item name="bluetooth.on">2</item>
-    <item name="wifi.on">0.2</item>
-    <item name="wifi.active">396</item>
-    <item name="wifi.scan">11</item>
-    <item name="dsp.audio">19</item>
-    <item name="dsp.video">142</item>
-    <item name="camera.flashlight">200</item>
-    <item name="camera.avg">716</item>
-    <item name="radio.active">100</item>
-    <item name="radio.scanning">40</item>
-    <item name="gps.on">46</item>
-  <!-- Current consumed by the radio at different signal strengths, when paging -->
-  <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
-      <value>4</value>
-      <value>2</value>
-  </array>
-  <!-- Different CPU speeds as reported in
-       /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state -->
-  <item name="cpu.awake">25</item>
-  <array name="cpu.clusters.cores">
-      <value>4</value>
-      <value>4</value>
-      <value>2</value>
-  </array>
-  <array name="cpu.speeds.cluster0">
-      <value>221000</value>
-      <value>338000</value>
-      <value>416000</value>
-      <value>481000</value>
-      <value>559000</value>
-      <value>624000</value>
-      <value>715000</value>
-      <value>806000</value>
-      <value>897000</value>
-      <value>949000</value>
-      <value>1066000</value>
-      <value>1118000</value>
-      <value>1222000</value>
-      <value>1287000</value>
-      <value>1339000</value>
-      <value>1391000</value>
-  </array>
-  <item name="cpu.idle">4</item>
-  <array name="cpu.active.cluster0">
-      <value>21</value>
-      <value>30</value>
-      <value>43</value>
-      <value>47</value>
-      <value>64</value>
-      <value>73</value>
-      <value>81</value>
-      <value>90</value>
-      <value>98</value>
-      <value>109</value>
-      <value>121</value>
-      <value>132</value>
-      <value>143</value>
-      <value>150</value>
-      <value>161</value>
-      <value>168</value>
-  </array>
-  <array name="cpu.speeds.cluster1">
-      <value>325000</value>
-      <value>468000</value>
-      <value>559000</value>
-      <value>650000</value>
-      <value>741000</value>
-      <value>832000</value>
-      <value>949000</value>
-      <value>1079000</value>
-      <value>1209000</value>
-      <value>1274000</value>
-      <value>1417000</value>
-      <value>1495000</value>
-      <value>1625000</value>
-      <value>1703000</value>
-      <value>1781000</value>
-      <value>1846000</value>
-  </array>
-  <array name="cpu.active.cluster1">
-      <value>30</value>
-      <value>45</value>
-      <value>64</value>
-      <value>75</value>
-      <value>85</value>
-      <value>92</value>
-      <value>104</value>
-      <value>110</value>
-      <value>135</value>
-      <value>150</value>
-      <value>172</value>
-      <value>180</value>
-      <value>204</value>
-      <value>230</value>
-      <value>246</value>
-      <value>260</value>
-  </array>
-  <array name="cpu.speeds.cluster2">
-      <value>338000</value>
-      <value>676000</value>
-      <value>845000</value>
-      <value>1001000</value>
-      <value>1131000</value>
-      <value>1248000</value>
-      <value>1378000</value>
-      <value>1495000</value>
-      <value>1677000</value>
-      <value>1781000</value>
-      <value>1989000</value>
-      <value>2093000</value>
-      <value>2119000</value>
-      <value>2171000</value>
-      <value>2197000</value>
-      <value>2314000</value>
-  </array>
-  <array name="cpu.active.cluster2">
-      <value>43</value>
-      <value>88</value>
-      <value>108</value>
-      <value>130</value>
-      <value>150</value>
-      <value>180</value>
-      <value>210</value>
-      <value>240</value>
-      <value>298</value>
-      <value>346</value>
-      <value>445</value>
-      <value>513</value>
-      <value>554</value>
-      <value>589</value>
-      <value>625</value>
-      <value>698</value>
-  </array>
-  <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
-  <item name="battery.capacity">3000</item>
-
-  <array name="wifi.batchedscan"> <!-- mA -->
-      <value>.0020</value>
-      <value>.0200</value>
-      <value>.5000</value>
-      <value>5.000</value>
-      <value>30.00</value>
-  </array>
+    <item name="none">0</item>
+    <item name="screen.on">100</item>
+    <item name="screen.full">230</item>
+    <item name="bluetooth.active">20</item>
+    <item name="bluetooth.on">1.08</item>
+    <item name="wifi.on">4.9</item>
+    <item name="wifi.active">200</item>
+    <item name="wifi.scan">186</item>
+    <item name="dsp.audio">41</item>
+    <item name="dsp.video">161</item>
+    <item name="camera.flashlight">500</item>
+    <item name="camera.avg">881</item>
+    <item name="radio.active">150</item>
+    <item name="radio.scanning">139.43</item>
+    <item name="gps.on">53</item>
+    <array name="radio.on">
+        <value>7.1</value>
+    </array>
+    <array name="cpu.clusters.cores">
+        <value>1</value>
+    </array>
+    <array name="cpu.speeds.cluster0">
+        <value>2106000</value>
+        <value>1989000</value>
+        <value>1963000</value>
+        <value>1898000</value>
+        <value>1859000</value>
+        <value>1846000</value>
+        <value>1781000</value>
+        <value>1768000</value>
+        <value>1703000</value>
+        <value>1625000</value>
+        <value>1586000</value>
+        <value>1495000</value>
+        <value>1417000</value>
+        <value>1391000</value>
+        <value>1339000</value>
+        <value>1287000</value>
+        <value>1274000</value>
+        <value>1222000</value>
+        <value>1209000</value>
+        <value>1118000</value>
+        <value>1079000</value>
+        <value>1066000</value>
+        <value>1001000</value>
+        <value>949000</value>
+        <value>897000</value>
+        <value>832000</value>
+        <value>806000</value>
+        <value>741000</value>
+        <value>715000</value>
+        <value>650000</value>
+        <value>624000</value>
+        <value>598000</value>
+        <value>559000</value>
+        <value>481000</value>
+        <value>468000</value>
+        <value>416000</value>
+        <value>338000</value>
+        <value>325000</value>
+        <value>304200</value>
+        <value>221000</value>
+    </array>
+    <array name="cpu.active.cluster0">
+        <value>394</value>
+        <value>355</value>
+        <value>342</value>
+        <value>323</value>
+        <value>315</value>
+        <value>122</value>
+        <value>118</value>
+        <value>289</value>
+        <value>110</value>
+        <value>104</value>
+        <value>242</value>
+        <value>218</value>
+        <value>85</value>
+        <value>72</value>
+        <value>186</value>
+        <value>64</value>
+        <value>73</value>
+        <value>163</value>
+        <value>69</value>
+        <value>147</value>
+        <value>64</value>
+        <value>51</value>
+        <value>134</value>
+        <value>52</value>
+        <value>121</value>
+        <value>44</value>
+        <value>34</value>
+        <value>105</value>
+        <value>30</value>
+        <value>33</value>
+        <value>25</value>
+        <value>83</value>
+        <value>30</value>
+        <value>20</value>
+        <value>27</value>
+        <value>19</value>
+        <value>17</value>
+        <value>20</value>
+        <value>49</value>
+        <value>13</value>
+    </array>
+    <item name="cpu.idle">4.5</item>
+    <item name="battery.capacity">3000</item>
+    <array name="wifi.batchedscan">
+        <value>.2</value>
+        <value>2</value>
+        <value>20</value>
+        <value>200</value>
+        <value>500</value>
+    </array>
 </device>

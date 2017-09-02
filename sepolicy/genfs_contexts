@@ -10,4 +10,6 @@ genfscon proc /driver/icusb u:object_r:proc_icusb:s0
 
 genfscon iso9660 / u:object_r:iso9660:s0
 genfscon rawfs / u:object_r:rawfs:s0
+
+# xen0n: fix build
 #genfscon fuseblk / u:object_r:fuseblk:s0

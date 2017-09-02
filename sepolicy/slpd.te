@@ -11,6 +11,3 @@ net_domain(slpd)
 #allow slpd su:unix_dgram_socket sendto;
 allow slpd mtk_agpsd:unix_dgram_socket sendto;
 # allow slpd flpd:unix_dgram_socket sendto;
-
-# Nougat
-allow slpd rootfs:lnk_file { getattr };

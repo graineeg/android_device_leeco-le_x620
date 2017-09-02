@@ -1,0 +1,20 @@
+How to make a patches after changes in CM source code:
+
+Cd Working_dir (For example: Cd cm13/frameworks/base)
+git status
+git add .
+git commit -m "name of patch"
+git show HEAD > 0001_.patch
+
+How to launch the CM13 build:
+Download vendor and device from my git.
+Create dirs iman/victor and place them in working_dir/device and in working_dir/vendor
+After copy files from downloaded device in working_dir/device , and from downloaded vendor in working_dir/vendor
+Open terminal and write:
+cd Working_dir
+After apply patches:
+sh device/iman/victor/patches/install.sh
+Write:
+. build/envsetup.sh && breakfast victor
+brunch victor
+Wait of finish, for me ~2hr

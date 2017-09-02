@@ -36,14 +36,11 @@ allow msensord msensord_daemon2:file { read open };
 # Operation : Migration
 # Purpose : M-sensor daemon for property operation
 allow msensord ctl_msensord_prop:property_service set;
-unix_socket_connect(msensord, property, init)
-#set_prop(msensord, init)
+unix_socket_connect(msensord,property,init)
 
 allow msensord ctl_akmd8963_prop:property_service set;
 allow msensord ctl_akmd09911_prop:property_service set;
-#ly_zhangtao add for mag sensor start
-allow msensord ctl_mxg2320d_prop:property_service set;
-#ly_zhangtao add for mag sensor end
+allow msensord ctl_qmc6983d_prop:property_service set;
 allow msensord ctl_akmd09912_prop:property_service set;
 allow msensord ctl_bmm050d_prop:property_service set;
 allow msensord ctl_s62xd_prop:property_service set;
@@ -52,7 +49,3 @@ allow msensord ctl_geomagneticd_prop:property_service set;
 allow msensord ctl_orientationd_prop:property_service set;
 allow msensord ctl_istd8303_prop:property_service set;
 allow msensord ctl_st480_prop:property_service set;
-
-# Nougat
-allow msensord rootfs:lnk_file { getattr };
-

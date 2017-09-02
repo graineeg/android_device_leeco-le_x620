@@ -71,7 +71,6 @@ allow atci_service MTK_SMI_device:chr_file { open read write ioctl };
 allow atci_service system_server:binder call;
 allow atci_service system_data_file:dir { write remove_name add_name };
 #allow atci_service system_data_file:file { write create unlink open };
-allow atci_service DW9763AF_device:chr_file { read write ioctl open };
 allow atci_service DW9714AF_device:chr_file { read write ioctl open };
 allow atci_service devmap_device:chr_file { open read write ioctl };
 allow atci_service fuse:dir { search write read open add_name remove_name create getattr setattr };

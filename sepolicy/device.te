@@ -19,7 +19,6 @@ type mt6516_IDP_device, dev_type;
 type mt9p012_device, dev_type;
 type mt6516_jpeg_device, dev_type;
 type FM50AF_device, dev_type;
-type DW9763AF_device, dev_type;
 type DW9714AF_device, dev_type;
 type DW9814AF_device, dev_type;
 type AK7345AF_device, dev_type;
@@ -52,6 +51,10 @@ type hid_keyboard_device, dev_type;
 type btn_device, dev_type;
 type uinput_device, dev_type;
 type TV_out_device, dev_type;
+# Vanzo:yinjun on: Mon, 13 Apr 2015 16:38:07 +0800
+# add remoteir
+type remote_ctrl_dev_device, dev_type;
+# End of Vanzo: yinjun
 type camera_sysram_device, dev_type;
 type camera_isp_device, dev_type;
 type camera_fdvt_device, dev_type;
@@ -157,7 +160,6 @@ type otp_device, dev_type;
 type qemu_pipe_device, dev_type;
 type icusb_device, dev_type;
 type irtx_device, dev_type;
-type irrx_device, dev_type;
 type pmic_ftm_device, dev_type;
 type shf_device, dev_type;
 type keyblock_device, dev_type;
@@ -186,12 +188,6 @@ type persist_block_device, dev_type;
 type md_block_device, dev_type;
 type dsp_block_device, dev_type;
 type ppl_block_device, dev_type;
-type teei_fp_device, dev_type;
-type teei_client_device, dev_type;
-type teei_config_device, dev_type;
-type teei_vfs_device, dev_type;
-type teei_rpmb_device, dev_type;
-type tfa9890_device, dev_type;
 
 # Fingerprint device
 type esfp0_device, dev_type, mlstrustedobject;

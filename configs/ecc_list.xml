@@ -11,10 +11,16 @@
     -->
     <EccEntry Ecc="112" Category="0" Condition="1" />
     <EccEntry Ecc="911" Category="0" Condition="1" />
-    <EccEntry Ecc="000" Category="0" Condition="0" />
-    <EccEntry Ecc="08" Category="0" Condition="0" />
+    <EccEntry Ecc="000" Category="0" Condition="1" />
+    <EccEntry Ecc="08" Category="0" Condition="1" />
+    <!--LCSH MOD:huangchunyan 2016-04-05 START W_And00387226-->
     <EccEntry Ecc="110" Category="0" Condition="2" />
-    <EccEntry Ecc="118" Category="0" Condition="0" />
+    <EccEntry Ecc="118" Category="0" Condition="1" />
+     <EccEntry Ecc="120" Category="0" Condition="2" />
+    <EccEntry Ecc="994" Category="0" Condition="2" />
+    <EccEntry Ecc="113" Category="0" Condition="2" />
+        <!--LCSH MOD:huangchunyan 2016-04-05 END-->
     <EccEntry Ecc="119" Category="0" Condition="2" />
-    <EccEntry Ecc="999" Category="0" Condition="0" />
+    <EccEntry Ecc="122" Category="0" Condition="2" />
+    <EccEntry Ecc="999" Category="0" Condition="2" />
 </EccTable>

@@ -1,0 +1,70 @@
+deepflex@deepflex-all-series:~/cm13/device/iman/victor$ adb shell su -c "ls -l /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/"
+boot -> /dev/block/mmcblk0p20
+cache -> /dev/block/mmcblk0p27
+expdb -> /dev/block/mmcblk0p3
+flashinfo -> /dev/block/mmcblk0p29
+frp -> /dev/block/mmcblk0p4
+keystore -> /dev/block/mmcblk0p25
+lk -> /dev/block/mmcblk0p18
+lk2 -> /dev/block/mmcblk0p19
+logo -> /dev/block/mmcblk0p21
+md1arm7 -> /dev/block/mmcblk0p15
+md1dsp -> /dev/block/mmcblk0p14
+md1img -> /dev/block/mmcblk0p13
+md3img -> /dev/block/mmcblk0p16
+metadata -> /dev/block/mmcblk0p7
+nvdata -> /dev/block/mmcblk0p6
+nvram -> /dev/block/mmcblk0p17
+oemkeystore -> /dev/block/mmcblk0p11
+para -> /dev/block/mmcblk0p2
+ppl -> /dev/block/mmcblk0p5
+proinfo -> /dev/block/mmcblk0p12
+protect1 -> /dev/block/mmcblk0p8
+protect2 -> /dev/block/mmcblk0p9
+recovery -> /dev/block/mmcblk0p1
+seccfg -> /dev/block/mmcblk0p10
+secro -> /dev/block/mmcblk0p24
+system -> /dev/block/mmcblk0p26
+tee1 -> /dev/block/mmcblk0p22
+tee2 -> /dev/block/mmcblk0p23
+userdata -> /dev/block/mmcblk0p28
+
+deepflex@deepflex-all-series:~/cm13/device/iman/victor$ adb shell cat /proc/partitions
+major minor  #blocks  name
+
+   7        0       1254 loop0
+   7        1      32768 loop1
+ 254        0    1988236 zram0
+ 179        0   30535680 mmcblk0
+ 179        1      16384 mmcblk0p1
+ 179        2        512 mmcblk0p2
+ 179        3      10240 mmcblk0p3
+ 179        4       1024 mmcblk0p4
+ 179        5        256 mmcblk0p5
+ 179        6      32768 mmcblk0p6
+ 179        7      32768 mmcblk0p7
+ 179        8       8192 mmcblk0p8
+ 179        9      12512 mmcblk0p9
+ 179       10       8192 mmcblk0p10
+ 179       11       8192 mmcblk0p11
+ 179       12       3072 mmcblk0p12
+ 179       13      24576 mmcblk0p13
+ 179       14       4096 mmcblk0p14
+ 179       15       3072 mmcblk0p15
+ 179       16       5120 mmcblk0p16
+ 179       17       5120 mmcblk0p17
+ 179       18       1024 mmcblk0p18
+ 179       19       1024 mmcblk0p19
+ 179       20      16384 mmcblk0p20
+ 179       21       8192 mmcblk0p21
+ 179       22       5120 mmcblk0p22
+ 179       23       5120 mmcblk0p23
+ 179       24       6144 mmcblk0p24
+ 179       25      10240 mmcblk0p25
+ 179       26    2621440 mmcblk0p26
+ 179       27     442368 mmcblk0p27
+ 179       28   27226095 mmcblk0p28
+ 179       29      16384 mmcblk0p29
+ 179       96       4096 mmcblk0rpmb
+ 179       64       4096 mmcblk0boot1
+ 179       32       4096 mmcblk0boot0

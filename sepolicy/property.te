@@ -6,8 +6,8 @@ type mtk_default_prop, property_type;
 # Date: W14.32
 # Operation: Migration
 # Purpose: don't allow to use default_prop
-neverallow { domain -init -nvram_daemon } default_prop:property_service set;
-neverallow { domain -init -system_app -system_server -recovery } ctl_default_prop:property_service set;
+neverallow { domain -init } default_prop:property_service set;
+neverallow { domain -init -system_server -recovery } ctl_default_prop:property_service set;
 
 #=============allow ccci_mdinit to start gsm0710muxd==============
 type ctl_gsm0710muxd_prop, property_type;
@@ -129,9 +129,7 @@ type ctl_msensord_prop, property_type;
 type ctl_akmd8963_prop, property_type;
 type ctl_s62xd_prop, property_type;
 type ctl_akmd09911_prop, property_type;
-#ly_zhangtao add for mag sensor start
-type ctl_mxg2320d_prop, property_type;
-#ly_zhangtao add for mag sensor end
+type ctl_qmc6983d_prop, property_type;
 type ctl_akmd09912_prop, property_type;
 type ctl_bmm050d_prop, property_type;
 type ctl_bmm056d_prop, property_type;
@@ -168,12 +166,6 @@ type program_binary_prop, property_type;
 #=============allow radio to set mtk_volte_enable property==============
 type mtk_volte_prop, property_type;
 
-#=============allow radio to set mtk_wfc_enable property==============
-type mtk_wfc_prop, property_type;
-
-#=============allow radio to set mtk_vt_enable property==============
-type mtk_vt_prop, property_type;
-
 #=============allow mtkmal to start volte==============
 type ctl_volte_imcb_prop, property_type;
 type ctl_volte_stack_prop, property_type;
@@ -182,13 +174,3 @@ type volte_prop, property_type;
 
 #=============allow hotknot deamon  ==============
 type hotknot_prop, property_type;
-
-#=============allow teei deamon and init_thh daemon to set property ==============
-type soter_teei_prop, property_type;
-
-#============= allow em set property ===============
-type mtk_em_auto_answer_prop, property_type;
-
-#=============allow smart audio pa set property ==============
-type smart_audio_prop, property_type;
-

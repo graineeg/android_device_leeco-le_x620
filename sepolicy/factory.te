@@ -29,7 +29,6 @@ file_type_auto_trans(factory, system_data_file, factory_data_file)
 #============= factory ==============
 allow factory FM50AF_device:chr_file { read write ioctl open };
 allow factory AD5820AF_device:chr_file { read write ioctl open };
-allow factory DW9763AF_device:chr_file { read write ioctl open };
 allow factory DW9714AF_device:chr_file { read write ioctl open };
 allow factory DW9714A_device:chr_file { read write ioctl open };
 allow factory LC898122AF_device:chr_file { read write ioctl open };
@@ -132,8 +131,6 @@ allow factory irtx_device:chr_file { read write ioctl open };
 allow factory devpts:chr_file { read write getattr ioctl };
 allow factory vfat:dir search;
 allow factory hrm_device:chr_file { read ioctl open };
-allow factory storage_file:lnk_file { open read write };
-allow factory mnt_user_file:lnk_file { open read write };
 
 # Date: WK14.47
 # Operation : Migration
@@ -166,11 +163,4 @@ allow factory storage_file:dir { write create add_name search mounton };
 allow factory factory_data_file:file { write create unlink open };
 allow factory shell_exec:file { read open };
 allow resize block_device:dir search;
-allow factory tfa9890_device:chr_file { open read write ioctl };
-allow factory shell_exec:file { read open execute execute_no_trans };
-allow factory mnt_user_file:dir { write create add_name search mounton };
-#Date: WK16.05
-#Purpose: For access NVRAM
-allow factory factory:capability chown;
-
 

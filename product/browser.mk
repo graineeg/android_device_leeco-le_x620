@@ -1,3 +1,3 @@
 # Browser
 PRODUCT_PACKAGES += \
-    Jelly
+    Gello

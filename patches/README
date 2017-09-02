@@ -1,5 +1,5 @@
 This is patch directory
 
 cd WORKING_DIR
-sh device/lenovo/A7010a48/patches/install.sh
-sh device/lenovo/A7010a48/patches/uninstall.sh
+sh device/iman/victor/patches/install.sh
+sh device/iman/victor/patches/uninstall.sh

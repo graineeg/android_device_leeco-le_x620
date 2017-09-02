@@ -15,8 +15,8 @@ init_daemon_domain(guiext-server)
 # for bqdump and conversion pool
 binder_service(guiext-server)
 binder_use(guiext-server)
-#binder_call({domain -init}, guiext-server)
-#binder_call(guiext-server, {domain -init})
+binder_call({domain -init}, guiext-server)
+binder_call(guiext-server, {domain -init})
 
 # to allocate GraphicBuffer
 allow guiext-server surfaceflinger:binder call;
@@ -50,8 +50,3 @@ allow guiext-server permission_service:service_manager find;
 
 # allow guiext-server to read/write fifo
 allow guiext-server surfaceflinger:fifo_file {read write};
-
-# Nougat
-allow guiext-server rootfs:lnk_file { getattr };
-allow guiext-server ion_device:chr_file { open read write ioctl };
-

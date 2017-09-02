@@ -55,7 +55,6 @@ allow meta_tst ttyGS_device:chr_file { read write ioctl open };
 allow meta_tst wmtWifi_device:chr_file { write open };
 allow meta_tst FM50AF_device:chr_file { read write ioctl open };
 allow meta_tst AD5820AF_device:chr_file { read write ioctl open };
-allow meta_tst DW9763AF_device:chr_file { read write ioctl open };
 allow meta_tst DW9714AF_device:chr_file { read write ioctl open };
 allow meta_tst DW9714A_device:chr_file { read write ioctl open };
 allow meta_tst LC898122AF_device:chr_file { read write ioctl open };
@@ -150,7 +149,7 @@ allow meta_tst ttyACM_device:chr_file { read write ioctl open };
 # Purpose : FT_EMMC_OP_FORMAT_TCARD
 allow meta_tst block_device:blk_file getattr;
 allow meta_tst system_block_device:blk_file getattr;
-#allow meta_tst fuse_device:chr_file getattr;
+allow meta_tst fuse_device:chr_file getattr;
 allow meta_tst shell_exec:file { read open };
 
 # Date: WK15.52
@@ -178,6 +177,4 @@ allow meta_tst mnt_user_file:lnk_file read;
 allow meta_tst storage_file:lnk_file read;
 allow meta_tst fuse:file read;
 
-# Date: WK16.02
-# Purpose : for clear nand data
-allow meta_tst mtd_device:chr_file ioctl;
+

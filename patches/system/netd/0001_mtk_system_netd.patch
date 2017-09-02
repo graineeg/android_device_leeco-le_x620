@@ -1,0 +1,38 @@
+commit 71696b4b1acac576c8adcd0b68631e51b211a61e
+Author: leskal <alexakis1997@gmail.com>
+Date:   Sun Mar 19 16:54:02 2017 +0200
+
+    Fix tether for ap0 interface
+    
+    Change-Id: I69d212adfb549654d11d96eb105e57d5bbd9e8d2
+
+diff --git a/server/SoftapController.cpp b/server/SoftapController.cpp
+index b05118e..882ebaa 100755
+--- a/server/SoftapController.cpp
++++ b/server/SoftapController.cpp
+@@ -54,7 +54,11 @@ using android::base::WriteStringToFile;
+ #endif
+ 
+ #ifdef LIBWPA_CLIENT_EXISTS
++#ifndef MTK_HARDWARE
+ static const char HOSTAPD_UNIX_FILE[]    = "/data/misc/wifi/hostapd/wlan0";
++#else
++static const char HOSTAPD_UNIX_FILE[]    = "/data/misc/wifi/hostapd/ap0";
++#endif
+ static const char HOSTAPD_SOCKETS_DIR[]    = "/data/misc/wifi/sockets";
+ static const char HOSTAPD_DHCP_DIR[]    = "/data/misc/dhcp";
+ #endif
+@@ -277,7 +281,12 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
+             "hw_mode=%c\n"
+             "ignore_broadcast_ssid=%d\n"
+             "wowlan_triggers=any\n",
+-            argv[2], argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
++#ifndef MTK_HARDWARE
++            argv[2]
++#else
++            "ap0"
++#endif
++                , argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
+ 
+     std::string fbuf;
+     if (argc > 7) {

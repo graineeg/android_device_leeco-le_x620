@@ -22,8 +22,3 @@ allow bluetooth platform_app_tmpfs:file write;
 # Operation : Migration
 # Purpose: Allow bluetooth to access surfaceflinger
 allow bluetooth surfaceflinger:fifo_file { read write };
-
-# Date: 2015/9/23
-# Operation: Program binary service
-# Purpose : Add permission for program binary service find from ServiceManager.
-allow bluetooth program_binary_service:service_manager find;
