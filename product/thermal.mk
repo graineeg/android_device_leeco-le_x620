@@ -7,4 +7,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal/.thermal_policy_01:system/etc/.tp/.thermal_policy_01 \
     $(LOCAL_PATH)/configs/thermal/.thermal_policy_02:system/etc/.tp/.thermal_policy_02 \
     $(LOCAL_PATH)/configs/thermal/.thermal_policy_03:system/etc/.tp/.thermal_policy_03 \
-	$(LOCAL_PATH)/configs/thermal/.thermal_policy_game_01:system/etc/.tp/.thermal_policy_game_01
+    $(LOCAL_PATH)/configs/thermal/.thermal_policy_game_01:system/etc/.tp/.thermal_policy_game_01
