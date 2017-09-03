@@ -1,3 +1,3 @@
 #Build Twrp-recovery
 
-RECOVERY_VARIANT := twrp
+#RECOVERY_VARIANT := twrp
