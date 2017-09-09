@@ -1,5 +1,5 @@
 # CM hardware
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
+#BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
 
 # MTK Hardware
 BOARD_HAS_MTK_HARDWARE := true

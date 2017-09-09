@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,62 +18,65 @@ package org.cyanogenmod.hardware;
 
 import org.cyanogenmod.internal.util.FileUtils;
 
-/* 
- * Vibrator intensity adjustment
- *
- * Exports methods to get the valid value boundaries, the
- * default and current intensities, and a method to set
- * the vibrator.
- *
- * Values exported by min/max can be the direct values required
- * by the hardware, or a local (to VibratorHW) abstraction that's
- * internally converted to something else prior to actual use. The
- * Settings user interface will normalize these into a 0-100 (percentage)
- * scale before showing them to the user, but all values passed to/from
- * the client (Settings) are in this class' scale.
- */
+import android.util.Log;
 
-/* This would be just "Vibrator", but it conflicts with android.os.Vibrator */
 public class VibratorHW {
 
-    // Keep this synced to immvibe impl
-    private static final String INTENSITY_FILE = "/data/.libimmvibeclient_force";
+    private static final String TAG = "VibratorHW";
+
+    private static final String DEFAULT_PATH = "/sys/class/timed_output/vibrator/vtg_default";
+    private static final String LEVEL_PATH = "/sys/class/timed_output/vibrator/vtg_level";
+    private static final String MAX_PATH = "/sys/class/timed_output/vibrator/vtg_max";
+    private static final String MIN_PATH = "/sys/class/timed_output/vibrator/vtg_min";
 
     public static boolean isSupported() {
-        return true;
+        return FileUtils.isFileWritable(LEVEL_PATH) &&
+                FileUtils.isFileReadable(DEFAULT_PATH) &&
+                FileUtils.isFileReadable(MAX_PATH) &&
+                FileUtils.isFileReadable(MIN_PATH);
     }
 
-    public static boolean setIntensity(int intensity)  {
-        return FileUtils.writeLine(INTENSITY_FILE, Integer.toString(intensity));
-    }
-
-    public static int getMaxIntensity()  {
-        return 127;
-    }
-
-    public static int getMinIntensity()  {
-        return 3;
-    }
-
-    public static int getWarningThreshold()  {
-        // actually this is rather arbitrary
-        return 115;
-    }
-
-    public static int getCurIntensity()  {
-        final String result = FileUtils.readOneLine(INTENSITY_FILE);
-        if (result == null) {
-            return 96;
-        }
-
+    public static int getMaxIntensity() {
         try {
-            return Integer.parseInt(result.trim());
-        } catch (final NumberFormatException ignored) {
-            return 96;
+            return Integer.parseInt(FileUtils.readOneLine(MAX_PATH));
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage(), e);
         }
+        return -1;
     }
 
-    public static int getDefaultIntensity()  {
-        return 96;
+    public static int getMinIntensity() {
+        try {
+            return Integer.parseInt(FileUtils.readOneLine(MIN_PATH));
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage(), e);
+        }
+        return -1;
+    }
+
+    public static int getWarningThreshold() {
+        return -1;
+    }
+
+    public static int getCurIntensity() {
+        try {
+            return Integer.parseInt(FileUtils.readOneLine(LEVEL_PATH));
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage(), e);
+        }
+        return -1;
+    }
+
+    public static int getDefaultIntensity() {
+        try {
+            return Integer.parseInt(FileUtils.readOneLine(DEFAULT_PATH));
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage(), e);
+        }
+        return -1;
+    }
+
+    public static boolean setIntensity(int intensity) {
+        return FileUtils.writeLine(LEVEL_PATH, String.valueOf(intensity));
     }
 }

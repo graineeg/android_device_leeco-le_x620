@@ -47,14 +47,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.modem.rc:root/init.modem.rc \
     $(LOCAL_PATH)/rootdir/init.mt6797.rc:root/init.mt6797.rc \
     $(LOCAL_PATH)/rootdir/init.mt6797.usb.rc:root/init.mt6797.usb.rc \
-    $(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/rootdir/init.recovery.mt6797.rc:root/init.recovery.mt6797.rc \
     $(LOCAL_PATH)/rootdir/meta_init.modem.rc:root/meta_init.modem.rc \
     $(LOCAL_PATH)/rootdir/meta_init.project.rc:root/meta_init.project.rc \
     $(LOCAL_PATH)/rootdir/meta_init.rc:root/meta_init.rc \
     $(LOCAL_PATH)/rootdir/ueventd.mt6797.rc:root/ueventd.mt6797.rc \
     $(LOCAL_PATH)/rootdir/init.mal.rc:root/init.mal.rc \
-    $(LOCAL_PATH)/rootdir/init.aee.rc:root/init.aee.rc \
     $(LOCAL_PATH)/rootdir/init.trustonic.rc:root/init.trustonic.rc \
     $(LOCAL_PATH)/rootdir/init.volte.rc:root/init.volte.rc
 	

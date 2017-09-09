@@ -18,8 +18,9 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <!-- Minimum screen brightness setting allowed by the power manager.
-         The user is forbidden from setting the brightness below this level. -->
+        The user is forbidden from setting the brightness below this level. -->
     <integer name="config_screenBrightnessSettingMinimum">3</integer>
 
     <!-- Screen brightness used to dim the screen when the user activity
@@ -46,15 +47,23 @@
     <integer name="config_notificationsBatteryFullARGB">0xff00ff00</integer>
 
     <integer-array name="config_autoBrightnessLevels">
-        <item>1</item>
-        <item>4</item>
-        <item>40</item>
-        <item>350</item>
-        <item>600</item>
-        <item>1000</item>
-        <item>1600</item>
-        <item>3000</item>
-        <item>10000</item>
+        <item>128</item>
+        <item>256</item>
+        <item>384</item>
+        <item>512</item>
+        <item>640</item>
+        <item>768</item>
+        <item>896</item>
+        <item>1024</item>
+        <item>2048</item>
+        <item>4096</item>
+        <item>6144</item>
+        <item>8192</item>
+        <item>10240</item>
+        <item>12288</item>
+        <item>14336</item>
+        <item>16384</item>
+        <item>18432</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -63,15 +72,23 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>38</item>
-        <item>49</item>
-        <item>75</item>
-        <item>85</item>
-        <item>113</item>
-        <item>139</item>
-        <item>171</item>
-        <item>210</item>
-        <item>254</item>
+        <item>8</item>
+        <item>64</item>
+        <item>98</item>
+        <item>104</item>
+        <item>110</item>
+        <item>116</item>
+        <item>122</item>
+        <item>128</item>
+        <item>134</item>
+        <item>182</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
         <item>255</item>
     </integer-array>
 
@@ -81,7 +98,7 @@
 	<!-- Screen brightness used to dim the screen while dozing in a very low power state.
           May be less than the minimum allowed brightness setting
           that can be set by the user. -->
-    <integer name="config_screenBrightnessDoze">10</integer>
+    <integer name="config_screenBrightnessDoze">5</integer>
 
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -95,21 +112,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">65</integer>
-
-    <!-- Hardware keys present on the device, stored as a bit field.
-         This integer should equal the sum of the corresponding value for each
-         of the following keys present:
-             1 - Home
-             2 - Back
-             4 - Menu
-             8 - Assistant (search)
-            16 - App switch
-            32 - Camera
-            64 - Volume rocker
-         For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">64</integer>
+    <integer name="config_deviceHardwareKeys">71</integer>
 
     <!-- Control the behavior when the user long presses the home button.
             0 - Nothing
@@ -118,10 +121,14 @@
             3 - Launch assist intent
             4 - Voice Search
             5 - In-app Search
+            6 - Launch camera
+            7 - Sleep
+            8 - Last app
+            9 - Toggle split screen
          This needs to match the constants in
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
     -->
-    <integer name="config_longPressOnHomeBehavior">0</integer>
+    <integer name="config_longPressOnHomeBehavior">2</integer>
     
     <!-- Enable the electron beam -->
     <bool name="config_animateScreenLights">true</bool>
@@ -143,25 +150,28 @@
          does not require auto-restore. -->
     <!-- the 6th element indicates boot-time dependency-met value. -->
     <string-array translatable="false" name="networkAttributes">
-        <item>"wifi,1,1,1,-1,true"</item>
-        <item>"mobile,0,0,0,-1,true"</item>
-        <item>"mobile_mms,2,0,2,60000,true"</item>
-        <item>"mobile_supl,3,0,2,60000,true"</item>
-        <item>"mobile_dun,4,0,2,60000,true"</item>
-        <item>"mobile_hipri,5,0,3,60000,true"</item>
-        <item>"mobile_fota,10,0,2,60000,true"</item>
-        <item>"mobile_ims,11,0,2,60000,true"</item>
-        <item>"mobile_cbs,12,0,2,60000,true"</item>
-        <item>"wifi_p2p,13,1,0,-1,true"</item>
-        <item>"bluetooth,7,7,2,-1,true"</item>
+        <item>wifi,1,1,1,-1,true</item>
+        <item>mobile,0,0,0,-1,true</item>
+        <item>mobile_mms,2,0,2,60000,true</item>
+        <item>mobile_supl,3,0,2,60000,true</item>
+        <item>mobile_dun,4,0,3,60000,true</item>
+        <item>mobile_hipri,5,0,3,60000,true</item>
+        <item>mobile_fota,10,0,2,60000,true</item>
+        <item>mobile_ims,11,0,2,60000,true</item>
+        <item>mobile_cbs,12,0,2,60000,true</item>
+        <item>wifi_p2p,13,1,0,-1,true</item>
+        <item>bluetooth,7,7,2,-1,true</item>
+        <item>ethernet,9,9,1,-1,true</item>
+        <item>usb,40,40,3,-1,true</item>
+        <item>mobile_emergency,15,0,2,-1,true</item>
     </string-array>
 
     <string-array translatable="false" name="radioAttributes">
         <item>1,1</item>
         <item>0,1</item>
         <item>7,1</item>
+        <item>9,1</item>
         <item>40,1</item>
-        <item>41,1</item>
     </string-array>
 
     <string-array name="config_tether_usb_regexs">
@@ -177,6 +187,15 @@
         <item>bt-dun</item>
     </string-array>
 
+    <!-- Array of allowable ConnectivityManager network types for tethering -->
+    <integer-array name="config_tether_upstream_types">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>7</item>
+        <item>9</item>
+    </integer-array>
+
     <bool name="config_wifi_background_scan_support">false</bool>
 
     <!-- Wifi DualBand -->
@@ -185,7 +204,7 @@
     <bool name="config_automatic_brightness_available">true</bool>
 
     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
-    <bool name="config_cellBroadcastAppLinks">false</bool>
+    <bool name="config_cellBroadcastAppLinks">true</bool>
 
     <!-- Whether safe headphone volume is enabled or not (country specific). -->
     <bool name="config_safe_media_volume_enabled">true</bool>
@@ -218,9 +237,4 @@
 
     <!-- Control whether Night display is available. -->
     <bool name="config_nightDisplayAvailable">true</bool>
-	
-	<!-- Indicate whether closing the lid causes the device to go to sleep and opening
-         it causes the device to wake up.
-         The default is false. -->
-    <bool name="config_lidControlsSleep">true</bool>
 </resources>
