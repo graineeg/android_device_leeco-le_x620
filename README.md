@@ -35,10 +35,9 @@
    
    # Known Issue:-
    * Camera
-   * Fingerprint scanner
-   * GPS
    * Torch
-   * Wifi auto-connect
+   * Wifi tethering
+   * Battery draining
    
    # Credits:-
    * Verevka
