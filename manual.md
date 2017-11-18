@@ -12,9 +12,9 @@
 | 1.Init source       | repo init -u git://github.com/LineageOS/android.git -b cm-14.1                                                       |
 |                     |                                                                                                                      |
 | 2.                  | repo sync                                                                                                            |
-| 3.Init device files | git clone https://github.com/graineeg/android_device_leeco-le_x620-lineage-14.1.git -b cm-14.1 device/leeco/le_x620  |
-|                     | git clone https://github.com/graineeg/android_vendor_leeco-le_x620-lineage-14.1.git -b cm-14.1 vendor/leeco/le_x620  |
-|                     | git clone https://github.com/graineeg/android_hardware_leeco-le_x620-lineage-14.1.git -b cm-14.1 hardware/leeco      |
+| 3.Init device files | git clone https://github.com/graineeg/android_device_leeco-le.git -b cm-14.1 device/leeco/le_x620                    |
+|                     | git clone https://github.com/graineeg/android_vendor_leeco-le_x620.git -b cm-14.1 vendor/leeco/le_x620  |
+|                     | git clone https://github.com/graineeg/android_hardware_leeco-le_x620.git -b cm-14.1 hardware/leeco      |
 |                     |                                                                                                                      |
 | 4.Apply patches     | cd device/leeco/le_x620/patches                                                                                      |
 |                     | . patch.sh                                                                                                           |
