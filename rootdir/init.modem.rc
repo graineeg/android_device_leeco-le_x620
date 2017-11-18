@@ -45,13 +45,6 @@ service gsm0710muxd /system/bin/gsm0710muxd -s /dev/ttyC0 -f 512 -n 8 -m basic
     group radio cache inet misc
     disabled
     oneshot
-
-service gsm0710muxdmd2 /system/bin/gsm0710muxdmd2 -s /dev/ccci2_tty0 -f 512 -n 8 -m basic
-    class core
-    user root
-    group radio cache inet misc
-    disabled
-    oneshot
     
 service muxreport-daemon /system/bin/muxreport
     class core
@@ -79,25 +72,6 @@ service ril-daemon-mtk /system/bin/mtkrild
     socket rild-mbim stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket sap_uim_socket2 stream 660 bluetooth bluetooth
-    user root
-    group radio cache inet misc audio sdcard_r sdcard_rw log system
-    disabled
-    oneshot
-
-service ril-daemon-mtkmd2 /system/bin/mtkrildmd2
-    class core
-    socket rild-md2 stream 660 root radio
-    socket rild2-md2 stream 660 root radio
-    socket rild-debug-md2 stream 660 radio system
-    socket rild-oem-md2 stream 660 radio system
-    socket rild-mtk-ut-md2 stream 660 radio net_bt
-    socket rild-mtk-ut-2-md2 stream 660 radio net_bt
-    socket rild-mtk-modem-md2 stream 660 radio system
-    socket rild-atci-md2 stream 660 root radio
-    socket rild-vsim-md2 stream 660 root radio
-    socket rild-mal-md2 stream 660 radio system
-    socket rild-vsim-md2 stream 660 root radio
-    socket rild-mbim-md2 stream 660 root radio
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log system
     disabled

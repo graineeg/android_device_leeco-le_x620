@@ -29,3 +29,6 @@ allow teei_daemon teei_rpmb_device:chr_file rw_file_perms;
 
 # for debug only
 allow teei_daemon kmsg_device:chr_file {open write};
+
+#define for mlsconstrain
+typeattribute teei_client_device mlstrustedobject;

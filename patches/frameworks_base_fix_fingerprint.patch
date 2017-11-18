@@ -1,0 +1,27 @@
+commit 28dbe00f4df2219c3c0ade6eab8a413e7a9d2216
+Author: graineeg <graineeg@gmail.com>
+Date:   Sun Nov 12 01:00:46 2017 +0100
+
+    frameworks_base_fix_fingerprint
+    
+    Change-Id: If0d2b6584bfa15386e741a8391c0e13403655947
+
+diff --git a/services/core/java/com/android/server/pm/PackageManagerService.java b/services/core/java/com/android/server/pm/PackageManagerService.java
+index 1505cc0a63b..7ee32757867 100644
+--- a/services/core/java/com/android/server/pm/PackageManagerService.java
++++ b/services/core/java/com/android/server/pm/PackageManagerService.java
+@@ -20026,10 +20026,13 @@ Slog.v(TAG, ":: stepped forward, applying functor at tag " + parser.getName());
+                 assertPackageKnown(volumeUuid, pkg.packageName);
+ 
+             } catch (PackageParserException | PackageManagerException e) {
++		if (file.getAbsolutePath().equals("/data/app/mcRegistry")) {
++		logCriticalInfo(Log.WARN, "[Decker] We keep " + file.getAbsolutePath() + " due to store fingerprints.");
++		} else {
+                 logCriticalInfo(Log.WARN, "Destroying " + file + " due to: " + e);
+                 synchronized (mInstallLock) {
+                     removeCodePathLI(file);
+-                }
++                }}
+             }
+         }
+     }

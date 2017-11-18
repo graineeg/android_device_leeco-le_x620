@@ -229,6 +229,16 @@ allow system_server zygote:unix_stream_socket { getopt getattr };
 unix_socket_connect(system_server, wod_action, epdg_wod)
 unix_socket_connect(system_server, wod_sim, epdg_wod)
 
+# Date: WK15.29
+# Operation : Feature developing
+# Purpose : for debug MPE and socket connection
+allow system_server MPED_data_file:sock_file create_file_perms;
+allow system_server MPED_data_file:sock_file rw_file_perms;
+allow system_server MPED_data_file:dir create_file_perms;
+allow system_server MPED_data_file:dir rw_dir_perms;
+allow system_server MPED:unix_dgram_socket sendto;
+allow system_server MPED:binder { transfer call };
+allow system_server MPED:unix_stream_socket { getopt getattr };
 
 # Date : WK15.30
 # Operation : Migration
@@ -260,16 +270,40 @@ allow system_server nvram_agent_service:service_manager find;
 allow system_server teei_fp_device:chr_file rw_file_perms;
 allow system_server teei_client_device:chr_file r_file_perms;
 
+# Purpose : # Date : WK15.42
+# Operation : Migration
+# Purpose : RGX 1.5 DDK requires client to have fifo R/W and sync_device permission
+allow system_server surfaceflinger:fifo_file rw_file_perms;
+allow system_server sw_sync_device:chr_file { read write getattr open ioctl };
+
+# Date : WK15.44
+# Operation : Bug Fix
+# Purpose : Allow LocationManagerService connect to agpsd socket
+allow system_server mtk_agpsd:unix_stream_socket connectto;
+
 # Date : 2015/10/27
 # Operation : Feature Developing
 # Purpose : allow system_server to find mw_blacklist
 # Package: com.mediatek.multiwindow.service
 allow system_server mtk_mwblacklist_service:service_manager find;
 
-# ET310 etsd
+# Date : WK15.47
+# Operation : Feature developing
+# Purpose : For mtkFlpDaemon debug and socket connection
+allow system_server mtkFlpDaemon:unix_dgram_socket sendto;
+allow system_server mtkFlpDaemon:unix_stream_socket { getopt getattr connectto };
+allow system_server mtkFlpDaemon_data_file:sock_file create_file_perms;
+allow system_server mtkFlpDaemon_data_file:sock_file rw_file_perms;
+allow system_server mtkFlpDaemon_data_file:dir create_file_perms;
+allow system_server mtkFlpDaemon_data_file:dir rw_dir_perms;
+
+# ET320 etsd
 binder_call(system_server,etsd)
 allow system_server etsd_service:service_manager find;
 allow fingerprintd etsd_service:service_manager find;
+
+#Persist
+allow system_server protect_s_data_file:dir r_dir_perms;
 
 # Nougat
 allow system_server debugfs:dir { read open };

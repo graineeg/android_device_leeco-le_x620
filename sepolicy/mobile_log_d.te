@@ -44,7 +44,7 @@ allow mobile_log_d sysfs_md32:dir search;
 allow mobile_log_d md32_device:chr_file { read open };
 
 #scp
-allow mobile_log_d sysfs_scp:file write;
+allow mobile_log_d sysfs_scp:file { open write };
 allow mobile_log_d scp_device:chr_file { read open };
 
 #debug.MB.running
@@ -88,9 +88,12 @@ allow mobile_log_d storage_file:lnk_file create_file_perms;
 allow mobile_log_d mnt_user_file:dir create_dir_perms;
 allow mobile_log_d mnt_user_file:lnk_file create_file_perms;
 
+#chiptest mode storage access
+allow mobile_log_d mnt_media_rw_file:dir create_dir_perms;
+allow mobile_log_d mnt_media_rw_file:lnk_file create_file_perms;
+
 # Nougat
 allow mobile_log_d toolbox_exec:file { r_file_perms execute execute_no_trans };
 allow mobile_log_d rootfs:file r_file_perms;
 allow mobile_log_d sysfs:file { write read open };
 allow mobile_log_d rootfs:lnk_file { getattr };
-

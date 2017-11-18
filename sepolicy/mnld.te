@@ -7,6 +7,9 @@ init_daemon_domain(mnld)
 net_domain(mnld)
 allow mnld agpsd_data_file:dir create_dir_perms;
 allow mnld agpsd_data_file:sock_file create_file_perms;
+allow mnld MPED_data_file:dir create_dir_perms;
+allow mnld MPED_data_file:sock_file create_file_perms;
+allow mnld MPED:unix_dgram_socket sendto;
 allow mnld mtk_agpsd:unix_dgram_socket sendto;
 allow mnld sysfs:file rw_file_perms;
 allow mnld sysfs_wake_lock:file rw_file_perms;
@@ -65,7 +68,18 @@ allow mnld gps_data_file:file create_file_perms;
 # Purpose : for device bring up, not to block early migration/sanity
 allow mnld proc_lk_env:file rw_file_perms;
 
+# Date : WK15.34
+# Operation : Feature Developing
+# Purpose : Add permission for mnld fifo file
+allow mnld mnld_data_file:fifo_file create_file_perms;
+
+# Date : WK15.47
+# Operation : Feature Developing
+# Purpose : For mtkFlpDaemon
+allow mnld mtkFlpDaemon:unix_dgram_socket sendto;
+allow mnld mtkFlpDaemon_data_file:dir create_dir_perms;
+allow mnld mtkFlpDaemon_data_file:sock_file create_file_perms;
+
 # Nougat
 allow mnld wmt_prop:file r_file_perms;
 allow mnld rootfs:lnk_file { getattr };
-

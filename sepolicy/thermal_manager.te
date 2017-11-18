@@ -49,4 +49,3 @@ allow thermal_manager thermal_manager_data_file:dir { search getattr open read w
 
 # Nougat
 allow thermal_manager rootfs:lnk_file { getattr };
-

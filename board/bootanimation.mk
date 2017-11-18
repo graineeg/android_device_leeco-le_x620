@@ -1,2 +1,0 @@
-# Boot animation
-TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true

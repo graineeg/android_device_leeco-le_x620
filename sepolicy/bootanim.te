@@ -48,4 +48,10 @@ allow bootanim qemu_pipe_device:chr_file rw_file_perms;
 allow bootanim mediaserver_service:service_manager find;
 
 allow bootanim terservice_service:service_manager find;
+
+# Date : WK15.42
+# Operation : Migration
+# Purpose : RGX 1.5 DDK requires client to have fifo permission
+allow bootanim surfaceflinger:fifo_file rw_file_perms;
+
 allow bootanim rootfs:lnk_file { getattr };

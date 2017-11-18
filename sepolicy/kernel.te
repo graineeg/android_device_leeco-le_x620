@@ -54,3 +54,7 @@ allow kernel nvram_data_file:lnk_file read;
 # Purpose : grant proc_thermal for dir search
 allow kernel proc_thermal:dir search;
 
+allow kernel vtservice:system module_request;
+allow kernel gsm0710muxd:system module_request;
+#allow kernel priv-app:system module_request;
+

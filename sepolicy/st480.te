@@ -30,7 +30,9 @@ allow st480 input_device:dir { search open read write };
 allow st480 input_device:file { open read };
 allow st480 input_device:chr_file { open ioctl read write };
 # Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
+file_type_auto_trans(st480, system_data_file, msensor_data_file)
+allow st480 msensor_data_file:file { open write read create setattr};
 allow st480 system_data_file:dir { write add_name create setattr };
 #allow st480 system_data_file:file { open write read create setattr};
 allow st480 system_data_file:dir remove_name;
-
+allow st480 st480_access_file1:file { open read write };

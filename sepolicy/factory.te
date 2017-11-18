@@ -70,6 +70,8 @@ allow factory kernel:system module_request;
 allow factory misc_sd_device:chr_file { read ioctl open };
 allow factory mnld_device:chr_file { read write ioctl open };
 allow factory mnld_exec:file { read execute open execute_no_trans };
+allow factory MPED_exec:file { read execute open execute_no_trans };
+allow factory mtkFlpDaemon_exec:file { read execute open execute_no_trans };
 allow factory msensor_device:chr_file { read ioctl open };
 allow factory mt6605_device:chr_file { read write ioctl open getattr };
 allow factory node:tcp_socket node_bind;
@@ -107,6 +109,8 @@ allow factory nvram_data_file:file { create_file_perms };
 allow factory nvram_data_file:lnk_file read;
 allow factory nvdata_file:dir { create_dir_perms };
 allow factory nvdata_file:file { create_file_perms };
+allow factory cct_data_file:dir { create_dir_perms };
+allow factory cct_data_file:file { create_file_perms };
 allow factory self:capability { sys_nice sys_time };
 allow factory system_data_file:dir { write add_name };
 allow factory rootfs:dir mounton;
@@ -133,7 +137,6 @@ allow factory devpts:chr_file { read write getattr ioctl };
 allow factory vfat:dir search;
 allow factory hrm_device:chr_file { read ioctl open };
 allow factory storage_file:lnk_file { open read write };
-allow factory mnt_user_file:lnk_file { open read write };
 
 # Date: WK14.47
 # Operation : Migration
@@ -158,6 +161,10 @@ allow factory mtd_device:chr_file rw_file_perms;
 allow factory self:capability sys_resource;
 allow factory pro_info_device:chr_file { read write ioctl open};
 
+# Data: WK15.28
+# Purpose: for mt-ramdump reset
+allow factory proc_mrdump_rst:file w_file_perms;
+
 #Date: WK15.31
 #Purpose: define factory_data_file instead of system_data_file
 # because system_data_file is sensitive partition from M
@@ -169,8 +176,24 @@ allow resize block_device:dir search;
 allow factory tfa9890_device:chr_file { open read write ioctl };
 allow factory shell_exec:file { read open execute execute_no_trans };
 allow factory mnt_user_file:dir { write create add_name search mounton };
+
 #Date: WK16.05
 #Purpose: For access NVRAM
 allow factory factory:capability chown;
 
+# Date: WK15.44
+# Purpose: factory idle current status
+allow factory factory_idle_state_prop:property_service set;
 
+# Date: WK15.46
+# Purpose: gps factory mode
+allow factory agpsd_data_file:dir search;
+allow factory apk_data_file:dir write;
+allow factory gps_data_file:dir { read search };
+
+#Date: WK15.48
+#Purpose: capture for factory mode
+allow factory devmap_device:chr_file { read ioctl open };
+allow factory fuse:dir { write create add_name };
+allow factory fuse:file { read write create open getattr };
+allow factory mnt_user_file:lnk_file { open read write };

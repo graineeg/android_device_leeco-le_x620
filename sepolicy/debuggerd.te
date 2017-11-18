@@ -3,7 +3,7 @@
 # ============
 
 # Date : WK14.32
-# Operation : AEE UT 
+# Operation : AEE UT
 # Purpose : for AEE module
 domain_auto_trans(debuggerd, dmlog_exec, dmlog)
 
@@ -158,7 +158,7 @@ allow debuggerd sf_bqdump_data_file:file { read getattr unlink open };
 
 allow debuggerd custom_file:dir search;
 
-# avc:  denied  { read } for  pid=4503 comm="screencap" name="secmem0" dev="proc" 
+# avc:  denied  { read } for  pid=4503 comm="screencap" name="secmem0" dev="proc"
 allow debuggerd proc_secmem:file r_file_perms;
 
 #add debuggerd policy
@@ -191,7 +191,7 @@ allow debuggerd window_service:service_manager find;
 # Date: W15.37
 # Operation: daily build violation on branch trunk-m0.tk
 # Purpose: Add rules for Violation
-allow debuggerd proc_lk_env:file { read write open };
+allow debuggerd proc_lk_env:file { read write ioctl open };
 
 # Date: W15.39
 # Operation: daily build violation on branch trunk-m0.tk
@@ -203,3 +203,7 @@ allow debuggerd gfxinfo_service:service_manager find;
 # Purpose: access for fp device and client device of TEEI
 allow debuggerd teei_fp_device:chr_file rw_file_perms;
 allow debuggerd teei_client_device:chr_file rw_file_perms;
+
+#scp file dumpstate
+allow debuggerd sysfs_scp:dir search;
+allow debuggerd sysfs_scp:file { read open };

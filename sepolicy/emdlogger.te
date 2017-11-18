@@ -97,10 +97,14 @@ allow emdlogger mnt_user_file:lnk_file read;
 #allow emdlogger storage_file:dir search;
 allow emdlogger storage_file:lnk_file read;
 
+#=========================================================
+#permission for storage link access in vzw Project
+#=========================================================
+allow emdlogger mnt_media_rw_file:dir search;
+
 # Nougat
 allow emdlogger persist_mtklog_prop:file r_file_perms;
 allow emdlogger proc:file r_file_perms;
 allow emdlogger sysfs:file { read open };
 allow emdlogger rootfs:file r_file_perms;
 allow emdlogger rootfs:lnk_file { getattr };
-

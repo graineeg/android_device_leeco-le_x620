@@ -83,6 +83,7 @@ allow shell wpa_exec:file rx_file_perms;
 allow shell xlog_exec:file rx_file_perms;
 allow shell istd8303_exec:file rx_file_perms;
 allow shell spm_loader_exec:file rx_file_perms;
+allow shell atcp_exec:file rx_file_perms;
 
 # Date : WK14.47
 # Operation : Migration

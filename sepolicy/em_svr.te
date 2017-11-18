@@ -86,4 +86,3 @@ allow em_svr system_data_file:file open;
 
 # Nougat
 allow em_svr rootfs:lnk_file { getattr };
-

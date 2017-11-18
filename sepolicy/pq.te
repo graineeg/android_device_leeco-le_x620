@@ -62,4 +62,3 @@ allow pq permission_service:service_manager { find };
 # Nougat
 allow pq proc:file { read open ioctl };
 allow pq rootfs:lnk_file { getattr };
-

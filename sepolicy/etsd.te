@@ -1,13 +1,20 @@
 #FINGERPRINT
-#ET310 etsd policy
+#ET320 etsd policy
 #added by xiehaifei 160122
 
+# ==============================================
+# Type Declaration
+# ==============================================
 type etsd, domain;
 type etsd_exec, exec_type, file_type;
 
 # etsd
 init_daemon_domain(etsd)
 binder_use(etsd)
+binder_call(etsd, system_server);
+binder_call(etsd, fingerprintd);
+
+allow etsd etsd_data_file:chr_file { getattr read write ioctl open };
 
 # need to find KeyStore and add self
 allow etsd etsd_service:service_manager { add find };
@@ -45,4 +52,3 @@ allow etsd mnt_user_file:lnk_file create_file_perms;
 allow etsd self:capability { dac_override dac_read_search };
 allow etsd fuse:dir create_dir_perms;
 allow etsd fuse:file create_file_perms;
-

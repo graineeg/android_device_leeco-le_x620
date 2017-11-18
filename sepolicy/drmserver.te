@@ -117,3 +117,12 @@ allow drmserver system_app_data_file:file read;
 #           /mnt/media_rw/
 allow drmserver vfat:file open;
 allow drmserver mnt_media_rw_file:dir search;
+
+# Add by : Jackie
+# Date : WK15.44
+# Operation : Migration
+# Purpose : allow drmserver access nfc process info, because drmserver need
+# check whether calling process is granted process, it need get process name
+# with calling pid
+allow drmserver nfc:dir search;
+allow drmserver nfc:file { read getattr open };

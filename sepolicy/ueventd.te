@@ -12,10 +12,12 @@ allow ueventd sysfs:file setattr;
 allow ueventd platform_app:fd use;
 allow ueventd platform_app_tmpfs:file write;
 
-#add for sysfs:md32
-allow ueventd sysfs_md32:file { write open };
+#add for sysfs:scp
+allow ueventd sysfs_scp:file { write open };
 
 # Nougat
 allow ueventd device:chr_file { relabelfrom };
 allow ueventd fm_device:chr_file { relabelto };
 
+# aka.jiang add for fingerprint ET3XX 20160308
+allow ueventd etsd_data_file:chr_file { create setattr read write ioctl open };

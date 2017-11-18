@@ -22,7 +22,7 @@
 #include <private/android_filesystem_config.h>
 
 #define NO_ANDROID_FILESYSTEM_CONFIG_DEVICE_DIRS
-/* static const struct fs_path_config android_device_dirs[] = { }; */
+static const struct fs_path_config android_device_files[] = { 
 
 #ifdef TARGET_HAS_LEGACY_CAMERA_HAL1
 #define AID_CAMERASERVER  AID_MEDIA /* cameraserver process */
@@ -30,11 +30,12 @@
 #define AID_CAMERASERVER  1047  /* cameraserver process */
 #endif
 
+};
 /* Rules for files.
 ** These rules are applied based on "first match", so they
 ** should start with the most specific path and work their
 ** way up to the root. Prefixes ending in * denotes wildcard
 ** and will allow partial matches.
 */
-static const struct fs_path_config android_device_files[] = {
-};
+/*static const struct fs_path_config android_device_files[] = {
+};*/

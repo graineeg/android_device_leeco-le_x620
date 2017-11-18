@@ -50,3 +50,11 @@ allow kpoc_charger alarm_device:chr_file write;
 allow kpoc_charger mtd_device:dir search;
 allow kpoc_charger mtd_device:chr_file read;
 allow kpoc_charger mtd_device:chr_file { read open };
+
+# Date : WK15.45
+# Operation : Migration
+# Purpose : add sepolicy for kpoc_charger
+allow kpoc_charger logo_device:chr_file read;
+allow kpoc_charger logo_device:chr_file open;
+allow kpoc_charger mmcblk0_block_device:blk_file read;
+allow kpoc_charger mmcblk0_block_device:blk_file open;

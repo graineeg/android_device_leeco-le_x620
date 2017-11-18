@@ -4,7 +4,7 @@
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : Set NFC permission to access nfc_socket.
 
@@ -13,7 +13,7 @@ allow nfc nfc_socket:sock_file { write create setattr unlink };
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : Set NFC permission to access custom file.
 
@@ -21,7 +21,7 @@ allow nfc custom_file:dir getattr;
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : Set NFC permission to access mt6605_device ( nfc device node ) .
 
@@ -29,7 +29,7 @@ allow nfc mt6605_device:chr_file { read write getattr open ioctl };
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : Set NFC permission to access nfc data file.
 
@@ -38,7 +38,7 @@ allow nfc nfc_data_file:file { read getattr open rename write ioctl setattr crea
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : Set NFC permission to access SD card for debug purpose.
 
@@ -49,7 +49,7 @@ allow nfc sdcard_external:file { read write getattr open create };
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : Set NFC permission for update screen (activity,dialog,animation, ex: Nfc Beam)
 
@@ -57,7 +57,7 @@ allow nfc sdcard_external:file { read write getattr open create };
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : Set NFC permission for WFD
 
@@ -66,7 +66,7 @@ allow nfc surfaceflinger:file { read getattr open };
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : For Mdlogger
 
@@ -76,7 +76,7 @@ allow nfc self:tcp_socket { setopt read bind create accept write getattr connect
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : For Gallery3d
 
@@ -84,7 +84,7 @@ allow nfc self:tcp_socket { setopt read bind create accept write getattr connect
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : For NFC-JNI
 
@@ -92,7 +92,7 @@ allow nfc zygote:unix_stream_socket { getopt getattr };
 
 
 # ==============================================
-# Date      : 2014/10/15  
+# Date      : 2014/10/15
 # Operation : Refine
 # Purpose   : For VPN
 
@@ -110,3 +110,22 @@ allow nfc platform_app_tmpfs:file write;
 # allow nfc adbd:unix_stream_socket setopt;
 # allow nfc dumpstate:fd use;
 # allow nfc dumpstate:unix_stream_socket { read write getopt getattr };
+
+# Date : WK1546
+# Operation : Migration
+# Purpose: Allow nfc to read binder from surfaceflinger
+allow nfc surfaceflinger:fifo_file {read write};
+
+# ==============================================
+# Date      : 2015/10/16
+# Operation : SQC
+# Purpose   : NFC plays sound which uses DrmServer
+#============= drmserver ==============
+allow drmserver nfc:dir search;
+
+# ==============================================
+# Date      : 2015/10/16
+# Operation : SQC
+# Purpose   : Allow NFC to use system service
+#============= nfc ==============
+allow nfc program_binary_service:service_manager find;

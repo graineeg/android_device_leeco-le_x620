@@ -20,4 +20,10 @@ allow cameraserver rootfs:lnk_file { getattr };
 allow cameraserver sensorservice_service:service_manager { find };
 allow cameraserver sysfs:file { read write open getattr };
 allow cameraserver system_server:unix_stream_socket { read write connectto };
-
+allow cameraserver IMX230_SUNNY_OTP_device:chr_file { read open };
+allow cameraserver IMX230_PRIMAX_OTP_device:chr_file { read open };
+allow cameraserver OV16880_SUNNY_OTP_device:chr_file { read open };
+allow cameraserver OV16880_PRIMAX_OTP_device:chr_file { read open };
+allow cameraserver MAINAF_device:chr_file { read write open ioctl };
+allow cameraserver nvcfg_file:file { read open getattr };
+allow cameraserver storage_file:lnk_file { read };

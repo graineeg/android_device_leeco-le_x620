@@ -44,7 +44,7 @@ on post-fs
 # Connectivity related modules and character device nodes (Ends)
 #
 
-	chmod 0660 /dev/spm
+    chmod 0660 /dev/spm
     chown system system /dev/spm
 
 on boot

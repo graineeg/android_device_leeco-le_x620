@@ -33,7 +33,6 @@ allow autokd shell_exec:file { read execute open execute_no_trans };
 # Operation : Migration 
 # Purpose : Read/Write autok result in data paritition
 # To do: Consider to move files into a sub-directory in /data, said, /data/autokd
-#allow autokd sysfs:file write;
 allow autokd system_data_file:dir { read write open add_name remove_name };
 allow autokd autokd_data_file:file { write create open append };
 allow autokd system_file:file execute_no_trans;
@@ -52,4 +51,3 @@ allow autokd nvdata_file:file { read write getattr create open setattr };
 # for Nougat
 allow autokd sysfs:file { write read open };
 allow autokd rootfs:lnk_file { getattr };
-

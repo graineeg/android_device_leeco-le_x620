@@ -35,7 +35,6 @@ allow boot_logo_updater nvram_device:chr_file { read write open ioctl };
 allow boot_logo_updater nvram_device:blk_file { read write open };
 #add by kevin for mul_power_anim 20160520 end
 
-
 # Date : WK14.32
 # Operation : Migration
 # Puration : set boot reason
@@ -61,4 +60,3 @@ allow boot_logo_updater mtd_device:dir search;
 allow boot_logo_updater device:dir write;
 allow boot_logo_updater kmsg_device:chr_file w_file_perms;;
 allow boot_logo_updater proc_lk_env:file rw_file_perms;
-

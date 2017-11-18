@@ -22,6 +22,9 @@ persist.ril u:object_r:persist_ril_prop:s0
 #=============allow terservice to set terservice property==============
 persist.ter u:object_r:terservice_prop:s0
 
+#============= allow mal ==============
+persist.mal u:object_r:persist_mal_prop:s0
+
 #=============allow netlog==============
 #debug.mtklog.init.flag
 debug.mtklog  u:object_r:debug_mtklog_prop:s0
@@ -32,6 +35,12 @@ debug.netlog u:object_r:debug_netlog_prop:s0
 
 #=============allow system_server to set media.wfd.*==============
 media.wfd. u:object_r:media_wfd_prop:s0
+
+#=============allow mediaserver to set mjc.lib.*==============
+mjc.lib. u:object_r:mjc_lib_prop:s0
+
+#=============allow mediaserver to set mtk.mjc.*==============
+mtk.mjc. u:object_r:mtk_mjc_prop:s0
 
 #=============allow netd to set mtk_wifi.*========================
 mtk_wifi. u:object_r:mtk_wifi_prop:s0
@@ -55,6 +64,13 @@ debug.bq.dump u:object_r:debug_bq_dump_prop:s0
 #=============allow mux==============
 ril.mux.      u:object_r:gsm0710muxd_prop:s0
 
+#=============allow atcp==============
+atcp.                   u:object_r:atcp_prop:s0
+#persist.sys.dongle.usb. u:object_r:persist_sys_dongle_usb_prop:s0
+
+#=============allow lannetmngrd==============
+lannetmngrd.            u:object_r:lannetmngrd_prop:s0
+
 #=============allow vold==============
 persist.vold.      u:object_r:vold_prop:s0
 ctl.sdcard         u:object_r:ctl_fuse_prop:s0
@@ -65,6 +81,7 @@ ctl.ril-daemon-s   u:object_r:ctl_ril-daemon-s_prop:s0
 ctl.ril-daemon-d   u:object_r:ctl_ril-daemon-d_prop:s0
 ctl.ril-daemon-md2   u:object_r:ctl_ril-daemon-md2_prop:s0
 ctl.viarild       u:object_r:ctl_viarild_prop:s0
+ctl.ril-proxy   u:object_r:ctl_ril-proxy_prop:s0
 
 ctl.ccci_fsd         u:object_r:ctl_ccci_fsd_prop:s0
 ctl.ccci2_fsd         u:object_r:ctl_ccci2_fsd_prop:s0
@@ -92,6 +109,7 @@ persist.bootanim.     u:object_r:bootani_prop:s0
 #=============allow mnld_prop ==============
 gps.clock.type u:object_r:mnld_prop:s0
 gps.gps.version u:object_r:mnld_prop:s0
+debug.gpsdbglog.enable u:object_r:mnld_prop:s0
 
 #=============allow audiohal==============
 streamout.     u:object_r:audiohal_prop:s0
@@ -116,6 +134,9 @@ ctl.atcid-daemon-u u:object_r:ctl_atcid-daemon-u_prop:s0
 ctl.atci_service u:object_r:ctl_atci_service_prop:s0
 persist.service.atci.   u:object_r:persist_service_atci_prop:s0
 
+#=============allow volte_rcs_ua==============
+ril.volte.stack.rcsuaproxy u:object_r:ril_volte_stack_rcsuaproxy_prop:s0
+
 #=============allow ipod==============
 ctl.ipod                u:object_r:ctl_ipod_prop:s0
 ctl.ipo_swap            u:object_r:ctl_ipo_swap_prop:s0
@@ -137,9 +158,7 @@ ctl.s62xd     u:object_r:ctl_s62xd_prop:s0
 ctl.bmm056d     u:object_r:ctl_bmm056d_prop:s0
 ctl.akmd8963     u:object_r:ctl_akmd8963_prop:s0
 ctl.akmd09911     u:object_r:ctl_akmd09911_prop:s0
-#ly_zhangtao add for mag sensor start
 ctl.mxg2320d      u:object_r:ctl_mxg2320d_prop:s0
-#ly_zhangtao add for mag sensor end
 ctl.akmd09912     u:object_r:ctl_akmd09912_prop:s0
 ctl.geomagneticd     u:object_r:ctl_geomagneticd_prop:s0
 ctl.orientationd     u:object_r:ctl_orientationd_prop:s0
@@ -147,6 +166,7 @@ ctl.emdlogger5       u:object_r:ctl_emcsmdlogger_prop:s0
 ctl.eemcs_fsd         u:object_r:ctl_eemcs_fsd_prop:s0
 ctl.istd8303            u:object_r:ctl_istd8303_prop:s0
 ctl.st480               u:object_r:ctl_st480_prop:s0
+ctl.memsicd3416x               u:object_r:ctl_memsicd3416x_prop:s0
 #=============allow statusd==============
 net.cdma.mdmstat u:object_r:net_cdma_mdmstat:s0
 
@@ -200,8 +220,29 @@ hotknot.    u:object_r:hotknot_prop:s0
 #=============allow teei daemon and init_thh daemon to set property  ==============
 soter.teei.   u:object_r:soter_teei_prop:s0
 
+#=============allow ged_srv set protocol================
+persist.mtk.sf.fps          u:object_r:mtk_sf_prop:s0
+
+#============= allow factory idle current prop ==============
+debug.factory.idle_state    u:object_r:factory_idle_state_prop:s0
+
+#=============allow em set protocol================
+volte.emergency.pdn.protocol    u:object_r:mtk_em_pdn_prop:s0
+
+#=============allow MBIMD set protocol================
+ctl.mbimd            u:object_r:ctl_mbimd_prop:s0
+
+#=============allow em set protocol================
+persist.ims.simulate   u:object_r:mtk_em_ims_simulate_prop:s0
+
 #=============allow em set protocol================
 persist.auto_answer   u:object_r:mtk_em_auto_answer_prop:s0
 
 #=============allow smart audio pa  deamon  ==============
 smart_audio.        u:object_r:smart_audio_prop:s0
+
+# Gaosc add for dm_verityd permission
+#dm_verityd. u:object_r:dm_verityd_prop:s0
+
+# VR properties
+#vr.                     u:object_r:vr_prop:s0

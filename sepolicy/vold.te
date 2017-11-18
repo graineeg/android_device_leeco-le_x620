@@ -141,6 +141,11 @@ allow vold block_device:blk_file { ioctl getattr };
 # Purpose : for ntfs device mount
 allow vold mmcblk1p1_block_device:blk_file { open read write lock ioctl getattr};
 
+# Date : WK15.42
+# Operation : QC
+# Purpose: nvcfg
+allow vold nvcfg_file:dir { read getattr open ioctl };
+
 # Date : WK15.44
 # Purpose : access protect1 and protect2 partitions for the platform without nvdata partition
 allow vold protect1_block_device:blk_file rw_file_perms;
@@ -154,5 +159,4 @@ allow vold mobicore_user_device:chr_file { read write ioctl open };
 
 # Date : WK15.52
 # Operation : create symbolic link for /storage/sdcard1
-allow vold storage_file:lnk_file {create unlink};
-
+allow vold storage_file:lnk_file { create unlink };

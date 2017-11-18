@@ -19,4 +19,9 @@
 <resources>
     <!-- Set the automatic brightness mode on by default -->
     <bool name="def_screen_brightness_automatic_mode">true</bool>
+
+    <bool name="def_install_non_market_apps">true</bool>
+
+    <!-- Default state of tap to wake -->
+    <bool name="def_double_tap_to_wake">false</bool>
 </resources>

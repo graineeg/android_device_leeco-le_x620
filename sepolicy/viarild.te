@@ -45,6 +45,9 @@ allow viarild radio_prop:property_service set;
 allow viarild net_radio_prop:property_service set;
 allow viarild system_radio_prop:property_service set;
 allow viarild persist_ril_prop:property_service set;
+allow viarild cdma_prop:property_service set;
+allow viarild ril_cdma_report_prop:property_service set;
+allow viarild ril_mux_report_case_prop:property_service set;
 auditallow viarild net_radio_prop:property_service set;
 auditallow viarild system_radio_prop:property_service set;
 

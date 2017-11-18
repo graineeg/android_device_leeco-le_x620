@@ -26,9 +26,11 @@ allow radio zygote:unix_stream_socket { getopt getattr };
 # Date : WK14.36
 # Operation : Migration
 # Purpose : for mtkrild and viarild
+allow radio rilproxy:unix_stream_socket connectto;
 allow radio mtkrild:unix_stream_socket connectto;
 allow radio mtkrildmd2:unix_stream_socket connectto;
 allow radio statusd:unix_stream_socket connectto;
+allow radio viarild:unix_stream_socket connectto;
 
 # Date : WK14.38 2014/09/16
 # Operation : Migration
@@ -114,6 +116,7 @@ allow radio debugfs:file { getattr };
 # Purpose : C2K rild
 allow radio rild_atci_md2_socket:sock_file write;
 allow radio rild_atci_c2k_socket:sock_file write;
+allow radio rilproxy_atci_socket:sock_file write;
 
 # Date : WK15.05 2015/01/26
 # Operation : IT
@@ -195,6 +198,21 @@ allow radio nfc_service:service_manager find;
 # Purpose : Add permission for program binary service find from ServiceManager.
 allow radio program_binary_service:service_manager find;
 
+#Date : 2015/10/27
+#Operation: patch back
+# Purpose: for set volte emergency pdn protocol
+allow radio mtk_em_pdn_prop:property_service set;
+
+# Date : WK15.44 2015/11/2
+# Operation : IT
+# Purpose : for mbimd service property
+allow radio ctl_mbimd_prop:property_service set;
+
+#Date : 2015/11/11
+#Operation: IT
+# Purpose: for set ims simulate
+allow radio mtk_em_ims_simulate_prop:property_service set;
+
 #Date : 2015/11/13
 #Operation: IT
 # Purpose: for set auto answer
@@ -204,6 +222,11 @@ allow radio mtk_em_auto_answer_prop:property_service set;
 # Operation : MDM IT with Swift app
 # Purpose : for app labled by radio to connenct to md_monitor
 allow radio md_monitor:unix_stream_socket connectto;
+
+# Date : WK15.51 2015/12/15
+# Operation : SQC
+# Purpose : for system app labled by radio to search file
+allow radio system_app_data_file:dir search;
 
 # Date : WK15.51 2015/12/19
 # Operation : Adapt CMCC FT auto test tool[CMDC Tester] to MTK platform

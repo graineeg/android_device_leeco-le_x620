@@ -24,6 +24,7 @@ allow volte_ua vtservice:unix_stream_socket connectto;
 allow volte_ua node:udp_socket node_bind;
 allow volte_ua self:udp_socket { bind create };
 allow volte_ua self:udp_socket read;
+allow volte_ua self:capability { setuid setgid };
 
 # Date : 2015/8/5
 # Operation : M Migration 

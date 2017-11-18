@@ -36,6 +36,8 @@ allow meta_tst nvdata_file:dir { write read open add_name remove_name search cre
 allow meta_tst nvdata_file:file { setattr read create write getattr unlink open append };
 allow meta_tst nvram_device:chr_file { read write open ioctl };
 allow meta_tst nvram_device:blk_file { read write open };
+allow meta_tst cct_data_file:dir { write read open add_name remove_name search create getattr setattr };
+allow meta_tst cct_data_file:file { setattr read create write getattr unlink open append };
 allow meta_tst mmcblk0_block_device:blk_file { getattr ioctl read write open };
 allow meta_tst userdata_block_device:blk_file rw_file_perms;
 allow meta_tst cache_block_device:blk_file rw_file_perms;

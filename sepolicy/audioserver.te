@@ -8,4 +8,7 @@ allow audioserver sysfs:file { read open };
 allow audioserver rootfs:lnk_file { getattr };
 allow audioserver property_socket:sock_file { write };
 allow audioserver init:unix_stream_socket { connectto };
-
+allow audioserver tmpfs:dir { search };
+allow audioserver storage_file:lnk_file { read };
+allow audioserver mnt_user_file:lnk_file { read };
+allow audioserver mnt_user_file:dir { search };

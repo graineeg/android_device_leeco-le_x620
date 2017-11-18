@@ -14,3 +14,9 @@ type memsicd3416x ,domain;
 # ==============================================
 
 init_daemon_domain(memsicd3416x)
+
+# Purpose : M-sensor daemon for access driver node
+allow memsicd3416x msensor_device:chr_file { open ioctl read write };
+allow memsicd3416x gsensor_device:chr_file { open ioctl read write };
+allow memsicd3416x input_device:dir { search open read write };
+allow memsicd3416x input_device:file { open read };

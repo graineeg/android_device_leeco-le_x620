@@ -145,6 +145,14 @@ allow system_app qemu_pipe_device:chr_file rw_file_perms;
 # Purpose : for oma dm fota recovery update
 allow system_app ctl_rbfota_prop:property_service set;
 
+# Date: 2015/04/08
+# Stage: IT
+# Purpose: [RCS][RCS will use rcs_ua_proxy to connect to volte_rcs_ua which in native layer]
+# Package Name: com.orangelasb.rcs:core
+allow system_app ril_volte_stack_rcsuaproxy_prop:property_service set;
+allow system_app rcs_ua_proxy_socket:sock_file write;
+allow system_app volte_rcs_ua:unix_stream_socket connectto;
+
 # Date : 2014/11/19
 # Operation: SQC
 # Purpose: [Settings][RenderThread][operate device file failed]
@@ -214,11 +222,20 @@ allow system_app mtk_mwblacklist_service:service_manager find;
 allow system_app teei_fp_device:chr_file rw_file_perms;
 allow system_app teei_client_device:chr_file r_file_perms;
 
+# Data: 2015/10/28
+# Stage: SQC
+# Purpose: [SystemUI] Allow IMG GPU to touch sw_sync
+allow system_app sw_sync_device:chr_file { read write getattr open };
+
 # Date : 2015/12/9
 # Operation: Xiehaifei
-# Purpose: for et310 kernel uevent
+# Purpose: for et320 kernel uevent
 # Package: android.ui
 allow system_app self:netlink_kobject_uevent_socket { create ioctl read getattr setattr bind connect getopt setopt shutdown };
 
 # FM Radio
 allow system_app fm_device:chr_file rw_file_perms;
+
+allow system_app nvram_data_file:lnk_file read;
+allow system_app nvdata_file:dir search;
+allow system_app nvdata_file:file {read getattr open};

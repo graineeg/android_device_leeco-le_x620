@@ -63,5 +63,11 @@ userdebug_or_eng(`
   allow installd dex2oat:process noatsecure;
 ')
 
+# Date : WK16.09
+# Operation : Migration
+# Purpose : copy the content in /data/media/0 to /data/media
+allow installd media_rw_data_file:file { read write create open setattr };
+allow installd shell_exec:file { read execute open execute_no_trans };
+
 # Nougat
 allow installd mobicore_data_file:dir { r_file_perms write remove_name rmdir };

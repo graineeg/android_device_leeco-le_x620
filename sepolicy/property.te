@@ -32,12 +32,28 @@ type terservice_prop, property_type;
 #=============allow gsm0710muxd to set mux property==============
 type gsm0710muxd_prop, property_type;
 
+#=============allow mtkmd to set property==============
+type persist_mal_prop, property_type;
+
+#=============allow atcp to set property==============
+type atcp_prop, property_type;
+#type persist_sys_dongle_usb_prop, property_type;
+
+#=============allow lannetmngrd to set property==============
+type lannetmngrd_prop, property_type;
+
 #=============allow netlog running==============
 type debug_mtklog_prop, property_type;
 type persist_mtklog_prop, property_type;
 type debug_netlog_prop, property_type;
 #=============allow system_server to set media.wfd.*==============
 type media_wfd_prop, property_type;
+
+#=============allow mediaserver to set mjc.lib.*==============
+type mjc_lib_prop, property_type;
+
+#=============allow mediaserver to set mtk.mjc.*==============
+type mtk_mjc_prop, property_type;
 
 #=============allow netd to set mtk_wifi.*=========================
 type mtk_wifi_prop, property_type;
@@ -58,6 +74,7 @@ type ctl_ril-daemon-mtk_prop, property_type;
 type ctl_ril-daemon-s_prop, property_type;
 type ctl_ril-daemon-d_prop, property_type;
 type ctl_ril-daemon-md2_prop, property_type;
+type ctl_ril-proxy_prop, property_type;
 
 #=============allow ccci_mdinit to start ccci_fsd==============
 type ctl_ccci_fsd_prop, property_type;
@@ -121,6 +138,10 @@ type wmt_prop, property_type;
 type ctl_atcid-daemon-u_prop, property_type;
 type ctl_atci_service_prop, property_type;
 type persist_service_atci_prop, property_type;
+
+#=============allow volte_rcs_proxy ==============
+type ril_volte_stack_rcsuaproxy_prop, property_type;
+
 #============= permission_check ==============
 type persist_md_prop, property_type;
 
@@ -141,6 +162,7 @@ type ctl_emcsmdlogger_prop, property_type;
 type ctl_eemcs_fsd_prop, property_type;
 type ctl_istd8303_prop, property_type;
 type ctl_st480_prop, property_type;
+type ctl_memsicd3416x_prop, property_type;
 #=============allow statusd==============
 type net_cdma_mdmstat, property_type;
 type cdma_prop, property_type;
@@ -180,15 +202,29 @@ type ctl_volte_stack_prop, property_type;
 type ctl_volte_ua_prop, property_type;
 type volte_prop, property_type;
 
-#=============allow hotknot deamon  ==============
+#============= allow hotknot deamon  ==============
 type hotknot_prop, property_type;
 
-#=============allow teei deamon and init_thh daemon to set property ==============
+#============= allow teei deamon and init_thh daemon to set property ==============
 type soter_teei_prop, property_type;
+
+#============= allow ged_srv set protocol ===============
+type mtk_sf_prop, property_type;
+
+#============= allow factory idle current prop ==============
+type factory_idle_state_prop, property_type;
+
+#============= allow em set protocol ===============
+type mtk_em_pdn_prop, property_type;
+
+#============= allow MBIMD ==============
+type ctl_mbimd_prop, property_type;
+
+#============= allow em set protocol ===============
+type mtk_em_ims_simulate_prop, property_type;
 
 #============= allow em set property ===============
 type mtk_em_auto_answer_prop, property_type;
 
-#=============allow smart audio pa set property ==============
+#============= allow smart audio pa set property ==============
 type smart_audio_prop, property_type;
-

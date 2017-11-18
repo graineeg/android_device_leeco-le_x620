@@ -1,0 +1,63 @@
+commit 06386ffbfd5ebeb6fabf06d74a60f0f1c524f06d
+Author: graineeg <graineeg@gmail.com>
+Date:   Sun Nov 12 00:47:03 2017 +0100
+
+    bionic
+    
+    Change-Id: Ib4b9439560de8f92b41e30245842684f32d73bb5
+
+diff --git a/libc/Android.mk b/libc/Android.mk
+index 94f7ce6cf..785ce5d97 100644
+--- a/libc/Android.mk
++++ b/libc/Android.mk
+@@ -607,6 +607,7 @@ libc_openbsd_src_files_32 += \
+ libc_common_cflags := \
+     -D_LIBC=1 \
+     -Wall -Wextra -Wunused \
++    -fno-stack-protector \
+ 
+ use_clang := $(USE_CLANG_PLATFORM_BUILD)
+ 
+diff --git a/libc/bionic/ndk_cruft.cpp b/libc/bionic/ndk_cruft.cpp
+index 3ac88f867..6ccb9a15d 100644
+--- a/libc/bionic/ndk_cruft.cpp
++++ b/libc/bionic/ndk_cruft.cpp
+@@ -340,10 +340,13 @@ size_t dlmalloc_usable_size(void* ptr) {
+ }
+ 
+ // In L we added a public pthread_gettid_np, but some apps were using the private API.
+-pid_t __pthread_gettid(pthread_t t) {
++pid_t __pthread_gettid_libc(pthread_t t) {
+   return pthread_gettid_np(t);
+ }
+ 
++__asm__(".symver __pthread_gettid_libc,__pthread_gettid@LIBC");
++__asm__(".symver __pthread_gettid_libc,__pthread_gettid@@LIBC_PRIVATE");
++
+ // Older versions of apportable used dlmalloc directly instead of malloc,
+ // so export this compatibility shim that simply calls malloc.
+ void* dlmalloc(size_t size) {
+diff --git a/libc/libc.arm.map b/libc/libc.arm.map
+index 38f8437f4..fc7d37a02 100644
+--- a/libc/libc.arm.map
++++ b/libc/libc.arm.map
+@@ -122,6 +122,7 @@ LIBC {
+     __pselect6; # arm x86 mips
+     __pthread_cleanup_pop;
+     __pthread_cleanup_push;
++    __pthread_gettid; # arm x86 mips nobrillo
+     __ptrace; # arm x86 mips
+     __putlong;
+     __putshort;
+diff --git a/libc/libc.map.txt b/libc/libc.map.txt
+index 0e41f6ccb..3e87dadbb 100644
+--- a/libc/libc.map.txt
++++ b/libc/libc.map.txt
+@@ -122,6 +122,7 @@ LIBC {
+     __pselect6; # arm x86 mips
+     __pthread_cleanup_pop;
+     __pthread_cleanup_push;
++    __pthread_gettid; # arm x86 mips nobrillo
+     __ptrace; # arm x86 mips
+     __putlong;
+     __putshort;

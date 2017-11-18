@@ -1,0 +1,29 @@
+on fs
+    write /proc/bootprof "start mobicore (on fs)"
+    mkdir /data/app/mcRegistry 0775 system system
+    mkdir /data/app/mcRegistry/TbStorage 0775 system system
+    chmod 0600 /dev/mobicore
+    chown system system /dev/mobicore
+    chmod 0666 /dev/mobicore-user
+    chown system system /dev/mobicore-user
+    chmod 0666 /dev/t-base-tui
+    chown system system /dev/t-base-tui
+    # MobiCore Daemon Paths
+    export MC_AUTH_TOKEN_PATH /efs
+    start mobicore
+    write /proc/bootprof "start mobicore end (on fs)"
+
+# We restorecon /persist to set SEPolicy label.
+    restorecon /persist
+
+#service rda /system/bin/rda
+#    class main
+#    user shell
+#    group shell
+
+# Start Daemon (Registry directories should already be present)
+service mobicore /system/bin/mcDriverDaemon -r /system/app/mcRegistry/020f0000000000000000000000000000.drbin -r /system/app/mcRegistry/05120000000000000000000000000000.drbin -r /system/app/mcRegistry/070b0000000000000000000000000000.drbin -r /system/app/mcRegistry/020b0000000000000000000000000000.drbin -r /system/app/mcRegistry/05070000000000000000000000000000.drbin
+    user system
+    group system
+    class core
+    oneshot

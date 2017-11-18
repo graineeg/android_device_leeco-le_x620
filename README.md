@@ -22,21 +22,12 @@
 ![Le 2 Pro](http://cdn2.gsmarena.com/vv/pics/leeco/le-eco-le2.jpg "LeEco Le 2")
 
    # Build
-   * repo init -u git://github.com/LineageOS/android.git -b cm-14.1
-   * repo sync
-   * git clone https://github.com/graineeg/android_device_leeco-le_x620-lineage-14.1.git -b cm-14.1 device/leeco/le_x620
-   * git clone https://github.com/graineeg/android_vendor_leeco-le_x620-lineage-14.1.git -b cm-14.1 vendor/leeco/le_x620
-   * cd device/leeco/le_x620/patches
-   * . apply.sh
-   * source build/envsetup.sh
-   * breakfast le_x620
-   * brunch le_x620
-   * Done :)
+   * Read [build manual](manual.md)
    
    # Known Issue:-
-   * Camera
-   * Torch
-   * Wifi tethering
+   * Camera Snap recording 1080p
+   * 
+   * 
    * Battery draining
    
    # Credits:-

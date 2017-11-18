@@ -1,5 +1,5 @@
 # ==============================================
-# Policy File of /system/bin/sn Executable File 
+# Policy File of /system/bin/sn Executable File
 
 
 # ==============================================
@@ -46,4 +46,3 @@ allow sn system_prop:property_service set;
 allow sn property_socket:sock_file write;
 allow sn init:unix_stream_socket { connectto };
 allow sn rootfs:lnk_file { getattr };
-

@@ -14,7 +14,10 @@ type vtservice_service,             service_manager_type;
 type mtk_hotknot_service,           service_manager_type;
 type hotknot_native_service,        service_manager_type;
 type mtk_consumerir_service,        service_manager_type;
-type mtk_mwblacklist_service, service_manager_type;
+type mtk_mwblacklist_service,       service_manager_type;
+
+# aka.jiang add for fingerprint ET3XX 20160308
+type etsd_service,                  service_manager_type;
 
 # mtk service manager type
 type mtk_mobile_service, app_api_service, system_server_service, service_manager_type;

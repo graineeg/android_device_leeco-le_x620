@@ -96,3 +96,26 @@ allow atci_service MAINAF_device:chr_file { open read write ioctl };
 allow atci_service SUBAF_device:chr_file { open read write ioctl };
 allow atci_service tmpfs:lnk_file read;
 allow atci_service self:capability2 block_suspend;
+
+# Date : 2015/10/01
+# Operation : Add PQ service
+# Purpose : Support PQ tuning
+binder_call(atci_service, pq)
+allow atci_service pq_service:service_manager { find };
+
+# Date : 2015/10/13
+# Operation : M-Migration
+# Purpose : to operation CCT tool
+allow atci_service mediaserver_service:service_manager find;
+allow atci_service mnt_user_file:dir search;
+allow atci_service mnt_user_file:lnk_file read;
+allow atci_service mtk_perf_service:service_manager find;
+allow atci_service nvdata_file:file getattr;
+allow atci_service sensorservice_service:service_manager find;
+allow atci_service storage_file:lnk_file read;
+
+# Date : 2015/11/03
+# Operation : Change the file path from /data/ tp /data/cct
+# Purpose : to operation CCT tool
+allow atci_service cct_data_file:dir { write read open add_name remove_name search create getattr setattr };
+allow atci_service cct_data_file:file { setattr read create write getattr unlink open append };

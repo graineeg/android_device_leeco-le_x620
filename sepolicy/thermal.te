@@ -37,4 +37,3 @@ allow thermal statusd:unix_stream_socket connectto;
 
 # Nougat
 allow thermal rootfs:lnk_file { getattr };
-

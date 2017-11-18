@@ -1,0 +1,217 @@
+# MTK project .rc configure
+
+import init.mt6797.usb.rc
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+
+on post-fs-data
+    mkdir /data/tinyproxy 0777
+    mkdir /data/local 0777
+    mkdir /data/local/tmp 0777
+    mkdir /data/local/tmp/tinyproxy 0777
+    mkdir /data/fastplay 0777 system system
+
+#
+# Connectivity related device nodes & configuration (begin)
+#
+
+#/dev/ttyMT1 for IRDA
+    chmod 0666 /dev/ttyMT1
+    chown system system /dev/ttyMT1
+
+#/dev/ttyMT2 for Connectivity BT/FM/GPS usage
+    chmod 0660 /dev/ttyMT2
+    chown system system /dev/ttyMT2
+
+
+    chmod 0660 /dev/wmtdetect
+    chown system system /dev/wmtdetect
+
+    mknod /dev/wmtWifi c 153 0
+    chmod 0660 /dev/wmtWifi
+    chown system system /dev/wmtWifi
+
+#disable quick charge
+    chown system system /sys/class/power_supply/bq25890h/disable_quick_charge
+    chmod 0660 /sys/class/power_supply/bq25890h/disable_quick_charge
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/LC898212AF
+    chown system camera /dev/LC898212AF
+
+    chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+#lili add
+    chmod 0660 /dev/IMX230_SUNNY_OTP
+    chown system camera /dev/IMX230_SUNNY_OTP
+
+    chmod 0660 /dev/IMX230_PRIMAX_OTP
+    chown system camera /dev/IMX230_PRIMAX_OTP
+
+    chmod 0660 /dev/OV16880_SUNNY_OTP
+    chown system camera /dev/OV16880_SUNNY_OTP
+
+    chmod 0660 /dev/OV16880_PRIMAX_OTP
+    chown system camera /dev/OV16880_PRIMAX_OTP
+#lili add end
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+# GPS
+    chown gps gps /sys/class/gpsdrv/gps/pwrctl
+    chown gps gps /sys/class/gpsdrv/gps/suspend
+    chown gps gps /sys/class/gpsdrv/gps/state
+    chown gps gps /sys/class/gpsdrv/gps/pwrsave
+    chown gps gps /sys/class/gpsdrv/gps/status
+#    chmod 0660 /dev/stpgps
+
+# WiFi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wpa_supplicant 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi
+
+#Define device for ATCID
+    chmod 660 /dev/ttyGS0
+    chown system /dev/ttyGS0
+    chmod 660 /dev/ttyGS1
+    chown system /dev/ttyGS1
+
+# Char device for BT 3.0 HS
+    mknod /dev/ampc0 c 151 0
+    chown bluetooth bluetooth /dev/ampc0
+    chmod 0660 /dev/ampc0
+
+# T-Play
+    chmod 0660 /dev/mtk_disp
+    chown media media /dev/mtk_disp
+
+#
+# Connectivity related device nodes & configuration (end)
+#
+
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+
+# goodix fingerprint
+    chown system system /dev/goodix_fp
+
+
+#autotest   
+    chmod 0777 /system/bin/CameraTest
+    chmod 0777 /system/bin/TpTest
+    chmod 0777 /system/bin/LcdTest
+    chmod 0777 /system/bin/LedTest
+    chmod 0777 /system/bin/PhoneInfoTest
+    chmod 0777 /system/bin/CameraRaw    
+    chmod 0777 /system/bin/AudioRoutingTest
+    chmod 0777 /system/bin/netcfg
+    chmod 0777 /system/bin/hangdump.sh
+
+    symlink /system/bin/CameraTest /data/data/CameraTest
+    symlink /system/bin/TpTest /data/data/TpTest
+    symlink /system/bin/LcdTest /data/data/LcdTest
+    symlink /system/bin/LedTest /data/data/LedTest
+    symlink /system/bin/PhoneInfoTest /data/data/PhoneInfoTest
+    symlink /system/bin/AudioRoutingTest /data/data/AudioRoutingTest
+    symlink /system/bin/CameraRaw /data/data/CameraRaw
+
+
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+#
+# Connectivity related services (Begin)
+#
+
+service wmtLoader /system/bin/wmt_loader
+    user root
+    group root wifi
+    class core
+    oneshot
+
+
+service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
+    user system
+    group system
+    class core
+
+#
+# Connectivity related services (End)
+#
+
+service spm_script /system/bin/spm_loader
+    user root
+    group root
+    class core
+    oneshot
+
+# add by letv for reduced power rate when normal charge be selected begin
+on property:persist.sys.le_fast_chrg_enable=1
+    write /sys/class/power_supply/bq25890h/disable_quick_charge 0
+
+on property:persist.sys.le_fast_chrg_enable=0
+    write /sys/class/power_supply/bq25890h/disable_quick_charge 1
+# add by letv for reduced power rate when normal charge be selected end 
+
+# goodix fingerprint
+service goodixfpd /system/bin/goodixfingerprintd
+    class main
+    user system
+    group system
+
+# ir detect
+service irchipd /system/bin/irchipd /dev/ttyMT1 115200
+    class main
+    oneshot
+
+service fingerprintd /system/bin/fingerprintd
+    class main
+    user system
+    group system
+# goodix fingerprint end
+
+service tinyproxy /system/bin/tinyproxy
+    class main
+    user root
+    socket letvbackup stream 0666 system system
+    group system system
+    disabled
+    oneshot
+
+on property:service.tinyproxy.enable=0
+    stop tinyproxy
+
+on property:service.tinyproxy.enable=1
+    start tinyproxy

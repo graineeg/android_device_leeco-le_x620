@@ -14,3 +14,6 @@ type memsicd ,domain;
 # ==============================================
 
 init_daemon_domain(memsicd)
+
+allow memsicd msensor_device:chr_file { read write open ioctl };
+allow memsicd gsensor_device:chr_file { read write open };

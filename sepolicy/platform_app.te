@@ -264,7 +264,8 @@ allow platform_app debugfs:file getattr;
 # Operation : jg_jinchuanqin
 # Purpose :[ALPS02350168]allow Settings get file of ntfs device
 # Package: com.android.settings
-allow platform_app fuseblk:file { read open write create getattr unlink};
+allow platform_app fuseblk:file { read open write create getattr unlink };
+
 # Date : 2015/10/27
 # Operation : Feature Developing
 # Purpose : allow platform_app to find mw_blacklist
@@ -278,15 +279,15 @@ allow platform_app mtk_mwblacklist_service:service_manager find;
 allow platform_app md_monitor:unix_stream_socket connectto;
 
 # Purpose : subtitle feature need to w/r /mnt/subt/.
-allow platform_app subtitle_data_file:dir { open read write search create add_name};
-allow platform_app subtitle_data_file:file { open read write create};
+allow platform_app subtitle_data_file:dir { open read write search create add_name };
+allow platform_app subtitle_data_file:file { open read write create };
 
 # Date : 2015/12/9
 # Operation : Migration
-# Purpose : Added by xiehaifei for Fingerprint ET310 esfp0  device 
+# Purpose : Added by xiehaifei for Fingerprint ET320 esfp0 device
 # Package: com.android.systemui
-allow platform_app esfp0_device:chr_file rw_file_perms;;
-#allow platform_app self:netlink_kobject_uevent_socket {create_socket_perms };
-allow platform_app esfp0_device:chr_file rw_file_perms;;
+allow platform_app esfp0_device:chr_file rw_file_perms;
+#allow platform_app self:netlink_kobject_uevent_socket { create_socket_perms };
+allow platform_app esfp0_device:chr_file rw_file_perms;
 allow platform_app etsd_service:service_manager find;
 allow platform_app etsd:binder { call transfer };

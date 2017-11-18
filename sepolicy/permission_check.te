@@ -56,4 +56,3 @@ allow permission_check mdlog_data_file:file setattr;
 allow permission_check persist_md_prop:file { read open getattr };
 allow permission_check shell_exec:file { read getattr execute open execute_no_trans };
 allow permission_check toolbox_exec:file { getattr execute read open execute_no_trans };
-

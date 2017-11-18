@@ -74,4 +74,3 @@ allow zygote radio_tmpfs:file create_file_perms;
 
 # Nougat
 allow zygote persist_ril_prop:file { read open getattr };
-

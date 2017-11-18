@@ -2,6 +2,8 @@
 # MTK Policy Rule
 # ==============================================
 
+#batterypropreg                            u:object_r:healthd_service:s0
+
 # System Server Services
 search_engine       u:object_r:search_service:s0
 audioprofile        u:object_r:audio_service:s0
@@ -41,11 +43,28 @@ consumer_ir_extra 	u:object_r:mtk_consumerir_service:s0
 program_binary      u:object_r:program_binary_service:s0
 media.VTS           u:object_r:vtservice_service:s0
 GpuAppSpectatorService  u:object_r:gas_srv_service:s0
+#GpuExtService  u:object_r:ged_srv_service:s0
 hotknotnativeservice    u:object_r:hotknot_native_service:s0
 wfo                 u:object_r:radio_service:s0
+CrossMountManagerService  u:object_r:system_app_service:s0
 data_shaping        u:object_r:mtk_data_shaping_service:s0
 multiwindow     u:object_r:mtk_multiwindow_service:s0
 mw_blacklist   u:object_r:mtk_mwblacklist_service:s0
 
-# Fingerprint device
+#vrserver            u:object_r:vrserver_service:s0
+
+#accesscontrol                             u:object_r:accesscontrol_service:s0
+
+#line 1 "device/huaqin/s2_plus/sepolicy/service_contexts"
+
+#android.hardware.fingerprint.IGoodixFingerprintDaemon u:object_r:goodixfingerprintd_service:s0
+#com.goodix.FingerprintService u:object_r:goodix_fingerprint_service:s0
+#leuicolormode                 u:object_r:colormode_service:s0
+#leuiphonebind                             u:object_r:leui_phonebind_service:s0
+
+#vr                                        u:object_r:vr_service:s0
+
+#leclipboard                                    u:object_r:leclipboard_service:s0
+
+# aka.jiang add for fingerprint ET3XX 20160308
 egistec.ets.service.daemon u:object_r:etsd_service:s0
