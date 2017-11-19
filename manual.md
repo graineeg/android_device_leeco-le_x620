@@ -1,11 +1,11 @@
-                                          #####################################################
-                                          #                                                   #
-                                          #                Manual for building                #
-                                          #                   LineageOS 14.1                  #
-                                          #                         for                       #
-                                          #                LeEco Le2/Pro (X620)               #
-                                          #                                                   #
-                                          #####################################################
+|                                         #####################################################                                              |
+|                                         #                                                   #                                              |
+|                                         #                Manual for building                #                                              |
+|                                         #                   LineageOS 14.1                  #                                              |
+|                                         #                         for                       #                                              |
+|                                         #                LeEco Le2/Pro (X620)               #                                              |
+|                                         #                                                   #                                              |
+|                                         #####################################################                                              |
 
 | Step                | Task                                                                                                                 |
 | :-------------------| :--------------------------------------------------------------------------------------------------------------------|
@@ -14,7 +14,7 @@
 | 2.                  | repo sync                                                                                                            |
 | 3.Init device files | git clone https://github.com/graineeg/android_device_leeco-le_x620.git -b cm-14.1 device/leeco/le_x620               |
 |                     | git clone https://github.com/graineeg/android_vendor_leeco-le_x620.git -b cm-14.1 vendor/leeco/le_x620               |
-|                     | git clone https://github.com/graineeg/android_hardware_leeco-le_x620.git -b cm-14.1 hardware/leeco      |
+|                     | git clone https://github.com/graineeg/android_hardware_leeco-le_x620.git -b cm-14.1 hardware/leeco                   |
 |                     |                                                                                                                      |
 | 4.Apply patches     | cd device/leeco/le_x620/patches                                                                                      |
 |                     | . patch.sh                                                                                                           |
@@ -38,12 +38,12 @@
 
 
 
-                                          #####################################################
-                                          #                                                   #
-                                          #                   Making patches                  #
-                                          #                     in source                     #
-                                          #                                                   #
-                                          #####################################################
+|                                         #####################################################                                              |
+|                                         #                                                   #                                              |
+|                                         #                   Making patches                  #                                              |
+|                                         #                     in source                     #                                              |
+|                                         #                                                   #                                              |
+|                                         #####################################################                                              |
 
 | Step                | Task                                                                                                                 |
 | :-------------------| :--------------------------------------------------------------------------------------------------------------------|
