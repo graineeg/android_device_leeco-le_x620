@@ -1,0 +1,20 @@
+[
+    {
+        "remote":       "github",
+        "repository":   "graineeg/android_device_leeco-le_x620",
+        "target_path":  "device/leeco/le_x620",
+        "revision":     "cm-14.1"
+    },
+    {
+        "remote":       "aospa",
+        "repository":   "graineeg/android_vendor_leeco-le_x620",
+        "target_path":  "vendor/leeco/le_x620",
+        "revision":     "cm-14.1"
+    },
+    {
+        "remote":       "github",
+        "repository":   "graineeg/android_hardware_leeco-le_x620",
+        "target_path":  "hardware/leeco",
+        "revision":     "cm-14.1"
+    }    
+]
