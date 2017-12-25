@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_weight="1"
+            android:text="@string/hqa_cpustress_apmcu_loopcount"
+            android:textSize="18sp" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/apmcu_loopcount"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:maxLength="8"
+            android:minWidth="150dip"
+            android:text="@string/hqa_cpustress_apmcu_loopcount_value" >
+        </EditText>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip" >
+
+            <!-- neon/vfp -->
+            <LinearLayout android:id="@+id/apmcu_neon_vfp_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+	            <CheckBox
+	                android:id="@+id/apmcu_neon_test"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_neon" >
+	            </CheckBox>
+
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+
+	                <TextView
+	                    android:id="@+id/apmcu_neon_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+
+	                <TextView
+	                    android:id="@+id/apmcu_neon_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+
+	                <TextView
+	                    android:id="@+id/apmcu_neon_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+
+	                <TextView
+	                    android:id="@+id/apmcu_neon_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+
+	            <LinearLayout
+	                android:id="@+id/apmcu_neon_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+
+	                <TextView
+	                    android:id="@+id/apmcu_neon_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+
+	                <TextView
+	                    android:id="@+id/apmcu_neon_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+
+	                <TextView
+	                    android:id="@+id/apmcu_neon_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+
+	                <TextView
+	                    android:id="@+id/apmcu_neon_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+
+            <!-- max_power -->
+            <LinearLayout android:id="@+id/apmcu_max_power_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+	            <CheckBox
+	                android:id="@+id/apmcu_ca9_test"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_ca9" >
+	            </CheckBox>
+	
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_ca9_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_ca9_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_ca9_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_ca9_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_ca9_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_ca9_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_ca9_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_ca9_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_ca9_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+
+            <!-- dhrystone -->
+            <LinearLayout android:id="@+id/apmcu_dhrystone_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+	            <CheckBox
+	                android:id="@+id/apmcu_dhrystone_test"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_dhrystone" >
+	            </CheckBox>
+	
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_dhrystone_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+            
+            <!-- memcpy -->
+            <LinearLayout android:id="@+id/apmcu_memcpy_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <CheckBox
+                android:id="@+id/apmcu_memcpy_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hqa_cpustress_apmcu_memcpy" >
+            </CheckBox>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/apmcu_memcpy_result_0"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hqa_cpustress_result" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/apmcu_memcpy_result_1"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hqa_cpustress_result" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/apmcu_memcpy_result_2"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hqa_cpustress_result" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/apmcu_memcpy_result_3"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hqa_cpustress_result" >
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/apmcu_memcpy_result_octa"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/apmcu_memcpy_result_4"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hqa_cpustress_result" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/apmcu_memcpy_result_5"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hqa_cpustress_result" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/apmcu_memcpy_result_6"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hqa_cpustress_result" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/apmcu_memcpy_result_7"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hqa_cpustress_result" >
+                </TextView>
+            </LinearLayout>
+            </LinearLayout>
+
+            <!-- fdct -->
+            <LinearLayout android:id="@+id/apmcu_fdct_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+	            <CheckBox
+	                android:id="@+id/apmcu_fdct_test"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_fdct" >
+	            </CheckBox>
+	
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_fdct_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_fdct_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_fdct_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_fdct_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_fdct_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_fdct_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_fdct_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_fdct_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_fdct_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+
+            <!-- imdct -->
+            <LinearLayout android:id="@+id/apmcu_imdct_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+	            <CheckBox
+	                android:id="@+id/apmcu_imdct_test"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_imdct" >
+	            </CheckBox>
+	
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_imdct_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_imdct_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_imdct_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_imdct_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_imdct_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_imdct_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_imdct_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_imdct_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_imdct_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+            
+            <!-- max power 64bit -->
+            <LinearLayout android:id="@+id/apmcu_max_power_64_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <CheckBox
+	                android:id="@+id/apmcu_max_power_64_test_cb"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_max_power_64" >
+	            </CheckBox>
+
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_max_power_64_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_max_power_64_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_max_power_64_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_max_power_64_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_max_power_64_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_max_power_64_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_max_power_64_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_max_power_64_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_max_power_64_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+            <!-- dhrystone 64bit -->
+            <LinearLayout android:id="@+id/apmcu_dhrystone_64_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <CheckBox
+	                android:id="@+id/apmcu_dhrystone_64_test_cb"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_dhrystone_64" >
+	            </CheckBox>
+
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_64_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_64_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_64_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_64_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_dhrystone_64_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_64_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_64_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_64_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_dhrystone_64_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+            
+            <!-- saxpy -->
+            <LinearLayout android:id="@+id/apmcu_saxpy_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <CheckBox
+	                android:id="@+id/apmcu_saxpy_test_cb"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_saxpy" >
+	            </CheckBox>
+
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_saxpy_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+            
+            <!-- saxpy_64 -->
+            <LinearLayout android:id="@+id/apmcu_saxpy_64_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <CheckBox
+	                android:id="@+id/apmcu_saxpy_64_test_cb"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_saxpy_64" >
+	            </CheckBox>
+
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_64_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_64_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_64_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_64_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_saxpy_64_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_64_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_64_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_64_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_saxpy_64_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+            
+            <!-- adv_sim -->
+            <LinearLayout android:id="@+id/apmcu_adv_sim_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <CheckBox
+	                android:id="@+id/apmcu_adv_sim_test_cb"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_adv_sim" >
+	            </CheckBox>
+
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_adv_sim_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_adv_sim_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_adv_sim_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_adv_sim_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_adv_sim_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_adv_sim_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_adv_sim_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_adv_sim_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_adv_sim_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+            
+            <!-- idle_to_max -->
+            <LinearLayout android:id="@+id/apmcu_idle_to_max_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <CheckBox
+	                android:id="@+id/apmcu_idle_to_max_test_cb"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/hqa_cpustress_apmcu_idle_to_max" >
+	            </CheckBox>
+
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_idle_to_max_result_0"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_idle_to_max_result_1"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_idle_to_max_result_2"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_idle_to_max_result_3"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+	
+	            <LinearLayout
+	                android:id="@+id/apmcu_idle_to_max_result_octa"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal" >
+	
+	                <TextView
+	                    android:id="@+id/apmcu_idle_to_max_result_4"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_idle_to_max_result_5"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_idle_to_max_result_6"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	
+	                <TextView
+	                    android:id="@+id/apmcu_idle_to_max_result_7"
+	                    android:layout_width="0dip"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="1"
+	                    android:text="@string/hqa_cpustress_result" >
+	                </TextView>
+	            </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                <Button
+                    android:id="@+id/apmcu_btn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minWidth="140dip"
+                    android:text="@string/hqa_cpustress_apmcu_start" >
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/apmcu_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+                </TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

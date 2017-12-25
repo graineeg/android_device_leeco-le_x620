@@ -27,27 +27,27 @@
        significantly, so should be measured on the shipping platform
        with a power meter. -->
   <item name="none">0</item>
-  <item name="screen.on">94</item>
-  <item name="screen.full">260</item>
-  <item name="bluetooth.active">34</item>
-  <item name="bluetooth.on">2</item>
-  <item name="wifi.on">0.2</item>
-  <item name="wifi.active">396</item>
-  <item name="wifi.scan">11</item>
-  <item name="dsp.audio">19</item>
-  <item name="dsp.video">142</item>
-  <item name="camera.flashlight">200</item>
-  <item name="camera.avg">716</item>
-  <item name="gps.on">46</item>
+  <item name="screen.on">100</item>
+  <item name="screen.full">230</item>
+  <item name="bluetooth.active">20</item>
+  <item name="bluetooth.on">1.08</item>
+  <item name="wifi.on">4.9</item>
+  <item name="wifi.active">200</item>
+  <item name="wifi.scan">186</item>
+  <item name="dsp.audio">41</item>
+  <item name="dsp.video">161</item>
+  <item name="camera.flashlight">500</item>
+  <item name="camera.avg">881</item>
+  <item name="gps.on">53</item>
 
   <!-- Radio related values. For modems without energy reporting support in firmware, use
        radio.active, radio.scanning, and radio.on. -->
-  <item name="radio.active">100</item>
-  <item name="radio.scanning">40</item>
+  <item name="radio.active">150</item>
+  <item name="radio.scanning">139.43</item>
   <!-- Current consumed by the radio at different signal strengths, when paging -->
   <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
-      <value>4</value>
       <value>2</value>
+      <value>1</value>
   </array>
   <!-- A list of heterogeneous CPU clusters, where the value for each cluster represents the
        number of CPU cores for that cluster.
@@ -70,116 +70,116 @@
        There must be one of these for each cluster, labeled:
        cpu.speeds.cluster0, cpu.speeds.cluster1, etc... -->
   <array name="cpu.speeds.cluster0">
-        <value>221000</value> <!-- 221 MHz -->
-        <value>338000</value> <!-- 338 MHz -->
-        <value>416000</value> <!-- 416 MHz -->
-        <value>481000</value> <!-- 481 MHz -->
-        <value>559000</value> <!-- 559 MHz -->
-        <value>624000</value> <!-- 624 MHz -->
-        <value>715000</value> <!-- 715 MHz -->
-        <value>806000</value> <!-- 806 MHz -->
-        <value>897000</value> <!-- 897 MHz -->
-        <value>949000</value> <!-- 949 MHz -->
-        <value>1066000</value> <!-- 1.06 GHz -->
-        <value>1118000</value> <!-- 1.12 GHz -->
-        <value>1222000</value> <!-- 1.22 GHz -->
-        <value>1287000</value> <!-- 1.29 GHz -->
-        <value>1339000</value> <!-- 1.34 GHz -->
         <value>1391000</value> <!-- 1.40 GHz -->
+        <value>1339000</value> <!-- 1.34 GHz -->
+        <value>1287000</value> <!-- 1.29 GHz -->
+        <value>1222000</value> <!-- 1.22 GHz -->
+        <value>1118000</value> <!-- 1.12 GHz -->
+        <value>1066000</value> <!-- 1.06 GHz -->
+        <value>949000</value> <!-- 949 MHz -->
+        <value>897000</value> <!-- 897 MHz -->
+        <value>806000</value> <!-- 806 MHz -->
+        <value>715000</value> <!-- 715 MHz -->
+        <value>624000</value> <!-- 624 MHz -->
+        <value>559000</value> <!-- 559 MHz -->
+        <value>481000</value> <!-- 481 MHz -->
+        <value>416000</value> <!-- 416 MHz -->
+        <value>338000</value> <!-- 338 MHz -->
+        <value>221000</value> <!-- 221 MHz -->
   </array>
   <!-- Current at each CPU speed for cluster 0, as per 'cpu.speeds.cluster0'.
        Like cpu.speeds.cluster0, there must be one of these present for
        each heterogeneous CPU cluster. -->
   <array name="cpu.active.cluster0">
-        <value>21</value> <!-- 221 MHz -->
-        <value>30</value> <!-- 338 MHz -->
-        <value>43</value> <!-- 416 MHz -->
-        <value>47</value> <!-- 481 MHz -->
-        <value>64</value> <!-- 559 MHz -->
-        <value>73</value> <!-- 624 MHz -->
-        <value>81</value> <!-- 715 MHz -->
-        <value>90</value> <!-- 806 MHz -->
-        <value>98</value> <!-- 897 MHz -->
-        <value>109</value> <!-- 949 MHz -->
-        <value>121</value> <!-- 1.06 GHz -->
-        <value>132</value> <!-- 1.12 GHz -->
-        <value>143</value> <!-- 1.22 GHz -->
-        <value>150</value> <!-- 1.29 GHz -->
-        <value>161</value> <!-- 1.34 GHz -->
         <value>168</value> <!-- 1.40 GHz -->
+        <value>161</value> <!-- 1.34 GHz -->
+        <value>150</value> <!-- 1.29 GHz -->
+        <value>143</value> <!-- 1.22 GHz -->
+        <value>132</value> <!-- 1.12 GHz -->
+        <value>121</value> <!-- 1.06 GHz -->
+        <value>109</value> <!-- 949 MHz -->
+        <value>98</value> <!-- 897 MHz -->
+        <value>90</value> <!-- 806 MHz -->
+        <value>81</value> <!-- 715 MHz -->
+        <value>73</value> <!-- 624 MHz -->
+        <value>64</value> <!-- 559 MHz -->
+        <value>47</value> <!-- 481 MHz -->
+        <value>43</value> <!-- 416 MHz -->
+        <value>30</value> <!-- 338 MHz -->
+        <value>21</value> <!-- 221 MHz -->
   </array>
 
   <array name="cpu.speeds.cluster1">
-        <value>325000</value> <!-- 325 MHz -->
-        <value>468000</value> <!-- 468 MHz -->
-        <value>559000</value> <!-- 559 MHz -->
-        <value>650000</value> <!-- 650 MHz -->
-        <value>741000</value> <!-- 741 MHz -->
-        <value>832000</value> <!-- 832 MHz -->
-        <value>949000</value> <!-- 949 MHz -->
-        <value>1079000</value> <!-- 1.08 GHz -->
-        <value>1209000</value> <!-- 1.21 GHz -->
-        <value>1274000</value> <!-- 1.27 GHz -->
-        <value>1417000</value> <!-- 1.42 GHz -->
-        <value>1495000</value> <!-- 1.49 GHz -->
-        <value>1625000</value> <!-- 1.62 GHz -->
-        <value>1703000</value> <!-- 1.70 GHz -->
-        <value>1781000</value> <!-- 1.78 GHz -->
         <value>1846000</value> <!-- 1.85 GHz -->
+        <value>1781000</value> <!-- 1.78 GHz -->
+        <value>1703000</value> <!-- 1.70 GHz -->
+        <value>1625000</value> <!-- 1.62 GHz -->
+        <value>1495000</value> <!-- 1.49 GHz -->
+        <value>1417000</value> <!-- 1.42 GHz -->
+        <value>1274000</value> <!-- 1.27 GHz -->
+        <value>1209000</value> <!-- 1.21 GHz -->
+        <value>1079000</value> <!-- 1.08 GHz -->
+        <value>949000</value> <!-- 949 MHz -->
+        <value>832000</value> <!-- 832 MHz -->
+        <value>741000</value> <!-- 741 MHz -->
+        <value>650000</value> <!-- 650 MHz -->
+        <value>559000</value> <!-- 559 MHz -->
+        <value>468000</value> <!-- 468 MHz -->
+        <value>325000</value> <!-- 325 MHz -->
     </array>
     <array name="cpu.active.cluster1">
-        <value>30</value> <!-- 325 MHz -->
-        <value>45</value> <!-- 468 MHz -->
-        <value>64</value> <!-- 559 MHz -->
-        <value>75</value> <!-- 650 MHz -->
-        <value>85</value> <!-- 741 MHz -->
-        <value>92</value> <!-- 832 MHz -->
-        <value>104</value> <!-- 949 MHz -->
-        <value>110</value> <!-- 1.08 GHz -->
-        <value>135</value> <!-- 1.21 GHz -->
-        <value>150</value> <!-- 1.27 GHz -->
-        <value>172</value> <!-- 1.42 GHz -->
-        <value>180</value> <!-- 1.49 GHz -->
-        <value>204</value> <!-- 1.62 GHz -->
-        <value>230</value> <!-- 1.70 GHz -->
-        <value>246</value> <!-- 1.78 GHz -->
         <value>260</value> <!-- 1.85 GHz -->
+        <value>246</value> <!-- 1.78 GHz -->
+        <value>230</value> <!-- 1.70 GHz -->
+        <value>204</value> <!-- 1.62 GHz -->
+        <value>180</value> <!-- 1.49 GHz -->
+        <value>172</value> <!-- 1.42 GHz -->
+        <value>150</value> <!-- 1.27 GHz -->
+        <value>135</value> <!-- 1.21 GHz -->
+        <value>110</value> <!-- 1.08 GHz -->
+        <value>104</value> <!-- 949 MHz -->
+        <value>92</value> <!-- 832 MHz -->
+        <value>85</value> <!-- 741 MHz -->
+        <value>75</value> <!-- 650 MHz -->
+        <value>64</value> <!-- 559 MHz -->
+        <value>45</value> <!-- 468 MHz -->
+        <value>30</value> <!-- 325 MHz -->
     </array>
     <array name="cpu.speeds.cluster2">
-        <value>338000</value> <!-- 338 MHz -->
-        <value>676000</value> <!-- 676 MHz -->
-        <value>845000</value> <!-- 845 MHz -->
-        <value>1001000</value> <!-- 1.00 GHz -->
-        <value>1131000</value> <!-- 1.13 GHz -->
-        <value>1248000</value> <!-- 1.25 GHz -->
-        <value>1378000</value> <!-- 1.39 GHz -->
-        <value>1495000</value> <!-- 1.49 GHz -->
-        <value>1677000</value> <!-- 1.68 GHz -->
-        <value>1781000</value> <!-- 1.78 GHz -->
-        <value>1989000</value> <!-- 1.99 GHz -->
-        <value>2093000</value> <!-- 2.09 GHz -->
-        <value>2119000</value> <!-- 2.12 GHz -->
-        <value>2171000</value> <!-- 2.17 GHz -->
-        <value>2197000</value> <!-- 2.20 GHz -->
         <value>2314000</value> <!-- 2.31 GHz -->
+        <value>2197000</value> <!-- 2.20 GHz -->
+        <value>2171000</value> <!-- 2.17 GHz -->
+        <value>2119000</value> <!-- 2.12 GHz -->
+        <value>2093000</value> <!-- 2.09 GHz -->
+        <value>1989000</value> <!-- 1.99 GHz -->
+        <value>1781000</value> <!-- 1.78 GHz -->
+        <value>1677000</value> <!-- 1.68 GHz -->
+        <value>1495000</value> <!-- 1.49 GHz -->
+        <value>1378000</value> <!-- 1.39 GHz -->
+        <value>1248000</value> <!-- 1.25 GHz -->
+        <value>1131000</value> <!-- 1.13 GHz -->
+        <value>1001000</value> <!-- 1.00 GHz -->
+        <value>845000</value> <!-- 845 MHz -->
+        <value>676000</value> <!-- 676 MHz -->
+        <value>338000</value> <!-- 338 MHz -->
     </array>
     <array name="cpu.active.cluster2">
-        <value>43</value> <!-- 338 MHz -->
-        <value>88</value> <!-- 676 MHz -->
-        <value>108</value> <!-- 845 MHz -->
-        <value>130</value> <!-- 1.00 GHz -->
-        <value>150</value> <!-- 1.13 GHz -->
-        <value>180</value> <!-- 1.25 GHz -->
-        <value>210</value> <!-- 1.39 GHz -->
-        <value>240</value> <!-- 1.49 GHz -->
-        <value>298</value> <!-- 1.68 GHz -->
-        <value>346</value> <!-- 1.78 GHz -->
-        <value>445</value> <!-- 1.99 GHz -->
-        <value>513</value> <!-- 2.09 GHz -->
-        <value>554</value> <!-- 2.12 GHz -->
-        <value>589</value> <!-- 2.17 GHz -->
-        <value>625</value> <!-- 2.20 GHz -->
         <value>698</value> <!-- 2.31 GHz -->
+        <value>625</value> <!-- 2.20 GHz -->
+        <value>589</value> <!-- 2.17 GHz -->
+        <value>554</value> <!-- 2.12 GHz -->
+        <value>513</value> <!-- 2.09 GHz -->
+        <value>445</value> <!-- 1.99 GHz -->
+        <value>346</value> <!-- 1.78 GHz -->
+        <value>298</value> <!-- 1.68 GHz -->
+        <value>240</value> <!-- 1.49 GHz -->
+        <value>210</value> <!-- 1.39 GHz -->
+        <value>180</value> <!-- 1.25 GHz -->
+        <value>150</value> <!-- 1.13 GHz -->
+        <value>130</value> <!-- 1.00 GHz -->
+        <value>108</value> <!-- 845 MHz -->
+        <value>88</value> <!-- 676 MHz -->
+        <value>43</value> <!-- 338 MHz -->
     </array>
 
   <!-- Current when CPU is idle -->
@@ -190,10 +190,10 @@
       Battery capacity is 3000 mAH (at 3.8 Volts)
       -->
     <array name="wifi.batchedscan">
-        <value>.0020</value>
-        <value>.0200</value>
-        <value>.5000</value>
-        <value>5.000</value>
-        <value>30.00</value>
+        <value>.2</value>
+        <value>2</value>
+        <value>20</value>
+        <value>200</value>
+        <value>500</value>
     </array>
 </device>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout style="@style/info_layout" >
+        <TextView
+            style="@style/info_label"
+            android:id="@+id/antenna_title_4g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/antenna_title_4g" />
+
+        <Spinner
+            android:id="@+id/spinner_antenna_4g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/antenna_modes_4g" />
+
+        <TextView
+            style="@style/info_label"
+            android:id="@+id/antenna_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:text="@string/antenna_hint" />
+
+        <TextView
+            style="@style/info_label"
+            android:id="@+id/antenna_title_3g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/antenna_title_3g" />
+
+        <Spinner
+            android:id="@+id/spinner_antenna_3g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/antenna_modes_3g" />
+    </LinearLayout>
+</ScrollView>

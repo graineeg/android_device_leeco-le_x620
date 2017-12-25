@@ -12,7 +12,9 @@ echo "Patching frameworks/av files"
 echo ""
 cd ../
 cd frameworks/av
-git apply -v ../../device/leeco/le_x620/patches/frameworks_av.patch
+git apply -v ../../device/leeco/le_x620/patches/0006-fix-access-wvm-to-ReadOptions.patch
+git apply -v ../../device/leeco/le_x620/patches/0009-add-mtk-color-format-support.patch
+#git apply -v ../../device/leeco/le_x620/patches/frameworks_av.patch
 
 echo ""
 echo "Patching frameworks/base files"
@@ -31,12 +33,12 @@ echo ""
 echo "Patching system/sepolicy files"
 echo ""
 cd ../sepolicy
-git apply -v ../../device/leeco/le_x620/patches/system_sepolicy.patch
+git apply -v ../../device/leeco/le_x620/patches/0003-Revert-back-to-policy-version-29.patch #system_sepolicy.patch
 
 echo "Patching system/netd files"
 echo ""
 cd ../netd
-git apply -v ../../device/leeco/le_x620/patches/hotspot_fix.patch
+git apply -v ../../device/leeco/le_x620/patches/0010-wifi-tethering-fix.patch #hotspot_fix.patch
 cd ../..
 
 echo ""

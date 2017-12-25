@@ -28,13 +28,6 @@ ro.mtk_perf_response_time=1
 wifi.interface=wlan0
 wifi.tethering.interface=ap0
 wifi.direct.interface=p2p0
-ro.mediatek.wlan.p2p=1
-ro.mediatek.wlan.wsc=1
-mediatek.wlan.ctia=0
-mediatek.wlan.chip=CONSYS_MT6797
-mediatek.wlan.module.postfix=_consys_mt6797
-ro.mediatek.version.sdk=4
-ro.mediatek.version.release=
 
 
 # Graphic
@@ -56,7 +49,6 @@ sys.ipo.pwrdncap=2
 fmradio.driver.enable=0
 ro.audio.silent=0
 ro.camera.sound.forced=0
-#ro.mtk_audenh_support=1
 ro.mtk_audio_tuning_tool_ver=V2.2
 ro.mtk_dual_mic_support=1
 
@@ -71,10 +63,7 @@ ro.mtk_omacp_support=1
 # Telephony
 rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
-ro.telephony.sim.count=2
-ro.telephony.ril_class=MediaTekRIL
-ro.telephony.ril.config=fakeiccid
-ro.telephony.default_network=10,10
+ro.telephony.default_network=9
 
 persist.gemini.sim_num=2
 persist.radio.default.sim=0
@@ -88,7 +77,6 @@ persist.radio.flashless.fsm_cst=0
 persist.radio.flashless.fsm_rw=0
 
 bgw.current3gband=0
-#mux.debuglog.enable=0
 ril.external.md=0
 ril.current.share_modem=2
 ril.first.md=1

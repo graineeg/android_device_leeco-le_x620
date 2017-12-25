@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/esn_track_title" >
+
+    <ListPreference
+        android:entries="@array/esn_track_entries"
+        android:entryValues="@array/esn_track_values"
+        android:key="esn_track_switch"
+        android:persistent="true"
+        android:summary="Disabled"
+        android:title="@string/esn_track_pref_title" />
+
+    <EditTextPreference
+        android:dialogTitle="Send SMS to"
+        android:inputType="phone"
+        android:key="EsnServerAdderess"
+        android:singleLine="true"
+        android:maxLength="20"
+        android:summary="Enter address"
+        android:title="Address" />
+
+</PreferenceScreen>

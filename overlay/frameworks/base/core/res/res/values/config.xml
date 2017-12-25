@@ -62,7 +62,8 @@
          Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
          should be empty.  An example would be "softap.*" -->
     <string-array translatable="false" name="config_tether_wifi_regexs">
-        <item>"ap0"</item>
+       <!-- <item>"ap0"</item> -->
+        <item>"wlan\\d"</item>
     </string-array>
 
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
@@ -127,6 +128,9 @@
 
     <bool name="config_wifiDisplaySupportsProtectedBuffers">false</bool>
 
+    <!-- Make things go fast -->
+    <bool name="config_ui_enableFadingMarquee">true</bool>
+
     <bool name="config_automatic_brightness_available">true</bool>
 
     <integer-array name="config_autoBrightnessLevels">
@@ -176,9 +180,6 @@
     
     <!-- Flag indicating if the user is notified when the mobile network access is restricted -->
     <bool name="config_user_notification_of_restrictied_mobile_access">false</bool>
-
-    <!-- Set this true only if the device has separate attention and notification lights. -->
-    <bool name="config_useAttentionLight">false</bool>
     
     <!-- Whether safe headphone volume is enabled or not (country specific). -->
     <bool name="config_safe_media_volume_enabled">false</bool>
@@ -212,10 +213,6 @@
 
     <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
 
-    <!-- Performance profiles -->
-	<!--
-    <string name="config_perf_profile_prop">sys.perf.profile</string>
-    <string name="config_perf_profile_default_entry">1</string> -->
 
     <!-- Enable the option to check proximity sensor when deciding whether to
          turn the screen on
@@ -228,7 +225,7 @@
          Empty is viewed as "all".  Only used on devices which
          don't support RIL_REQUEST_GET_RADIO_CAPABILITY
          format is UMTS|LTE|... -->
-    <!-- <string translatable="false" name="config_radio_access_family">GSM|WCDMA|LTE</string> -->
+    <string translatable="false" name="config_radio_access_family">GSM|WCDMA|LTE</string>
 
     <!-- Is the device capable of hot swapping an UICC Card -->
     <bool name="config_hotswapCapable">true</bool>
@@ -248,8 +245,8 @@
     <!-- Flag specifying whether VT is available on device -->
     <bool name="config_device_vt_available">false</bool>
 
-    <!-- Whether device supports double tap to wake
-    <bool name="config_supportDoubleTapWake">true</bool> -->
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool> 
 
     <!-- Control the behavior when the user long presses the home button.
             0 - Nothing
@@ -272,6 +269,6 @@
     <bool name="config_buttonLightOnKeypressOnly">true</bool>
 
     <!-- If this is true, device supports Sustained Performance Mode. -->
-    <bool name="config_sustainedPerformanceModeSupported">true</bool>
+    <bool name="config_sustainedPerformanceModeSupported">false</bool>
 
 </resources>

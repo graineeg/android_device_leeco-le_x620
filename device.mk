@@ -15,8 +15,8 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Audio policy & codec
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/configs/audio_device.xml:system/etc/audio_device.xml \
+    $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/configs/audio/audio_device.xml:system/etc/audio_device.xml \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
@@ -69,17 +69,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.mt6797:root/fstab.mt6797 \
     $(LOCAL_PATH)/rootdir/init.modem.rc:root/init.modem.rc \
     $(LOCAL_PATH)/rootdir/init.mt6797.rc:root/init.mt6797.rc \
-    $(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/rootdir/init.mt6797.usb.rc:root/init.mt6797.usb.rc \
     $(LOCAL_PATH)/rootdir/init.recovery.mt6797.rc:root/init.recovery.mt6797.rc \
+    $(LOCAL_PATH)/rootdir/init.trustonic.rc:root/init.trustonic.rc \
     $(LOCAL_PATH)/rootdir/meta_init.modem.rc:root/meta_init.modem.rc \
     $(LOCAL_PATH)/rootdir/meta_init.project.rc:root/meta_init.project.rc \
     $(LOCAL_PATH)/rootdir/meta_init.rc:root/meta_init.rc \
     $(LOCAL_PATH)/rootdir/ueventd.mt6797.rc:root/ueventd.mt6797.rc \
-    $(LOCAL_PATH)/rootdir/init.mal.rc:root/init.mal.rc \
-    $(LOCAL_PATH)/rootdir/init.trustonic.rc:root/init.trustonic.rc \
-    $(LOCAL_PATH)/rootdir/init.volte.rc:root/init.volte.rc
-	
+    $(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc
+
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
@@ -151,6 +149,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
@@ -169,40 +168,59 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     LeDoze
 
-# Snap
+# Camera
 PRODUCT_PACKAGES += \
     Snap
 
+PRODUCT_PACKAGES += \
+        fs_config_files
+
+
 # Power
 PRODUCT_PACKAGES += \
+    power.default
     power.mt6797
 
-# ANT+
-PRODUCT_PACKAGES += \
-    AntHalService \
-    com.dsi.ant.antradio_library \
-    libantradio
 
-PRODUCT_COPY_FILES += \
-    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
-
-# For android_filesystem_config.h
+# Filesystem management tools
 PRODUCT_PACKAGES += \
-    fs_config_files
+	e2fsck \
+	fibmap.f2fs \
+	fsck.f2fs \
+	mkfs.f2fs \
+	make_ext4fs \
+	resize2fs \
+	setup_fs \
+	ext4_resize \
+	libext2_blkid \
+	libext2_uuid_static \
+	superumount
+
+# exFAT
+PRODUCT_PACKAGES += \
+	mount.exfat \
+	fsck.exfat \
+	mkfs.exfat
+
+# NTFS
+PRODUCT_PACKAGES += \
+	fsck.ntfs \
+	mkfs.ntfs \
+	mount.ntfs
+
 
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
     $(LOCAL_PATH)/configs/thermal/thermal.conf:system/etc/.tp/thermal.conf \
     $(LOCAL_PATH)/configs/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf \
-    $(LOCAL_PATH)/configs/thermal/.thermal_policy_00:system/etc/.tp/.thermal_policy_00 \
+    $(LOCAL_PATH)/configs/thermal/.thermal_policy_00:system/.tp/.thermal_policy_00 \
     $(LOCAL_PATH)/configs/thermal/.thermal_policy_01:system/etc/.tp/.thermal_policy_01 \
     $(LOCAL_PATH)/configs/thermal/.thermal_policy_02:system/etc/.tp/.thermal_policy_02 \
     $(LOCAL_PATH)/configs/thermal/.thermal_policy_03:system/etc/.tp/.thermal_policy_03 \
-    $(LOCAL_PATH)/configs/thermal/.thermal_policy_game_01:system/etc/.tp/.thermal_policy_game_01
 
 # Dalvik/HWUI
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-4096-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
 
 # Call hwui memory config
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-4096-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)

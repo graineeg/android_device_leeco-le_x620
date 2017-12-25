@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dip"
+    android:orientation="vertical" >
+
+        <CheckBox android:id="@+id/hqa_cpu_main_force_core1_cb"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+        <CheckBox android:id="@+id/hqa_cpu_main_force_core2_cb"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+        <CheckBox android:id="@+id/hqa_cpu_main_force_core3_cb"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+        <CheckBox android:id="@+id/hqa_cpu_main_force_core4_cb"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+        <CheckBox android:id="@+id/hqa_cpu_main_force_core5_cb"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+        <CheckBox android:id="@+id/hqa_cpu_main_force_core6_cb"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+        <CheckBox android:id="@+id/hqa_cpu_main_force_core7_cb"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+        <CheckBox android:id="@+id/hqa_cpu_main_force_core8_cb"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+        
+</LinearLayout>

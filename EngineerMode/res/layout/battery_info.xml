@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/Settings/assets/res/any/layout/battery_info.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+**
+**     http://www.apache.org/licenses/LICENSE-2.0 
+**
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+*/
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout style="@style/info_layout" >
+
+        <!-- Battery Status -->
+
+        <LinearLayout style="@style/entry_layout" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/battery_info_status_label" />
+
+            <TextView
+                android:id="@+id/status"
+                style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Battery Level -->
+
+        <LinearLayout style="@style/entry_layout" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/battery_info_level_label" />
+
+            <TextView
+                android:id="@+id/level"
+                style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Battery Scale -->
+
+        <LinearLayout style="@style/entry_layout" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/battery_info_scale_label" />
+
+            <TextView
+                android:id="@+id/scale"
+                style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Battery Health -->
+
+        <LinearLayout style="@style/entry_layout" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/battery_info_health_label" />
+
+            <TextView
+                android:id="@+id/health"
+                style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Battery Voltage -->
+
+        <LinearLayout style="@style/entry_layout" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/battery_info_voltage_label" />
+
+            <TextView
+                android:id="@+id/voltage"
+                style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Battery Temperature -->
+
+        <LinearLayout style="@style/entry_layout" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/battery_info_temperature_label" />
+
+            <TextView
+                android:id="@+id/temperature"
+                style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Battery Technology -->
+
+        <LinearLayout style="@style/entry_layout" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/battery_info_technology_label" />
+
+            <TextView
+                android:id="@+id/technology"
+                style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- Uptime -->
+
+        <LinearLayout style="@style/entry_layout" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/battery_info_uptime" />
+
+            <TextView
+                android:id="@+id/uptime"
+                style="@style/info_value" />
+        </LinearLayout>
+
+        <!-- LogRecordTimeSetting -->
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/Log_Record_Interval" />
+
+            <EditText
+                android:id="@+id/Log_Record_Interval"
+                android:layout_width="50dip"
+                android:layout_height="wrap_content"
+                android:numeric="integer"
+                android:singleLine="true"
+                android:text="@string/battery_info_10" >
+            </EditText>
+
+            <TextView
+                style="@style/info_label"
+                android:paddingLeft="5dip"
+                android:text="@string/battery_info_s" />
+        </LinearLayout>
+
+        <!-- Log -->
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/info_label"
+                android:text="@string/battery_info_Log" />
+
+            <Button
+                android:id="@+id/Log_Record"
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_info_Log_Start" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="10dip"
+            android:background="#FF909090" >
+        </View>
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_charging"/>
+            <Button
+                android:id="@+id/battery_charging_stop_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_stop"/>
+            <Button
+                android:id="@+id/battery_charging_restart_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_restart"/>
+        </LinearLayout>
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_current"/>
+            <Button
+                android:id="@+id/battery_current_rise_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_rise"/>
+            <Button
+                android:id="@+id/battery_current_reduce_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_reduce"/>
+        </LinearLayout>
+        
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_temperature"/>
+            <EditText
+                android:id="@+id/battery_temperature_edit"
+                android:layout_width="80dip"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:singleLine="true"
+                android:maxLength="3"/>
+            <Button
+                android:id="@+id/battery_temperature_set_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_set"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

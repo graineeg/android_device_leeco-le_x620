@@ -1,0 +1,37 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+	<Preference android:key="location_basedservice" android:title="@string/location_basedservice"
+		android:persistent="false">
+		<intent android:action="android.intent.action.MAIN"
+			android:targetPackage="com.mediatek.lbs.em2.ui"
+			android:targetClass="com.mediatek.lbs.em2.ui.MyTabActivity" />
+	</Preference>
+
+	<Preference android:key="fused_location_provider"
+		android:title="@string/fused_location_provider" android:persistent="false">
+		<intent android:action="android.intent.action.MAIN"
+			android:targetPackage="com.mediatek.flp.em"
+			android:targetClass="com.mediatek.flp.em.FlpTabActivity" />
+	</Preference>
+	<Preference android:key="auto_dialer" android:title="@string/auto_dialer"
+		android:persistent="false">
+		<intent android:action="android.intent.action.MAIN"
+			android:targetPackage="com.example"
+			android:targetClass="com.example.AutoDialerActivity" />
+	</Preference>
+
+	<Preference android:key="ygps" android:title="@string/YGPS"
+		android:persistent="false">
+		<intent android:action="android.intent.action.MAIN"
+			android:targetPackage="com.mediatek.ygps"
+			android:targetClass="com.mediatek.ygps.YgpsActivity" />
+	</Preference>
+
+	<Preference android:key="cw_test" android:title="@string/cw_test"
+		android:persistent="false">
+		<intent android:action="android.intent.action.MAIN"
+			android:targetPackage="com.mediatek.engineermode"
+			android:targetClass="com.mediatek.engineermode.cwtest.CWTest" />
+	</Preference>
+</PreferenceScreen>

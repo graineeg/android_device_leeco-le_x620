@@ -1,5 +1,7 @@
 import init.project.rc
 import init.mal.rc
+#import init.aee.rc
+import init.volte.rc
 import init.trustonic.rc
 import init.modem.rc
 
@@ -42,8 +44,17 @@ on init
     chmod 0660 /proc/lk_env
 	
     # increase sysctl_rmem_max and sysctl_wmem_max values to 2M
-    write /proc/sys/net/core/wmem_max 2097152
-    write /proc/sys/net/core/rmem_max 2097152
+    #write /proc/sys/net/core/wmem_max 2097152
+    #write /proc/sys/net/core/rmem_max 2097152
+	write /proc/sys/net/core/wmem_max 8388608
+    write /proc/sys/net/core/rmem_max 8388608
+	
+	# update cpus for cpuset cgroup
+    write /dev/cpuset/foreground/cpus 0,2-9
+    write /dev/cpuset/foreground/boost/cpus 0,2-9
+    write /dev/cpuset/background/cpus 0,2-3
+    write /dev/cpuset/system-background/cpus 0,2-7
+    write /dev/cpuset/top-app/cpus 0-9
 	
 on charger
 
@@ -676,14 +687,23 @@ on post-fs-data
     # Thermal	
     mkdir /data/.tp/ 0775 system system
 
+    # autok
+    chown root system /sys/autok/debug
+    chown root system /sys/autok/param_count
+    chown root system /sys/autok/ready
+    chown root system /sys/autok/ss_corner
+    chown root system /sys/autok/suggest_vol
+    chown root system /sys/autok/stage1/2/DONE
+    chown root system /sys/autok/stage1/2/PARAMS
+    chown root system /sys/autok/stage1/2/VOLTAGE
+    chown root system /sys/autok/stage1/2/LOG
+    chown root system /sys/autok/stage2/2
+
 # End of adding by MTK drivers
 
 on boot
     write /proc/sys/vm/dirty_writeback_centisecs 300
     chmod 0660 /sys/power/autosleep
-
-    # Power management settings
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 2314000
 	
     chmod 0664 /sys/class/leds/lcd-backlight/brightness
 
@@ -828,14 +848,6 @@ on boot
     chown bluetooth radio /dev/ttyGS2
     chmod 0660 /dev/ttyGS2
 
-   # sleep_sign used by DebugUtils APP 2
-    chown system system /sys/devices/virtual/misc/m_typec_misc/suspend_red_ctl
-    chmod 0666 /sys/devices/virtual/misc/m_typec_misc/suspend_red_ctl
-
-   # load ufsd modules
-    insmod /system/lib/modules/jnl.ko
-    insmod /system/lib/modules/ufsd.ko
-
 on property:vold.decrypt=trigger_reset_main
     start stop_modem
 
@@ -875,7 +887,7 @@ service start_modem /system/bin/md_ctrl 1
     setprop net.tcp.buffersize.edge    4093,26280,35040,4096,16384,35040
     setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
 
-    setprop persist.sys.strictmode.disable 1
+	setprop persist.sys.strictmode.disable 1
 	
 ## mtk printk uart controller
 on property:persist.uartconsole.enable=1
@@ -891,6 +903,14 @@ on property:debug.MB.prdebug=1
 
 on property:debug.MB.prdebug=0
     write /sys/kernel/debug/dynamic_debug/control "file *mediatek* -p"
+
+# bugreport is triggered by holding down volume down, volume up and power
+#service bugreport /system/bin/dumpstate -d -p -B \
+#    -o /data/data/com.android.shell/files/bugreports/bugreport
+#    class main
+#    disabled
+#    oneshot
+#    keycodes 114 115 116
 	
 # start ged_srv
 on property:sys.boot_completed=1
@@ -916,6 +936,48 @@ service nvram_daemon /system/bin/nvram_daemon
     class main
     user root
     group system
+    oneshot
+	
+service atci_service /system/bin/atci_service
+    class core
+    socket atci-service stream 660 radio system
+    socket atci-serv-fw stream 660 radio system
+    user root
+    disabled
+    group radio system
+
+service atcid-daemon-u /system/bin/atcid
+    class main
+    socket adb_atci_socket stream 660 radio system
+    user system
+    group radio system media
+    disabled
+    oneshot
+
+service atcid-daemon-e /system/bin/atcid
+    class core
+    socket adb_atci_socket stream 660 radio system
+    user root
+    group radio system
+    disabled
+    oneshot
+
+on property:persist.service.atci.usermode=1
+    setprop persist.sys.usb.config mass_storage,adb,acm
+
+on property:ro.build.type=eng
+start atci_service
+start atcid-daemon-e
+
+on property:persist.service.atci.autostart=1
+start atci_service
+start atcid-daemon-u
+
+service audio-daemon /system/bin/audiocmdservice_atci
+    class main
+    socket atci-audio stream 660 root system
+    user root
+    disabled
     oneshot
 
 service pq /system/bin/pq
@@ -1050,10 +1112,10 @@ service PPLAgent /system/bin/ppl_agent
     user root
     group root system cache
 
-service enableswap /system/bin/sh /enableswap.sh
-    class late_start
-    oneshot
-    seclabel u:r:enableswap:s0
+#service enableswap /system/bin/sh /enableswap.sh
+#    class late_start
+#    oneshot
+#    seclabel u:r:enableswap:s0
 
 service swapoff_action /system/bin/sh /disableswap.sh
     class main
@@ -1078,10 +1140,10 @@ service agpsd /system/bin/mtk_agpsd
     user gps
     group gps radio inet sdcard_r sdcard_rw misc
 	
-service slpd /system/bin/slpd
-    class main
-    user gps
-    group gps inet
+#service slpd /system/bin/slpd
+#    class main
+#    user gps
+#    group gps inet
 
 service wifi2agps /system/bin/wifi2agps
     class main
@@ -1331,7 +1393,6 @@ service runinbatteryoff /system/bin/runinbatteryoff
     on property:sys.runinbatteryoff=1
     start runinbatteryoff
 # songjiangchao,2015-03-24,add end
-
 # zhangle,2015-12-28,add start
 #for smartpa_switch
     service smartpainterface /system/bin/smartpainterface
@@ -1339,9 +1400,8 @@ service runinbatteryoff /system/bin/runinbatteryoff
     oneshot
     disabled
     on property:sys.smartpainterface=1
-    start smartpainterface
 # zhangle,2015-12-28,add end
-
+    start smartpainterface
 #for version_code read
 service versioncode /system/bin/versioncode
     user root
@@ -1365,3 +1425,13 @@ service hangdump-prop /system/bin/sh /system/bin/hangdump.sh
     class late_start
     user root
     oneshot
+
+#for LUI FactoryReset NVdata Reset
+#zhouming,2016-7-7,add start
+service resetnv /system/bin/resetnv
+    user root
+    oneshot
+    disabled
+on property:service.nvram_init=Ready
+    start resetnv
+# zhouming,2016-7-7,add end

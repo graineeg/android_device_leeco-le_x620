@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:layout_marginLeft="10dip"
+    android:orientation="vertical">
+    <CheckBox android:id="@+id/ptp2_enable_spark_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ptp2_enable_spark"/>
+    <CheckBox android:id="@+id/ptp2_enable_fbb_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ptp2_enable_fbb"/>
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ptp2_status"/>
+    <TextView android:id="@+id/ptp2_status_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ptp2_status_unknown"/>
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:layout_marginLeft="10dip"
+    android:orientation="vertical">    
+    <LinearLayout android:id="@+id/ptp1_setting"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+	    <CheckBox android:id="@+id/ptp1_enable_ptp_cb"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/ptp1_enable_ptp"/>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/ptp1_setting_ext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <CheckBox android:id="@+id/ptp1_enable_big_core_cb"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/ptp1_enable_big_core"/>
+	    <CheckBox android:id="@+id/ptp1_enable_little_core_cb"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/ptp1_enable_little_core"/>
+	    <CheckBox android:id="@+id/ptp1_enable_gpu_cb"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/ptp1_enable_gpu"/>
+	    <CheckBox android:id="@+id/ptp1_enable_vcore_ao_cb"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/ptp1_enable_vcore_ao"/>
+	    <CheckBox android:id="@+id/ptp1_enable_vcore_pdn_cb"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/ptp1_enable_vcore_pdn"/>
+    </LinearLayout>
+</LinearLayout>

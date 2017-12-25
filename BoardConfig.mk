@@ -56,11 +56,20 @@ TARGET_CPU_CORTEX_A53 := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_CPU_SMP := true
 
+# Enable Minikin text layout engine (will be the default soon)
+#USE_MINIKIN := true
+
+# Configure jemalloc for low memory
+#MALLOC_SVELTE := true
 
 # Disable memcpy opt (for audio libraries)
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
+# Ashmem
+DISABLE_ASHMEM_TRACKING := true
+
 # MTK Hardware
+BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_HARDWARE := true
 BOARD_USES_LEGACY_MTK_AV_BLOB := true
 BOARD_USES_MTK_AUDIO := true
@@ -70,6 +79,8 @@ BOARD_RIL_CLASS := ../../../device/leeco/le_x620/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc
 
 # Flags
+#BOARD_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+#BOARD_GLOBAL_CFLAGS += -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 BOARD_DISABLE_HW_ID_MATCH_CHECK := true
@@ -92,14 +103,18 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+#MTK_GPU_VERSION := Mali T-880
+#BOARD_EGL_WORKAROUND_BUG_10194508 := true
+#BOARD_EGL_NEEDS_HANDLE_VALUE := true
+#MTK_HWC_SUPPORT := yes
+##MTK_HWC_VERSION := 1.4.1
+#TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
 # GPS
 BOARD_GPS_LIBRARIES := true
 BOARD_MEDIATEK_USES_GPS := true
 
 # MTK_WLAN_SUPPORT
-#BOARD_WLAN_DEVICE		 := MediaTek
-#BOARD_CONNECTIVITY_VENDOR        := MediaTek
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_mt66xx

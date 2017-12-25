@@ -26,6 +26,25 @@ on post-fs-data
     chown system system /dev/ttyMT2
 
 
+
+# STP, WMT, GPS, FM and BT Driver
+#   insmod /system/lib/modules/mtk_hif_sdio.ko
+#   insmod /system/lib/modules/mtk_stp_wmt.ko
+#   insmod /system/lib/modules/mtk_stp_uart.ko
+#   insmod /system/lib/modules/mtk_stp_gps.ko
+#   insmod /system/lib/modules/mtk_stp_bt.ko
+#   insmod /system/lib/modules/mtk_fm_drv.ko
+#   insmod /system/lib/modules/mtk_wmt_wifi.ko
+
+
+# Create char device file for WMT, GPS, BT, FM, WIFI
+#    mknod /dev/stpwmt c 190 0;
+#    mknod /dev/stpgps c 191 0;
+#    mknod /dev/stpbt  c 192 0;
+
+#    chmod 0660 /dev/stpwmt
+#    chown system system /dev/stpwmt
+
     chmod 0660 /dev/wmtdetect
     chown system system /dev/wmtdetect
 
@@ -76,7 +95,12 @@ on post-fs-data
     chown system system /proc/smb/ScreenComm
     chmod 0660 /proc/smb/ScreenComm
 
+# BT
+#    chmod 0660 /dev/stpbt
+#    chown bluetooth radio /dev/stpbt
+
 # GPS
+#    chown gps gps /dev/stpgps
     chown gps gps /sys/class/gpsdrv/gps/pwrctl
     chown gps gps /sys/class/gpsdrv/gps/suspend
     chown gps gps /sys/class/gpsdrv/gps/state
@@ -96,6 +120,10 @@ on post-fs-data
     chmod 660 /dev/ttyGS1
     chown system /dev/ttyGS1
 
+#Disable for one Single loader
+# Load WiFi Driver
+#   insmod /system/lib/modules/wlan_mt.ko
+
 # Char device for BT 3.0 HS
     mknod /dev/ampc0 c 151 0
     chown bluetooth bluetooth /dev/ampc0
@@ -109,8 +137,8 @@ on post-fs-data
 # Connectivity related device nodes & configuration (end)
 #
 
-    chmod 0660 /dev/spm
-    chown system system /dev/spm
+#    chmod 0660 /dev/spm
+#    chown system system /dev/spm
 
 # goodix fingerprint
     chown system system /dev/goodix_fp
@@ -151,9 +179,50 @@ service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/
     class late_start
     disabled
 
+service sw_coredump /system/bin/sw_coredump
+   class main
+   user root
+   group root
+
 #
 # Connectivity related services (Begin)
 #
+
+service atci_service /system/bin/atci_service
+	socket atci-service stream 660 radio system
+	socket atci-serv-fw stream 660 radio system
+	user root
+        disabled
+	group radio system
+
+service atcid-daemon-u /system/bin/atcid
+	user system
+	group radio system media
+	disabled
+	oneshot
+
+service atcid-daemon-e /system/bin/atcid
+	user root
+	group radio system
+	disabled
+	oneshot
+
+on early_property:ro.build.type=eng
+start atci_service
+start atcid-daemon-e
+
+on property:persist.service.atci.autostart=1
+start atci_service
+start atcid-daemon-e
+start audio-daemon
+
+service audio-daemon /system/bin/audiocmdservice_atci
+    class main
+    socket atci-audio stream 660 media system
+    user media
+    group nvram media system sdcard_rw
+    disabled
+    oneshot
 
 service wmtLoader /system/bin/wmt_loader
     user root
@@ -166,6 +235,16 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
     user system
     group system
     class core
+
+on property:service.wcn.coredump.mode=2
+start stp_dump
+
+service stp_dump /system/bin/stp_dump3
+    user root
+    group root
+    class core
+    disabled
+    oneshot
 
 #
 # Connectivity related services (End)
@@ -215,3 +294,12 @@ on property:service.tinyproxy.enable=0
 
 on property:service.tinyproxy.enable=1
     start tinyproxy
+
+on boot
+   # sleep_sign used by DebugUtils APP 2
+    chown system system /sys/devices/virtual/misc/m_typec_misc/suspend_red_ctl
+    chmod 0666 /sys/devices/virtual/misc/m_typec_misc/suspend_red_ctl
+
+   # load ufsd modules
+    insmod /system/lib/modules/jnl.ko
+    insmod /system/lib/modules/ufsd.ko
