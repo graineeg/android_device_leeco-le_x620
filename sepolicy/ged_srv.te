@@ -4,7 +4,7 @@
 # ==============================================
 # Type Declaration
 # ==============================================
-type ged_srv, domain, domain_deprecated;
+type ged_srv, domain;
 type ged_srv_exec, exec_type, file_type;
 
 
@@ -13,9 +13,9 @@ type ged_srv_exec, exec_type, file_type;
 # ==============================================
 # Date : WK15.33
 # Operation : New Daemon
-# Purpose : Start ged_srv. ged_srv is a daemon to
-# recieve events to dynamically change
-# 1) vsync-offset 2) FPS
+# Purpose : Start ged_srv. ged_srv is a daemon to 
+# recieve events to dynamically change 
+# 1) vsync-offset 2) FPS 
 # though binder to surfaceflinger
 
 init_daemon_domain(ged_srv)
@@ -27,16 +27,4 @@ allow ged_srv surfaceflinger:binder call;
 
 binder_use(init)
 binder_use(ged_srv)
-binder_call(ged_srv, system_server)
 
-# for property service and uevent
-allow ged_srv self:netlink_kobject_uevent_socket { bind create setopt read};
-allow ged_srv property_socket:sock_file write;
-allow ged_srv mtk_sf_prop:property_service set;
-allow ged_srv init:unix_stream_socket connectto;
-allow ged_srv proc:file { ioctl };
-allow ged_srv servicemanager:binder call;
-allow ged_srv surfaceflinger:binder call;
-allow ged_srv surfaceflinger_service:service_manager find;
-#allow ged_srv self:netlink_kobject_uevent_socket { bind create setopt read};
-#allow ged_srv sysfs_boot_mode:file r_file_perms;

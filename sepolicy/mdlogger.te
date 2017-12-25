@@ -79,3 +79,4 @@ allow mdlogger fuse:file create_file_perms;
 
 # Nougat
 allow mdlogger rootfs:lnk_file { getattr };
+

@@ -5,7 +5,7 @@
 # ==============================================
 # Type Declaration
 # ==============================================
-type fuelgauged ,domain, domain_deprecated;
+type fuelgauged ,domain;
 type fuelgauged_exec , exec_type, file_type;
 
 
@@ -49,4 +49,4 @@ allow fuelgauged input_device:file { open read };
 
 # Nougat
 allow fuelgauged rootfs:lnk_file { getattr };
-allow fuelgauged sysfs:file { read open };
+

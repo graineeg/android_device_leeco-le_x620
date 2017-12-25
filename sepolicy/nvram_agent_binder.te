@@ -74,3 +74,4 @@ allow nvram_agent_binder mtd_device:chr_file rw_file_perms;
 
 # Nougat
 allow nvram_agent_binder rootfs:lnk_file { getattr };
+

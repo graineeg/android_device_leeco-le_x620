@@ -48,7 +48,6 @@ type rild_atci_md2_socket, file_type;
 type rild_vsim_socket, file_type;
 type rild_vsim_md2_socket, file_type;
 type mal_mfi_socket, file_type;
-type mal_data_file, file_type, data_file_type;
 type netdiag_socket, file_type;
 type atci_service_socket, file_type;
 type atci_serv_fw_socket, file_type;
@@ -75,13 +74,7 @@ type agpsd_socket, file_type;
 type agpsd_data_file, file_type, data_file_type;
 type mnld_socket, file_type;
 type mnld_data_file, file_type, data_file_type;
-
-type MPED_socket, file_type;
-type MPED_data_file, file_type, data_file_type;
 type sysctl_socket, file_type;
-
-type mtkFlpDaemon_socket, file_type;
-type mtkFlpDaemon_data_file, file_type, data_file_type;
 
 type backuprestore_socket, file_type;
 type nfc_socket, file_type;
@@ -92,8 +85,6 @@ type persist_data_file, file_type, data_file_type;
 type key_install_data_file, file_type, data_file_type;
 type nvram_data_file, file_type, data_file_type;
 type nvdata_file, file_type, data_file_type;
-type nvcfg_file, file_type, data_file_type;
-type cct_data_file, file_type, data_file_type;
 type mediaserver_data_file, file_type, data_file_type;
 
 # 20131213 KKMR1_CQ_CTS_02
@@ -141,7 +132,6 @@ type msensord_daemon, fs_type,sysfs_type;
 type msensord_daemon2, fs_type,sysfs_type;
 type akmd8963_access_file1, file_type,data_file_type;
 type akmd8963_access_file2, file_type,data_file_type;
-type st480_access_file1, file_type,data_file_type;
 type gyroscope_mpud6050_chipinfo, fs_type,sysfs_type;
 type gyroscope_mpud6050_status, fs_type,sysfs_type;
 type gyroscope_mpud6050_use, fs_type,sysfs_type;
@@ -162,7 +152,6 @@ type rild_via_socket, file_type;
 type rpc_socket, file_type;
 type rild_ctclient_socket, file_type;
 type rild_atci_c2k_socket, file_type;
-type rilproxy_atci_socket, file_type;
 type statusd_socket, file_type;
 #For icusb
 type proc_icusb, fs_type;
@@ -222,10 +211,6 @@ type teei_data_file, file_type, data_file_type;
 #ipoh data file
 type ipoh_data_file, file_type, data_file_type;
 
-# for mt-ramdump reset
-type proc_mrdump_rst, fs_type;
-
-# Date : WK15.47
 # Operation : Migration
 # Purpose : md_monitor data file
 type md_monitor_data_file, file_type, data_file_type;
@@ -236,8 +221,7 @@ type subtitle_data_file, file_type,data_file_type;
 # sysfs directory file
 type sysfs_fingerprintd, fs_type, sysfs_type;
 
-# ET320
+# ET310
 type sysfs_etsd, fs_type, sysfs_type;
 
-# aka.jiang add for fingerprint ET3XX 20160308
 type etsd_data_file, file_type, data_file_type;

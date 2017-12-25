@@ -34,3 +34,4 @@ allow thermald activity_service:service_manager find;
 
 # Nougat
 allow thermald rootfs:lnk_file { getattr };
+
