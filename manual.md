@@ -34,8 +34,7 @@
 | symlink("/system/lib64/hw/libMcGatekeeper.so", "/system/lib64/hw/gatekeeper.mt6797.so");                                                   |
 | symlink("/system/lib64/hw/libMcGatekeeper.so", "/system/lib64/hw/gatekeeper.le_x6.so");                                                    |
 |                                                                                                                                            |
-| Whith builded boot.img WiFi autoreconnect IS NOT working!!!                                                                                |
-| Solution: Use older boot.img from my published rom or you can find fix ( I think there is problem with sepolicy )                          |
+
 
 
 #####################################################
